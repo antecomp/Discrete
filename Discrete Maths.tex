@@ -45,6 +45,25 @@
 	% ability to mess with bullet list indents
 	\usepackage{enumitem}
 
+
+	% subtable maybe
+	\usepackage{booktabs,subcaption,amsfonts,dcolumn}
+
+
+	% Better underlines
+	\usepackage{contour}
+	\usepackage[normalem]{ulem}
+
+	\renewcommand{\ULdepth}{1.8pt}
+	\contourlength{0.8pt}
+
+	\newcommand{\cul}[1]{%
+		\uline{\phantom{#1}}%
+		\llap{\contour{white}{#1}}%
+	}
+
+
+
 	% personal newcommands to make a lot of my formatting easier.
 	\newcommand{\exheader}[1][ex]{{\tiny{#1}\normalsize}}
 
@@ -72,6 +91,7 @@
 \maketitle
 \tableofcontents
 \pagebreak
+
 
 \section{Logic}
 \bigbreak\bigbreak
@@ -129,9 +149,9 @@ Prepositions will be represented mathematically with capital letters A, B, C... 
 
 \subsubsection{Terminology}
 \begin{addmargin}[2em]{2em}
-	$ A \land B $ - \underline{conjuction} of \underline{conjuncts} $A$ and $B$ \\
-	$ A \lor B $ - \underline{disjunction} of \underline{disjuncts} $A$ and $B$ \\
-	$ A \implies B $ - $A$ is the \underline{hypothezsis\tiny{/antecedant}} and $B$ is the \underline{conclusion\tiny{/consequence}}  
+	$ A \land B $ - \cul{conjuction} of \cul{conjuncts} $A$ and $B$ \\
+	$ A \lor B $ - \cul{disjunction} of \cul{disjuncts} $A$ and $B$ \\
+	$ A \implies B $ - $A$ is the \cul{hypothesis\tiny{/antecedant}} and $B$ is the \cul{conclusion\tiny{/consequence}}  
 \end{addmargin}
 
 
@@ -140,25 +160,25 @@ Prepositions will be represented mathematically with capital letters A, B, C... 
 
 \exheader[1 Compound Proposition]
 \begin{addmargin}[1.5em]{1.5em}
-	If \underline{all humans are mortal}\tiny{prp $A $}\normalsize \space and \underline{all Greeks are human}\tiny{prp $B$}\normalsize\space
-	\\then \underline{all Greeks are moral}\tiny{prp $C$}\normalsize\space can be represented as $A \land B \implies C$
+	If \cul{all humans are mortal}\tiny{prp $A $}\normalsize \space and \cul{all Greeks are human}\tiny{prp $B$}\normalsize\space
+	\\then \cul{all Greeks are moral}\tiny{prp $C$}\normalsize\space can be represented as $A \land B \implies C$
 \end{addmargin}
 
 \exheader[2 Negation]
 \begin{addmargin}[1.5em]{1.5em}
 	\begin{itemize}[label={}, leftmargin=*]
-		\item Chocolate is sweet $\rightarrow$ Chocolate is \underline{not} sweet
+		\item Chocolate is sweet $\rightarrow$ Chocolate is \cul{not} sweet
 		\item 
 			Peter is tall and thin $\rightarrow$ 
 			\todo[size=tiny, color=lightgray, nolist]{
-				\faInfoCircle\space Short \underline{and} fat would be incorrect!
+				\faInfoCircle\space Short \cul{and} fat would be incorrect!
 			}
-			Peter is short \underline{or} fat
+			Peter is short \cul{or} fat
 		\item The river is shallow or polluted $\rightarrow$ 
 		\todo[size=tiny, color=lightgray, nolist]{
-			\faInfoCircle\space Not shallow \underline{or} not polluted would be incorrect!
+			\faInfoCircle\space Not shallow \cul{or} not polluted would be incorrect!
 		}
-		The river is deep \underline{and} polluted.
+		The river is deep \cul{and} polluted.
 	\end{itemize}
 \end{addmargin}
 
@@ -175,34 +195,147 @@ Prepositions will be represented mathematically with capital letters A, B, C... 
 \bigbreak
 \subsubsection{Satifiability, Tautology, Contradiction}
 \begin{itemize}[label={}, leftmargin=*]
-	\item A proposition is \underline{satisfiable} if it is true for
+	\item A proposition is \cul{satisfiable} if it is true for
 	\sidenote[You don't need a whole truth table for this, just look for one!]\emph{at least one} 
 	combination of boolean values.
-	\item \underline{A Boolean Satisfiablity Problem (SAT)} is checking for satifiability in a propositional logic formula.
-	\item \underline{A Tautology} is a proposition that is \underline{always true} \\ \hspace*{5mm} \exheader[ex] $ A \lor \neg A$
-	\item \underline{A contradiction} is a proposition that is always false. \\ \hspace*{5mm} \exheader[ex] $ A \land \neg A$
+	\item \cul{A Boolean Satisfiablity Problem (SAT)} is checking for satifiability in a propositional logic formula.
+	\item \cul{A Tautology} is a proposition that is \cul{always true} \\ \hspace*{5mm} \exheader[ex] $ A \lor \neg A$
+	\item \cul{A Contradiction} is a proposition that is always false. \\ \hspace*{5mm} \exheader[ex] $ A \land \neg A$
 \end{itemize}
 
 \pagebreak
 
 \subsection{Truth Tables}
 \bigbreak
+\subsubsection{Basics}
 Truth Tables are used for determining all the possible outputs of a complex compound propostion.
 \\
 \horizline
 \\
-\underline{The Columns} Are for the prepositions,
+\cul{The Columns} Are for the prepositions,
 \sidenote[The intrmt' prepositions are optional steps to make solving easier, use as needed.]intermediate compound prepositions and the whole compound preposition.
 
-\underline{The Rows} Are to contian the different sets of possible truth values for each proposition. You will have $2^p$ rows where $p$ is the number of propositions (then +1 for the header).
+\cul{The Rows} Are to contian the different sets of possible truth values for each proposition. You will have $2^p$ rows where $p$ is the number of propositions (then +1 for the header).
 
 \horizline \\
 \faWarning \space The connectives in a compound propositional logic problem follow an order of precedence (the PEMDAS of logic) in the following order; \\
 $ \neg $ , $ \land $ , $ \lor $ , $ \implies $ , $ \iff $
-\bigbreak
+\\
+\subsubsection{Connective Outputs}
+\begin{table}[h]
+    \begin{subtable}[h]{0.20\textwidth}
+        \centering
+        \begin{tabular}{l | l}
+		\multicolumn{2}{c}{\textbf{Negation}} \\
+        \hline \hline
+        $A$ & $\neg A$ \\
+		\hline
+        T & F \\
+		F & T
+       \end{tabular}
+    \end{subtable}
+    \hfill
+    \begin{subtable}[h]{0.20\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+		\multicolumn{3}{c}{\textbf{And}} \\
+        \hline \hline
+		$A$ & $B$ & $A \land B$ \\
+		\hline
+		T & T & T \\
+		T & F & F \\
+		F & T & F \\
+		F & F & F 
+        \end{tabular}
+     \end{subtable}
+	 \hfill
+	 \begin{subtable}[h]{0.20\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+		\multicolumn{3}{c}{\textbf{Or}} \\
+        \hline \hline
+		$A$ & $B$ & $A \lor B$ \\
+		\hline
+		T & T & T \\
+		T & F & T \\
+		F & T & T \\
+		F & F & F 
+        \end{tabular}
+     \end{subtable}
 
-\textbf{TODO: Add all the truth table examples u have :D}
+\end{table}
 
+
+
+\begin{table}[h]
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+		\multicolumn{3}{c}{\textbf{Implication}} \\
+        \hline \hline
+		$A$ & $B$ & $A \implies B$ \\
+		\hline
+		T & T & T \\
+		T & F & F \\
+		F & T & T \\
+		F & F & T 
+        \end{tabular}
+		\caption*{\small{An implication is true when the hypothesis is false or the conclusion is true.}}
+     \end{subtable}
+    \hfill
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+		\multicolumn{3}{c}{\textbf{Bicondtional}} \\
+        \hline \hline
+		$A$ & $B$ & $A \iff B$ \\
+		\hline
+		T & T & T \\
+		T & F & F \\
+		F & T & F \\
+		F & F & T 
+        \end{tabular}
+		\caption*{\small{A Bicondtional is true when the two prepositions have the same value.}}
+     \end{subtable}
+\end{table}
+
+\pagebreak
+\subsubsection{Examples}
+
+\begin{table}[h]
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l | l | l}
+		\multicolumn{5}{c}{\textbf{$A \implies B \iff B \implies A$}} \\
+        \hline \hline
+		$A$ & $B$ & $A \implies B$ & $ B \implies A $ & ------ \\
+		\hline
+		T & T & T & T & T \\
+		T & F & F & T & F \\
+		F & T & T & F & F \\
+		F & F & T & T & T
+        \end{tabular}
+     \end{subtable}
+    \hfill
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l | l | l}
+		\multicolumn{5}{c}{\textbf{$A\land \neg B \implies \neg C$}} \\
+        \hline \hline
+		$A$ & $B$ & C & $A \land \neg B $ & --------  \\
+		\hline
+			T & T & T & F & T \\
+			T & T & F & F & T \\
+			T & F & T & T & F \\
+			T & F & F & T & T \\
+			F & T & T & F & T \\
+			F & T & F & F & T \\
+			F & F & T & F & T \\
+			F & F & F & F & T
+        \end{tabular}
+     \end{subtable}
+\end{table}
+\intextnote[Remember, columns like $A \implies B$ are optional in-between steps to help solve each problem.]
 
 \end{document}
 
