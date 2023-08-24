@@ -1,0 +1,211 @@
+\documentclass[12pt, letterpaper]{article}
+
+% usepackage aids
+	
+	% for graphics
+	\usepackage{graphicx}
+	\graphicspath{{images/}} %configuring the graphicx package
+
+	% to change the margin sizes
+	\usepackage[margin=2.7cm]{geometry}
+
+	% assorted maths packages
+	\usepackage{xfrac,bigints}
+
+	% handles maths better than latex default
+	\usepackage{amsmath}
+
+	% for wrapping text around images
+	\usepackage{wrapfig}% http://ctan.org/pkg/wrapfig
+
+	% colour tables
+	\usepackage[table]{xcolor}
+
+	% idk
+	\usepackage{wasysym}
+
+	% custom margins
+	\usepackage{scrextend}
+
+	% for symbols and glyphs
+	\usepackage{fontawesome}
+
+	% adds the fancy fun margin notes
+	\setlength {\marginparwidth }{2cm}
+	\usepackage[colorinlistoftodos]{todonotes}
+
+	% Add linebreaks without indentation because you need a package for that too????
+	\usepackage[parfill]{parskip}
+
+	% for highlighting text
+	\usepackage{soul}
+		% make multicolour not aids
+		\newcommand{\hlc}[2][yellow]{{\sethlcolor{#1}\hl{#2}}}
+
+	% ability to mess with bullet list indents
+	\usepackage{enumitem}
+
+	% personal newcommands to make a lot of my formatting easier.
+	\newcommand{\exheader}[1][ex]{{\tiny{#1}\normalsize}}
+
+	\newcommand{\sidenote}[1][INSERT TEXT HERE]{{\todo[size=tiny, color=lightgray, nolist]{
+			\faInfoCircle\space {#1}
+		}
+	}}
+
+	\newcommand{\intextnote}[1][Also Note Lorem Ipsum]{{
+				\emph{
+					\begin{small}
+					\begin{quote}
+						\faInfoCircle\space
+						{#1}
+					\end{quote}
+					\end{small}
+		}
+	}}
+
+	\newcommand{\horizline}[0]{\noindent\rule{\textwidth}{1pt}\\}
+
+
+\title{Discrete Maths Notes}
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Logic}
+\bigbreak\bigbreak
+\subsection{Propositional Logic}
+\bigbreak
+\subsubsection{Basics}
+
+\indent
+\todo[size=tiny, color=lightgray, nolist]{
+	\faInfoCircle\space It's not always easy to determine if they're true/false.
+}A \textbf{proposition} is a statement that is either true or false. \\
+Prepositions will be represented mathematically with capital letters A, B, C... \\ These prepositions are then are connected into more complex compound prepositions using \emph{connectives}. Connectives are statements like "and, implies, if-then" and are represented mathematically with the symbols below.
+
+\begin{center}
+\begin{tabular}{ |p{1.5cm}|p{3.75cm}|p{5.8cm}|p{3.25cm}| }
+ \hline
+ \multicolumn{4}{|c|}{Connectives} \\
+ \hline
+ \hline
+ \rowcolor{lightgray} Symbol& Name & English Term(s) & Reading \\
+ \hline
+ 	$\land$ 	& 	AND 		& And, But, Also	& A and B  	\\
+	\hline
+ 	$\lor$ 		& 	OR 			& -	& A or B	\\
+	\hline
+ 	$\implies$ 	& 	IMPLICATION	& \begin{itemize}[leftmargin=*, label={}]
+		\item If A, Then B
+		\item If A, then B
+	 	\item A implies B
+		\item A, therefore B
+		\item A only if B
+		\item B follows from A
+		\item A is a sufficient condition for B
+		\item B is a necessary condition for A 
+	\end{itemize} & A implies B \\
+	\hline
+	$\iff$ 		&	BICONDITIONAL	& If \& only if	 A is necessary and sufficient for B & A if and only if B 	\\
+	\hline
+	$\neg$ 		&	NEGATION		& Not... & Not A \\
+ \hline	
+\end{tabular}
+\end{center}
+
+\emph{
+\begin{small}
+\begin{quote}
+	\faInfoCircle\space
+	A Bicondtional can also be thought of $(A \implies B)\land(B \implies A)$ \\
+	Negation may sometimes be represented as $A\prime \textrm{ or } \overline{A}$
+\end{quote}
+\end{small}
+}
+
+\bigbreak
+
+\subsubsection{Terminology}
+\begin{addmargin}[2em]{2em}
+	$ A \land B $ - \underline{conjuction} of \underline{conjuncts} $A$ and $B$ \\
+	$ A \lor B $ - \underline{disjunction} of \underline{disjuncts} $A$ and $B$ \\
+	$ A \implies B $ - $A$ is the \underline{hypothezsis\tiny{/antecedant}} and $B$ is the \underline{conclusion\tiny{/consequence}}  
+\end{addmargin}
+
+
+\pagebreak
+\subsubsection{Examples}
+
+\exheader[1 Compound Proposition]
+\begin{addmargin}[1.5em]{1.5em}
+	If \underline{all humans are mortal}\tiny{prp $A $}\normalsize \space and \underline{all Greeks are human}\tiny{prp $B$}\normalsize\space
+	\\then \underline{all Greeks are moral}\tiny{prp $C$}\normalsize\space can be represented as $A \land B \implies C$
+\end{addmargin}
+
+\exheader[2 Negation]
+\begin{addmargin}[1.5em]{1.5em}
+	\begin{itemize}[label={}, leftmargin=*]
+		\item Chocolate is sweet $\rightarrow$ Chocolate is \underline{not} sweet
+		\item 
+			Peter is tall and thin $\rightarrow$ 
+			\todo[size=tiny, color=lightgray, nolist]{
+				\faInfoCircle\space Short \underline{and} fat would be incorrect!
+			}
+			Peter is short \underline{or} fat
+		\item The river is shallow or polluted $\rightarrow$ 
+		\todo[size=tiny, color=lightgray, nolist]{
+			\faInfoCircle\space Not shallow \underline{or} not polluted would be incorrect!
+		}
+		The river is deep \underline{and} polluted.
+	\end{itemize}
+\end{addmargin}
+
+\exheader[{3 Implication: \hlc[cyan]{hypothesis} and \hlc[green]{conclusion} }]
+\begin{addmargin}[1.5em]{1.5em}
+	\begin{itemize}[label={}, leftmargin=*]
+		\item If \hlc[cyan]{the rain continues} then \hlc[green]{the river will flood}
+		\item A sufficient condition for a \hlc[green]{network failure} is that the \hlc[cyan]{central switch goes down}
+		\item \hlc[cyan]{The avocados are ripe} only if \hlc[green]{they are dark and soft}
+		\item \hlc[green]{A good diet} is a necessary condition for \hlc[cyan]{a healthy cat}
+	\end{itemize}
+\end{addmargin}
+
+\bigbreak
+\subsubsection{Satifiability, Tautology, Contradiction}
+\begin{itemize}[label={}, leftmargin=*]
+	\item A proposition is \underline{satisfiable} if it is true for
+	\sidenote[You don't need a whole truth table for this, just look for one!]\emph{at least one} 
+	combination of boolean values.
+	\item \underline{A Boolean Satisfiablity Problem (SAT)} is checking for satifiability in a propositional logic formula.
+	\item \underline{A Tautology} is a proposition that is \underline{always true} \\ \hspace*{5mm} \exheader[ex] $ A \lor \neg A$
+	\item \underline{A contradiction} is a proposition that is always false. \\ \hspace*{5mm} \exheader[ex] $ A \land \neg A$
+\end{itemize}
+
+\pagebreak
+
+\subsection{Truth Tables}
+\bigbreak
+Truth Tables are used for determining all the possible outputs of a complex compound propostion.
+\\
+\horizline
+\\
+\underline{The Columns} Are for the prepositions,
+\sidenote[The intrmt' prepositions are optional steps to make solving easier, use as needed.]intermediate compound prepositions and the whole compound preposition.
+
+\underline{The Rows} Are to contian the different sets of possible truth values for each proposition. You will have $2^p$ rows where $p$ is the number of propositions (then +1 for the header).
+
+\horizline \\
+\faWarning \space The connectives in a compound propositional logic problem follow an order of precedence (the PEMDAS of logic) in the following order; \\
+$ \neg $ , $ \land $ , $ \lor $ , $ \implies $ , $ \iff $
+\bigbreak
+
+\textbf{TODO: Add all the truth table examples u have :D}
+
+
+\end{document}
+
+
+
+
