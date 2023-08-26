@@ -171,12 +171,12 @@ Prepositions will be represented mathematically with capital letters A, B, C... 
 		\item 
 			Peter is tall and thin $\rightarrow$ 
 			\todo[size=tiny, color=lightgray, nolist]{
-				\faInfoCircle\space Short \cul{and} fat would be incorrect!
+				\faInfoCircle\space Short \underline{and} fat would be incorrect!
 			}
 			Peter is short \cul{or} fat
 		\item The river is shallow or polluted $\rightarrow$ 
 		\todo[size=tiny, color=lightgray, nolist]{
-			\faInfoCircle\space Not shallow \cul{or} not polluted would be incorrect!
+			\faInfoCircle\space Not shallow \underline{or} not polluted would be incorrect!
 		}
 		The river is deep \cul{and} polluted.
 	\end{itemize}
@@ -299,6 +299,9 @@ $ \neg $ , $ \land $ , $ \lor $ , $ \implies $ , $ \iff $
      \end{subtable}
 \end{table}
 
+Out of all these outputs, the most unintuitive is the 3rd implication output ($F, T \implies T$). The easiest way to understand this output is with the proposition ``If it is raining, then the ground is wet''; now say you step outside and it is not raining, but the ground is wet. The entire statement isn't false or incorrect, but the first part of it still has a false value. \\ The only way to make an implication false is when the hypothesis is true but the conclusion is false.
+
+
 \pagebreak
 \subsubsection{Examples}
 
@@ -336,6 +339,52 @@ $ \neg $ , $ \land $ , $ \lor $ , $ \implies $ , $ \iff $
      \end{subtable}
 \end{table}
 \intextnote[Remember, columns like $A \implies B$ are optional in-between steps to help solve each problem.]
+\bigbreak
+\subsubsection{Excercise: Finding Tautologies, Satisfiable \& Contradicting Props'}
+
+Indicate whether each of the following is a tautology, satisfiable but not a tautology or a contradiction;
+\begin{enumerate}[leftmargin=*, label={}]
+	\item $ A \implies B $
+	\item $ A \implies A $
+	\item $ A \implies \neg B \lor \neg C $
+	\item $ A \lor B \implies B $
+	\item $ (A \land B) \implies (A \lor B) $
+	\item $ A \lor \neg A \implies B \land \neg B $
+\end{enumerate}
+
+\small{(Answers and explainations on the next page...)} \normalsize
+
+\pagebreak
+
+\intextnote[Notice how none of these rely on drawing out a whole truth table! Focus on trying to find a way to get each proposition to output true and a way to get it to output false!]
+
+$ A \implies B $ \\
+\emph{Satisfiable but not a tautology} \\
+Just knowing the properties of a implication you should know there's way to get true outputs and a false output.
+
+$ A \implies A $ \\
+\emph{Tautology} \\
+Only would be $ T \implies T $ or $ F \implies F $, both of which result in true.
+
+$ A \implies \neg B \lor \neg C $ \\
+\emph{Satisfiable but not a tautology} \\
+Instead of making a long unpleasant truth table, it's easiest to start by simply looking for one true and one false possible output. \\
+We can make the left side true simply by making A false, since all that remains is an or statment we now have a true output. \\
+We can just as easily find a false output for this proposition with $A=T$, $B=T \space (\neg B = F)$ to make the implication false, then we can just make $ \neg C $ false to make the or output false.
+
+$A \lor B \implies B $ \\
+\emph{Satisfiable but not a tautology} \\
+If we make B true then the biconditional will always be true regardless of A. \\
+There is only one way to make an implication false, so if we can set up A and B to result in that false output, it won't be a tautology. If we make A true and B false it will make the implication false!
+
+$ (A \land B) \implies (A \lor B) $ \\
+\emph{Tautology} \\
+Remember the only way to make an implication false is if the hypothesis is true and the conclusion is false. There is absoluely no way to do this because of the and/or setup! 
+
+$ A \lor \neg A \implies B \land \neg B $ \\
+\emph{Contradiction} \\
+The left side is always true and the right side is always false. So the result of the implication is always false!
+\pagebreak
 
 \end{document}
 
