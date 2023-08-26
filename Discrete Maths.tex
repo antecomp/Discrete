@@ -62,6 +62,14 @@
 		\llap{\contour{white}{#1}}%
 	}
 
+	% monospace font
+	\usepackage{courier}
+	\usepackage[T1]{fontenc}
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 	% personal newcommands to make a lot of my formatting easier.
@@ -385,6 +393,89 @@ $ A \lor \neg A \implies B \land \neg B $ \\
 \emph{Contradiction} \\
 The left side is always true and the right side is always false. So the result of the implication is always false!
 \pagebreak
+
+\subsection{Equivalence}
+\bigbreak
+\subsubsection{Introduction to Equivalence}
+
+\horizline
+\faBook \space Two (compound) propositions $P$ and $Q$ are \textbf{logically equivalent} when their truth values always match (Meaning they'll have the same truth table!). \\
+Equivalence is denoted by $P \equiv Q$.\\
+\horizline
+\\
+Equivalence relates heavily to the concept of Tautologies;
+\begin{itemize}[label={}, leftmargin=*]
+	\item $P$ and $Q$ are equivalent when $P \iff Q$ is a tautology.
+	\item A proposition $P$ is a tautology iff (if and only if) it is equivalent to $T$ (true), i.e $P \equiv T$
+\end{itemize}
+
+\bigbreak
+
+\subsubsection{Examples}
+\exheader[1]\\
+Given the implication $A \implies B$, are the following equivalent?
+\begin{itemize}[leftmargin=*, label={}]
+	\item The contrapositive: $\neg B \implies \neg A$
+	\item The converse: $B \implies A$
+\end{itemize}
+\bigbreak
+\begin{center}
+\begin{tabular}{l | l || l | l | l}
+	\hline 
+	$A$ & $B$ & $A \implies B$ & $ \neg B \implies \neg A $ & $B \implies A$ \\
+	\hline
+	T & T & T & T & T \\
+	T & F & F & F & T \\
+	F & T & T & T & F \\
+	F & F & T & T & T
+	\end{tabular} 
+\end{center} \bigbreak
+Looking at the table we can see that $A \implies B$ and $\neg B \implies \neg A$ are equivalent.
+\bigbreak
+
+
+Now, what about $\neg A \lor B $ ? \\
+\begin{center}
+\begin{tabular}{l | l || l | l}
+	\hline
+	$A$ & $B$ & $A \implies B$ & $\neg A \lor B $ \\
+	\hline
+	T & T & T & T \\
+	T & F & F & F \\
+	F & T & T & T \\
+	F & F & T & T \\
+\end{tabular}
+\end{center} \bigbreak
+\indent \sidenote[This is actually one of the equivalence laws you'll see in the next \\ section!]Yep! $\neg A \lor B \equiv A \implies B$.
+
+\pagebreak
+
+
+\exheader[2: Code Logic Optimization]
+
+Understanding equivalent boolean expressions is very important in computer science (for code) and chip design (for logic gates). Consider the code below;
+\begin{verbatim}
+	if(x > 0 || (x <= 0 && y > 100))
+\end{verbatim}
+Lets see if we can change this expression to something equivalent but simplified. \\
+Let $A$ be \texttt{x > 0} and let $B$ be \texttt{y > 100} \\
+Now we can compare the truth values of $ A \lor (\neg A \land B) $ and $ A \lor B $. \\
+\begin{center}
+	\begin{tabular}{l | l || l | l}
+		\hline
+		$A$ & $B$ & $A \lor (\neg A \land B)$ & $ A \lor B $ \\
+		\hline
+		T & T & T & T \\
+		T & F & T & T \\
+		F & T & T & T \\
+		F & F & F & F \\
+	\end{tabular}
+\end{center} \bigbreak
+They're equivalent! We can reduce the if statement's expression to simply;
+\begin{verbatim}
+	if(x > 0 || y > 100)
+\end{verbatim}
+
 
 \end{document}
 
