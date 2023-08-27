@@ -75,10 +75,7 @@
 	% personal newcommands to make a lot of my formatting easier.
 	\newcommand{\exheader}[1][ex]{{\tiny{#1}\normalsize}}
 
-	\newcommand{\sidenote}[1][INSERT TEXT HERE]{{\todo[size=tiny, color=lightgray, nolist]{
-			\faInfoCircle\space {#1}
-		}
-	}}
+	\newcommand{\sidenote}[1][INSERT TEXT HERE]{{\todo[size=tiny, color=lightgray, nolist]{\faInfoCircle\space {#1}}}}
 
 	\newcommand{\intextnote}[1][Also Note Lorem Ipsum]{{
 				\emph{
@@ -92,6 +89,10 @@
 	}}
 
 	\newcommand{\horizline}[0]{\noindent\rule{\textwidth}{1pt}\\}
+
+
+	% for equiv tables
+	\newcommand{\eqtbitem}[3][----]{ {#1} & $ \equiv $ & {#2} & {#3} }
 
 
 \title{Discrete Maths Notes}
@@ -147,7 +148,7 @@ Prepositions will be represented mathematically with capital letters A, B, C... 
 \begin{small}
 \begin{quote}
 	\faInfoCircle\space
-	A Bicondtional can also be thought of $(A \implies B)\land(B \implies A)$ \\
+	A Biconditional can also be thought of $(A \implies B)\land(B \implies A)$ \\
 	Negation may sometimes be represented as $A\prime \textrm{ or } \overline{A}$
 \end{quote}
 \end{small}
@@ -157,9 +158,9 @@ Prepositions will be represented mathematically with capital letters A, B, C... 
 
 \subsubsection{Terminology}
 \begin{addmargin}[2em]{2em}
-	$ A \land B $ - \cul{conjuction} of \cul{conjuncts} $A$ and $B$ \\
+	$ A \land B $ - \cul{conjunction} of \cul{conjuncts} $A$ and $B$ \\
 	$ A \lor B $ - \cul{disjunction} of \cul{disjuncts} $A$ and $B$ \\
-	$ A \implies B $ - $A$ is the \cul{hypothesis\tiny{/antecedant}} and $B$ is the \cul{conclusion\tiny{/consequence}}  
+	$ A \implies B $ - $A$ is the \cul{hypothesis\tiny{/antecedent}} and $B$ is the \cul{conclusion\tiny{/consequence}}  
 \end{addmargin}
 
 
@@ -169,7 +170,7 @@ Prepositions will be represented mathematically with capital letters A, B, C... 
 \exheader[1 Compound Proposition]
 \begin{addmargin}[1.5em]{1.5em}
 	If \cul{all humans are mortal}\tiny{prp $A $}\normalsize \space and \cul{all Greeks are human}\tiny{prp $B$}\normalsize\space
-	\\then \cul{all Greeks are moral}\tiny{prp $C$}\normalsize\space can be represented as $A \land B \implies C$
+	\\then \cul{all Greeks are mortal}\tiny{prp $C$}\normalsize\space can be represented as $A \land B \implies C$
 \end{addmargin}
 
 \exheader[2 Negation]
@@ -206,7 +207,7 @@ Prepositions will be represented mathematically with capital letters A, B, C... 
 	\item A proposition is \cul{satisfiable} if it is true for
 	\sidenote[You don't need a whole truth table for this, just look for one!]\emph{at least one} 
 	combination of boolean values.
-	\item \cul{A Boolean Satisfiablity Problem (SAT)} is checking for satifiability in a propositional logic formula.
+	\item \cul{A Boolean Satisfiability Problem (SAT)} is checking for satisfiability in a propositional logic formula.
 	\item \cul{A Tautology} is a proposition that is \cul{always true} \\ \hspace*{5mm} \exheader[ex] $ A \lor \neg A$
 	\item \cul{A Contradiction} is a proposition that is always false. \\ \hspace*{5mm} \exheader[ex] $ A \land \neg A$
 \end{itemize}
@@ -223,7 +224,7 @@ Truth Tables are used for determining all the possible outputs of a complex comp
 \cul{The Columns} Are for the prepositions,
 \sidenote[The intrmt' prepositions are optional steps to make solving easier, use as needed.]intermediate compound prepositions and the whole compound preposition.
 
-\cul{The Rows} Are to contian the different sets of possible truth values for each proposition. You will have $2^p$ rows where $p$ is the number of propositions (then +1 for the header).
+\cul{The Rows} Are to contain the different sets of possible truth values for each proposition. You will have $2^p$ rows where $p$ is the number of propositions (then +1 for the header).
 
 \horizline \\
 \faWarning \space The connectives in a compound propositional logic problem follow an order of precedence (the PEMDAS of logic) in the following order; \\
@@ -294,7 +295,7 @@ $ \neg $ , $ \land $ , $ \lor $ , $ \implies $ , $ \iff $
     \begin{subtable}[h]{0.45\textwidth}
         \centering
         \begin{tabular}{l | l | l}
-		\multicolumn{3}{c}{\textbf{Bicondtional}} \\
+		\multicolumn{3}{c}{\textbf{Biconditional}} \\
         \hline \hline
 		$A$ & $B$ & $A \iff B$ \\
 		\hline
@@ -303,7 +304,7 @@ $ \neg $ , $ \land $ , $ \lor $ , $ \implies $ , $ \iff $
 		F & T & F \\
 		F & F & T 
         \end{tabular}
-		\caption*{\small{A Bicondtional is true when the two prepositions have the same value.}}
+		\caption*{\small{A Biconditional is true when the two prepositions have the same value.}}
      \end{subtable}
 \end{table}
 
@@ -348,7 +349,7 @@ Out of all these outputs, the most unintuitive is the 3rd implication output ($F
 \end{table}
 \intextnote[Remember, columns like $A \implies B$ are optional in-between steps to help solve each problem.]
 \bigbreak
-\subsubsection{Excercise: Finding Tautologies, Satisfiable \& Contradicting Props'}
+\subsubsection{Exercise: Finding Tautologies, Satisfiable \& Contradicting Props'}
 
 Indicate whether each of the following is a tautology, satisfiable but not a tautology or a contradiction;
 \begin{enumerate}[leftmargin=*, label={}]
@@ -360,7 +361,7 @@ Indicate whether each of the following is a tautology, satisfiable but not a tau
 	\item $ A \lor \neg A \implies B \land \neg B $
 \end{enumerate}
 
-\small{(Answers and explainations on the next page...)} \normalsize
+\small{(Answers and explanations on the next page...)} \normalsize
 
 \pagebreak
 
@@ -368,7 +369,7 @@ Indicate whether each of the following is a tautology, satisfiable but not a tau
 
 $ A \implies B $ \\
 \emph{Satisfiable but not a tautology} \\
-Just knowing the properties of a implication you should know there's way to get true outputs and a false output.
+Just knowing the properties of an implication you should know there's way to get true outputs and a false output.
 
 $ A \implies A $ \\
 \emph{Tautology} \\
@@ -377,7 +378,7 @@ Only would be $ T \implies T $ or $ F \implies F $, both of which result in true
 $ A \implies \neg B \lor \neg C $ \\
 \emph{Satisfiable but not a tautology} \\
 Instead of making a long unpleasant truth table, it's easiest to start by simply looking for one true and one false possible output. \\
-We can make the left side true simply by making A false, since all that remains is an or statment we now have a true output. \\
+We can make the left side true simply by making A false, since all that remains is an or statement we now have a true output. \\
 We can just as easily find a false output for this proposition with $A=T$, $B=T \space (\neg B = F)$ to make the implication false, then we can just make $ \neg C $ false to make the or output false.
 
 $A \lor B \implies B $ \\
@@ -387,7 +388,7 @@ There is only one way to make an implication false, so if we can set up A and B 
 
 $ (A \land B) \implies (A \lor B) $ \\
 \emph{Tautology} \\
-Remember the only way to make an implication false is if the hypothesis is true and the conclusion is false. There is absoluely no way to do this because of the and/or setup! 
+Remember the only way to make an implication false is if the hypothesis is true and the conclusion is false. There is absolutely no way to do this because of the and/or setup! 
 
 $ A \lor \neg A \implies B \land \neg B $ \\
 \emph{Contradiction} \\
@@ -411,7 +412,7 @@ Equivalence relates heavily to the concept of Tautologies;
 
 \bigbreak
 
-\subsubsection{Examples}
+\subsubsection*{Examples}
 \exheader[1]\\
 Given the implication $A \implies B$, are the following equivalent?
 \begin{itemize}[leftmargin=*, label={}]
@@ -476,6 +477,63 @@ They're equivalent! We can reduce the if statement's expression to simply;
 	if(x > 0 || y > 100)
 \end{verbatim}
 
+\pagebreak
+\subsubsection{Equivalence Laws}
+For more complex propositions it is impractical to create a set of massive truth tables to check for equivalence. So instead we utilize equivalence laws to directly prove equivalence.
+\bigbreak
+\subsubsection*{Nine Equivalence Laws;}
+\small{\emph{Many of these are pretty self-explanatory}}\normalsize
+\begin{itemize}[label={}, leftmargin=*]
+	\item Double Negation Law: $\neg(\neg A) \equiv A$ 
+	\item Identity Laws: $ A \land T \equiv A $ \hspace*{1.5em} $ A \lor F \equiv A$
+	\item Domination Laws: $ A \lor T \equiv T $ \hspace*{1.5em} $ A \land F \equiv F $
+	\item Commutative Laws: $ A \land B \equiv B \land A$  \hspace*{1.5em} $ A \lor B \equiv B \lor A $
+	\item Associative Laws: $ (A \land B) \land C \equiv A \land (B \land C) $ \hspace*{1.5em} $(A \lor B) \lor C \equiv A \lor (B \lor C) $
+	\item Idempotent Laws: $ A \land A \equiv A $ \hspace*{1.5em} $ A \lor A \equiv A$
+	\item\sidenote[Very similar to the algebriac distributive law]Distributive Laws: $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C) $ \hspace*{1.5em} $A \land (B \lor C) \equiv (A \land B) \lor (A \land C) $
+	\item DeMorgan's Laws: $\neg (A \land B) \equiv \neg A \lor \neg B $ \hspace*{1.5em} $\neg (A \lor B) \equiv \neg A \land \neg B$
+	\item Implication Laws: $ A \implies B \equiv \neg B \implies \neg A \equiv \neg A \lor B$
+\end{itemize}
+\todo[inline]{TODO: Maybe refomat this as a table so its a bit easier to quickly reference?}
+% in solving these, our goal is to reduce the # of letters in the props. - do the side with more stuff going on :)
+
+\pagebreak
+
+\subsubsection*{Examples}
+\exheader[1]
+Prove $A \lor (\neg A \land B) \equiv A \lor B$ \\ \break
+\begin{tabular}{r  l  l  l}
+	\eqtbitem[$ A \lor (\neg A \land B) $]{$(A \lor \neg A)\land(A \lor B)$}{(Distributive)} \\
+	\eqtbitem[]{$T \land (A \lor B)$}{} \\
+	\eqtbitem[]{$A \lor B$}{(Identity)}
+\end{tabular}
+\intextnote[In solving these, the goal should be to reduce the \# of letters in the propositions. Focus on the side of an equivalence with more going on and try to reduce it down since the more complex proposition will have more oppurtunities to utilize the different equivalence laws. ]
+\bigbreak\bigbreak
+
+
+\exheader[2]
+Simplify $ A \land \neg(A \land B) $ \\
+\begin{tabular}{r  l  l  l}
+	\eqtbitem[$ A \land \neg(A \land B) $]{$A \land (\neg A \lor \neg B)$}{(DeMorgan's)} \\
+	\eqtbitem[]{$(A \land \neg A) \lor (A \land \neg B)$}{(Distributive)} \\
+	\eqtbitem[]{$F \lor (A \land \neg B)$}{} \\
+	\eqtbitem[]{$A \land \neg B$}{(Identity)}
+\end{tabular}
+\intextnote[You don't have to name the laws you're using in the homework, the simple $\equiv$ down the middle format for each step is fine.]
+\bigbreak\bigbreak
+
+\exheader[3] Show that $(A \land B) \implies (A \lor B)$ is a tautology. \\
+\begin{tabular}{r  l  l  l}
+	\eqtbitem[$(A \land B) \implies (A \lor B)$]{$\neg (A \land B) \lor (A \lor B)$}{(Implication)} \\
+	\eqtbitem[]{$(\neg A \lor \neg B)\lor (A\lor B)$}{(DeMorgan's)} \\
+	\eqtbitem[]{$\neg A \lor \neg B \lor A \lor B$}{(Associative)} \\
+	\eqtbitem[]{$\neg A \lor A \lor \neg B \lor B$}{(Commutative)} \\
+	\eqtbitem[]{$(\neg A \lor A) \lor (\neg B \lor B)$}{(Associative)} \\
+	\eqtbitem[]{$T \lor T$}{} \\
+	\eqtbitem[]{$T$}{(Idempotent)}
+\end{tabular}
+
+% Todo: work on excercises and add them! (try them yourself before simply copying down!!)
 
 \end{document}
 
