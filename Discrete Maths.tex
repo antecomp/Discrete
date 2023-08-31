@@ -66,6 +66,10 @@
 	\usepackage{courier}
 	\usepackage[T1]{fontenc}
 
+	% images
+	\usepackage{graphicx}
+	\graphicspath{ {./images/} }
+
 
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -93,6 +97,15 @@
 
 	% for equiv tables
 	\newcommand{\eqtbitem}[3][----]{ {#1} & $ \equiv $ & {#2} & {#3} }
+
+	% def
+	\newcommand{\define}[1][-----]{\horizline
+	\faBook \space {#1} \\
+	\horizline}
+
+
+	% change inner list label
+	\renewcommand{\labelitemii}{$\rightarrow$}
 
 
 \title{Discrete Maths Notes}
@@ -534,6 +547,78 @@ Simplify $ A \land \neg(A \land B) $ \\
 \end{tabular}
 
 % Todo: work on excercises and add them! (try them yourself before simply copying down!!)
+
+\pagebreak
+
+\subsection{Arguments}
+\bigbreak
+\define[An \textbf{argument} is a sequence of propositions in which the conjunction of the initial propositions implies the final proposition \\
+An argument can be represented as; \\ $P_1 \land P_2 \land P_3 ... \land P_n \implies Q$]
+\subsubsection*{Examples}
+\begin{itemize}[leftmargin=*, label={}]
+	\item If George Washington was the first president of the United States, then John Adams was the first vice president. George Washington was the first president of the United States.  Therefore John Adams was the first vice president.
+		\begin{itemize}
+			\item Let A be  “George Washington was the first president of the United States.”
+			\item Let B be "John Adams was the first vice president.”
+			\item $(A \implies B) \land A \implies B$
+		\end{itemize}
+	\item If Martina is the author of the book, then the book is fiction.  But the book is nonfiction. Therefore Martina is not the author.
+		\begin{itemize}
+			\item Let A be “Martina is the author of the book.”
+			\item  Let B be “The book is fiction.”
+			\item $(A \implies B) \land \neg B \implies \neg A$
+		\end{itemize}
+	\item The dog has a shiny coat and loves to bark. Consequently, the dog loves to bark.
+		\begin{itemize}
+			\item Let A be “The dog has a shiny coat.”
+			\item Let B be “The dog loves to bark."
+			\item $A \land B \implies B $
+		\end{itemize}
+\end{itemize}
+\pagebreak
+\subsubsection{Valid Arguments / Inference Rules}
+\bigbreak
+\define[An argument is \textbf{valid} if whenever the premises are all true, the conclusion must also be true]
+\intextnote[We can't use a truth table to validate an argument since it only shows the truth values for the statement as a whole, instead we need to use new \textbf{Inference Rules}]
+
+
+%todo: type these out nicely instead of using images.
+\subsubsection*{Inference Rules}
+\begin{center}
+	\includegraphics[width=8cm]{if1}
+	\includegraphics[width=16cm]{if2}
+\end{center}
+\intextnote[Each line of these rules are basically "if this prop is true and if that prop is true then the last prop is true" ]
+
+\pagebreak
+
+\subsubsection*{Examples (finding conclusions)} 
+\begin{itemize}
+	\item If the car was involved in the hit-and-run, then the paint would be chipped. But the paint is not chipped.
+		\begin{itemize}
+			\item "Car was involved in a hit-and-run" $\rightarrow P$
+			\item "Paint would be chipped" $\rightarrow Q$
+			\item "The paint is not chipped" $\rightarrow \neg Q$
+			\item Conclusion: The car was not involved in a hit-and-run. From the second rule!
+		\end{itemize}
+	\item If the bill was sent today, then you will be paid tomorrow. You will be paid tomorrow.
+		\begin{itemize}
+			\item Nothing can be concluded from this. \smiley
+		\end{itemize}
+	\item If the program is efficient$_P$, it executes quickly$_Q$. Either the program is efficient$_P$, or it has a bug$_R$. However, the program does not execute quickly$_{\neg Q}$.
+		\begin{itemize}
+			\item "If the program is efficient" $\rightarrow P$
+			\item "it executes quickly" $\rightarrow Q$
+			\item "it has a bug" $\rightarrow R$
+			\item "the program does not execute quickly" $\rightarrow \neg Q$
+			\item We start by knowing $P \implies Q$ and $P \lor R$ and $\neg Q$...
+			\item $(P \implies Q)$ and $\neg Q$ can imply $\neg P$
+			\item We need to transform $P \lor R$ to use it: $P \lor R \equiv \neg (\neg P) \lor R \equiv \neg P \implies R$
+			\item $\neg P \implies R$ and $\neg P$ (the first implication we isolated) now implies $R$ by the first inference rule.
+		\end{itemize}
+\end{itemize}
+
+% ex1 already in the correct form
 
 \end{document}
 
