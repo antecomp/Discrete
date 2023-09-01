@@ -70,6 +70,12 @@
 	\usepackage{graphicx}
 	\graphicspath{ {./images/} }
 
+	% line breaks in tables
+	\usepackage[usestackEOL]{stackengine}
+
+	% math symbols
+	\usepackage{amssymb}
+
 
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -578,12 +584,13 @@ An argument can be represented as; \\ $P_1 \land P_2 \land P_3 ... \land P_n \im
 \pagebreak
 \subsubsection{Valid Arguments / Inference Rules}
 \bigbreak
-\define[An argument is \textbf{valid} if whenever the premises are all true, the conclusion must also be true]
+\define[An argument is \textbf{valid} if and only if \textbf{its conclusion is never false while its premises are true.}]
 \intextnote[We can't use a truth table to validate an argument since it only shows the truth values for the statement as a whole, instead we need to use new \textbf{Inference Rules}]
 
 
-%todo: type these out nicely instead of using images.
+%todo: type these out nicely instead of using images. - try using \atop 
 \subsubsection*{Inference Rules}
+% $\frac{P \atopP \implies Q}{\therefore Q}$
 \begin{center}
 	\includegraphics[width=8cm]{if1}
 	\includegraphics[width=16cm]{if2}
@@ -617,6 +624,63 @@ An argument can be represented as; \\ $P_1 \land P_2 \land P_3 ... \land P_n \im
 			\item $\neg P \implies R$ and $\neg P$ (the first implication we isolated) now implies $R$ by the first inference rule.
 		\end{itemize}
 \end{itemize}
+
+\pagebreak
+
+\subsubsection{Proving a Valid Argument}
+Assuming the premises are true, apply a sequence of premises and derivation rules, which include the equivalence laws and inference.
+\bigbreak
+\textbf{General Steps} \\
+
+\begin{enumerate}
+	\item Identify all the premises (might need some transformations).
+	\item Think backwards. Start from what you want and then seek supporting premises, current results, and necessary equivalence laws and inference rules, until you reach the given premises.
+	\item Write the proof sequence, where {\color{red}each step is either one premise or derived from previous step(s) using equivalence laws or inference rules.}
+	
+\end{enumerate}
+
+\bigbreak
+
+\subsubsection*{Examples}
+
+\exheader[1] \\
+Prove $(A \implies B) \land (\neg C \lor A) \land C \implies B$ \\
+This one is already in its standard form - so we just need to identify each part of the standard $P_1 \land P_2 \land P_3 ... \land P_n \implies Q$ form. At the end of this we want to prove that B is true.
+
+\begin{tabular}{r  l  l  l  l  l}
+	$(A \implies B)$ & $\land$ & \Longunderstack{$(\neg C \lor A)$ \\ \tiny Implication Law} & $\land$ & $C$ & $\implies B$ \\
+	$\downarrow$ & $\land$ & \Longunderstack{$C \implies A$ \\ \tiny first inference rule law} & $\land$ & $C$ & $\downarrow$ \\
+	$(A \implies B)$ & $\land$ & \multicolumn{3}{c}{\Longunderstack{$A$ \\ \tiny also by first inf rule}} & $\downarrow$ \\
+	\multicolumn{5}{c}{$B$} & $\implies B$
+\end{tabular}
+
+\intextnote[This is not usually how you would format these proofs, this table was to give you an idea of the actual process. The actual proof would look like the following;
+\begin{enumerate}
+	\item $A \implies B$
+	\item $\neg C \lor A$
+	\item $C$ 
+	\item $C \implies A$ \hspace*{2cm} (2, Implication)
+	\item $A$ \hspace*{3.3cm} (3,4)
+	\item $B$ \hspace*{3.2cm} (1,5)
+\end{enumerate}
+You need to put every step in a seperate (numbered) line, starting with each component of the argument and then the transformations you do with the reason given. You dont need to name the law used but you need to mention the steps you combined to acheive the next part.]
+
+\pagebreak
+
+\exheader[2]
+Prove $A \land (B \implies C) \land ((A \land B) \implies (D \lor \neg C)) \land B \implies D$
+\intextnote[For this one focus on step 3 ($D \lor \neg C$) as your point to figure out this argument since its the only portion that has D in it.]
+\begin{enumerate}
+	\item $A$
+	\item $B \implies C$
+	\item $(A \land B) \implies (D \lor \neg C)$
+	\item $B$
+	\item $A \land B$ \hspace*{3cm} (1,4)
+	\item $D \lor \land C$ \hspace*{3cm} (3,5)
+	\item $C \implies D$ \hspace*{3cm} (6, Commutative, Implication) - {\tiny Communicative used to swap C, D}
+\end{enumerate}
+\todo[inline]{TODO: ADD MORE NOTES TO THIS ONE, I GENIUNELY AM NOT FOLLOWING THE PROCESS HERE}
+
 
 % ex1 already in the correct form
 
