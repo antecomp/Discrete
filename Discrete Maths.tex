@@ -584,18 +584,89 @@ An argument can be represented as; \\ $P_1 \land P_2 \land P_3 ... \land P_n \im
 \pagebreak
 \subsubsection{Valid Arguments / Inference Rules}
 \bigbreak
-\define[An argument is \textbf{valid} if and only if \textbf{its conclusion is never false while its premises are true.}]
-\intextnote[We can't use a truth table to validate an argument since it only shows the truth values for the statement as a whole, instead we need to use new \textbf{Inference Rules}]
-
+\define[An argument is \textbf{valid} if and only if \textbf{its conclusion is never false while its premises are true.}] \smallbreak
+We can't use a truth table to validate an argument since it only shows the truth values for the statement as a whole, instead we need to use new \textbf{Inference Rules}
+\smallbreak
 
 %todo: type these out nicely instead of using images. - try using \atop 
 \subsubsection*{Inference Rules}
 % $\frac{P \atopP \implies Q}{\therefore Q}$
+%\begin{center}
+%	\includegraphics[width=8cm]{if1}
+%	\includegraphics[width=16cm]{if2}
+% \end{center}
+
+
+% I wasted so much time making this lol
+\bigbreak
 \begin{center}
-	\includegraphics[width=8cm]{if1}
-	\includegraphics[width=16cm]{if2}
+	\begin{tabular}{c c}
+		\Longunderstack{
+			$
+			{
+				\begin{array}{l}
+					P \\
+					P \implies Q \\
+					\hline
+					\therefore Q
+				\end{array}
+			}
+			$ \\ \\
+			{\tiny Ex: If George Washington...}
+		} 
+		& \Longunderstack{
+			$
+			{
+				\begin{array}{l}
+					P \implies Q \\
+					\neg Q \\
+					\hline
+					\therefore \neg P
+				\end{array}
+			}
+			$ \\ \\
+			{\tiny Ex: If Martina...}
+		} \\ \\ \\
+		\Longunderstack{
+			$
+			{
+				\begin{array}{l}
+					P \land Q \\
+					\hline
+					\therefore P
+				\end{array}
+			}
+			$
+		} 
+		& \Longunderstack{
+			$
+			{
+				\begin{array}{l}
+					P \\
+					\hline
+					\therefore P \lor Q
+				\end{array}
+			}
+			$
+		} \\ \\
+		\multicolumn{2}{c}{
+		\Longunderstack{
+			$
+			{
+				\begin{array}{l}
+					P \\
+					Q \\
+					\hline
+					\therefore P \land Q
+				\end{array}
+			}
+			$ \\ \\
+			{\tiny Ex: Paul is a good swimmer. Paul is a good runner.} \\ {\tiny Therefore Paul is a good swimmer and a good runner}
+		}}
+	\end{tabular}
 \end{center}
-\intextnote[Each line of these rules are basically "if this prop is true and if that prop is true then the last prop is true" ]
+
+\intextnote[Each line of these rules are basically "if this prop is true and if that prop is true then the last prop is true"]
 
 \pagebreak
 
@@ -634,7 +705,7 @@ Assuming the premises are true, apply a sequence of premises and derivation rule
 
 \begin{enumerate}
 	\item Identify all the premises (might need some transformations).
-	\item Think backwards. Start from what you want and then seek supporting premises, current results, and necessary equivalence laws and inference rules, until you reach the given premises.
+	\item \sidenote[Start with the RHS of the argument on the bottom of the list and work your way up] Think backwards. Start from what you want and then seek supporting premises, current results, and necessary equivalence laws and inference rules, until you reach the given premises.
 	\item Write the proof sequence, where {\color{red}each step is either one premise or derived from previous step(s) using equivalence laws or inference rules.}
 	
 \end{enumerate}
@@ -643,14 +714,14 @@ Assuming the premises are true, apply a sequence of premises and derivation rule
 
 \subsubsection*{Examples}
 
-\exheader[1] \\
-Prove $(A \implies B) \land (\neg C \lor A) \land C \implies B$ \\
-This one is already in its standard form - so we just need to identify each part of the standard $P_1 \land P_2 \land P_3 ... \land P_n \implies Q$ form. At the end of this we want to prove that B is true.
+\exheader[1]
+Prove $(A \implies B) \land (\neg C \lor A) \land C \implies B$
+\intextnote[This one is already in its standard form - so we just need to identify each part of the standard $P_1 \land P_2 \land P_3 ... \land P_n \implies Q$ form. At the end of this we want to prove that B is true.]
 
 \begin{tabular}{r  l  l  l  l  l}
 	$(A \implies B)$ & $\land$ & \Longunderstack{$(\neg C \lor A)$ \\ \tiny Implication Law} & $\land$ & $C$ & $\implies B$ \\
 	$\downarrow$ & $\land$ & \Longunderstack{$C \implies A$ \\ \tiny first inference rule law} & $\land$ & $C$ & $\downarrow$ \\
-	$(A \implies B)$ & $\land$ & \multicolumn{3}{c}{\Longunderstack{$A$ \\ \tiny also by first inf rule}} & $\downarrow$ \\
+	$(A \implies B)$ & $\land$ & \multicolumn{3}{l}{\Longunderstack{$A$ \\ \tiny also by first inf rule}} & $\downarrow$ \\
 	\multicolumn{5}{c}{$B$} & $\implies B$
 \end{tabular}
 
@@ -675,14 +746,79 @@ Prove $A \land (B \implies C) \land ((A \land B) \implies (D \lor \neg C)) \land
 	\item $B \implies C$
 	\item $(A \land B) \implies (D \lor \neg C)$
 	\item $B$
-	\item $A \land B$ \hspace*{3cm} (1,4)
-	\item $D \lor \land C$ \hspace*{3cm} (3,5)
-	\item $C \implies D$ \hspace*{3cm} (6, Commutative, Implication) - {\tiny Communicative used to swap C, D}
+	\item $A \land B$ \hspace*{2.2cm} (1,4)
+	\item $D \lor \land C$ \hspace*{1.9cm} (3,5)
+	\item $C \implies D$ \hspace*{1.5cm} (6, Commutative, Implication) - {\tiny Communicative used to swap C, D}
+	\item $C$ \hspace*{3cm} (2,4)
+	\item $D$ \hspace*{3cm} (7,8)
 \end{enumerate}
 \todo[inline]{TODO: ADD MORE NOTES TO THIS ONE, I GENIUNELY AM NOT FOLLOWING THE PROCESS HERE}
 
+\bigbreak
 
-% ex1 already in the correct form
+\exheader[3] Prove $(A \implies B) \land (\neg C \lor A) \land C \implies A \land B$
+\intextnote[For this one notice that the right-hand side isn't a single letter anymore. We now need to focus on proving the whole $A\land B$ statement. So this problem is actually solved a bit backwards, start by writing the last steps ($A, B, A\land B$) and then go up and figure out how you can prove A.]
+\begin{tabular}{c l l}
+	1. & $A \implies B$ & \\
+	2. & $\neg C \lor A$ & \\
+	3. & $C$ & \\
+	4. & $C \implies A$ & (2, Implication) \\
+	5. & $A$ & (3,4) \\
+	6. & $B$ & (1,5) \\
+	7. & $A \land B$ & (5,6)
+\end{tabular}
+
+\intextnote[If instead this problem was looking for $A \lor B$, you could just prove either A or B to make the entire statement valid.]
+
+\pagebreak
+
+
+\subsubsection{The Deduction Method}
+
+Now, what if the conclusion is in implication form? \\
+There are two ways of solving for this form, the main one being \textbf{The Deduction Method...} \\
+
+Suppose the argument has the form:
+\begin{center}
+	$ P_1 \land P_2 \land P_3 ... \land P_n \implies (R \implies S) $
+\end{center}
+where the conclusion itself is an implication. \cul{We can add R as an additional premise and then imply S}. In other words, we can have the argument:
+\begin{center}
+	$ P_1 \land P_2 \land P_3 ... \land P_n \land R \implies S $
+\end{center}
+
+\bigbreak \bigbreak
+
+\subsubsection*{Examples}
+
+\exheader[1] Prove $(A \implies B) \land (B  \implies C) \implies (A \implies C)$
+\intextnote[Start with C at the bottom. Now the only way to validate C is if B is true, so make B step 4 and find the proper relations to make B true.]
+Deduction: $(A \implies B) \land (B \implies C) \land A \implies C$ \\
+\begin{tabular}{c l l}
+	1. & $A \implies B$ & \\
+	2. & $B \implies C$ & \\
+	3. & $A$ & \\
+	4. & $B$ & (1,3) \\
+	5. & $C$ & (2,4) \\
+\end{tabular}
+
+\bigbreak
+
+\exheader[2] Prove $\neg (A \land \neg B) \land (B \implies C) \implies (A \implies C)$ \\
+Deduction: $\neg (A \land \neg B) \land (B \implies C) \land A \implies C$ \\
+\begin{tabular}{c l l}
+	1. & $\neg (A \land \neg B) $ & \\
+	2. & $ B \implies C $ & \\
+	3. & $A$ & \\
+	4. & $\neg A \lor B $ & (1, DeMorgan's) \\
+	5. & $A \implies B$ & (4, Implication) \\
+	6. & $B$ & (3,5) \\
+	7. & $C$ & (2,6)
+\end{tabular}
+
+
+%todo: excersise slide
+
 
 \end{document}
 
