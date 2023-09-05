@@ -77,6 +77,10 @@
 	\usepackage{amssymb}
 
 
+	% ???
+	\usepackage{tabularx}
+
+
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -816,9 +820,93 @@ Deduction: $\neg (A \land \neg B) \land (B \implies C) \land A \implies C$ \\
 	7. & $C$ & (2,6)
 \end{tabular}
 
-
 %todo: excersise slide
 
+\pagebreak
+
+\subsection{Predicate Logic}
+
+
+
+\define[A \textbf{predicate} represents the properties of/relations among objects. \\
+Examples:
+\begin{itemize}
+	\item n \emph{is a perfect square}
+	\item x \emph{is greater than} y
+\end{itemize} \indent]
+
+\subsubsection*{Often propositional logic is not enough!} 
+There are several cases where propositional logic won't help us reach needed conclusions or information; \\
+\begin{itemize}
+	\item Suppose we know that "All CS students must take CSCI 358". We cannot conclude that "Alice must take CSCI 358 where Alice is a CS student" using our current propositional logic knowledge.
+	\item Statements that hold many objects must be enumerated;
+	\begin{itemize}
+		\item Example:
+		\begin{itemize}
+			\item If Alice is a CS student, then Alice must take CSCI358.
+			\item If Bob is a CS student, then Bob must take CSCI358.
+			\item If Chris is a CS student, then Chris must take CSCI358.
+			\item ...
+		\end{itemize}
+		\item Solution: make statements with variables
+		\begin{itemize}
+			\item If x is a CS student, then x must take CSCI358.
+		\end{itemize}
+	\end{itemize}
+	\item Statements that define the property of a group of objects;
+	\begin{itemize}
+		\item Example:
+		\begin{itemize}
+			\item All new cars must be registered.
+			\item Some of the new CS students graduate with honor.
+		\end{itemize}
+		\item Solution: Make statements with quantifiers:
+		\begin{itemize}
+			\item Universal Quantifier - the property is satisfied by all members of the group.
+			\item Existential Quantifier - at least one member of the group satisfies the property.
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Predicate representation}
+Predicates are represented like functions in other branches of maths; \\
+e.g $P(x)$ represents some predicate such as "x is a perfect square". \smallbreak
+Note that predicates can involve multiple variables, e.g Q(x,y) is "x is greater than y." \bigbreak
+
+The two main quantifiers are represented with $\forall$ and $\exists$ \\
+\begin{itemize}
+	\item Universal Quantifier: $\forall$
+	\begin{itemize}
+		\item Read as “for all,” “for every,” “for each,” or “for any.”
+		\item Ex: $\forall x, x>0$ is read as “for any number $x$, $x$ is greater than 0.”
+	\end{itemize}
+	\item Existential Quantifier: $\exists$
+	\begin{itemize}
+		\item Read as “there exists one,” “there is,” “for at least one,” or “for some.”
+		\item Example: $\exists x, x>0$ is read as “there exists a number x such that x is greater than zero.”
+	\end{itemize}
+\end{itemize}
+\intextnote[\textnormal{When $\forall x P(x)$ or $\exists x P(x)$ is used, the domain must be specified.}]
+
+\subsubsection*{Truth Values of Predicates}
+\begin{tabular}{|p{1in} | p{2in} | p{2in} | p{1.5in} |}
+	\hline
+	\rowcolor{lightgray} Predicate & True When... & False When... & Examples \\
+	\hline \\
+	$\forall x P(x)$ & If P(x) is true for \textbf{every} x in the domain & If there is \textbf{any} x in the domain such that P(x) is false &  AGH
+	
+\end{tabular}
+
+
+
+\todo[inline]{TODO: make this table not look terrible (I hate \LaTeX)}
+
+
+
+% once we sub in the vars, it becomes a prop, P(x) is a Pred, P(5) is a (false) proposition.
+% for the truth values with quantsm right the false as "if theres ANY x in the domain (at least one) that makes p(x) false" (first 1)
 
 \end{document}
 

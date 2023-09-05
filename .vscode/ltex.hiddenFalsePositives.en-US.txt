@@ -1,0 +1,1 @@
+{"rule":"SOME_OF_THE","sentence":"^\\QSome of the new CS students graduate with honor.\\E$"}
