@@ -872,7 +872,7 @@ There are several cases where propositional logic won't help us reach needed con
 
 \subsubsection{Predicate representation}
 Predicates are represented like functions in other branches of maths; \\
-e.g $P(x)$ represents some predicate such as "x is a perfect square". \smallbreak
+\sidenote[Once we plug in a value for x, the predicate becomes a proposition]e.g $P(x)$ represents some predicate such as "x is a perfect square". \smallbreak
 Note that predicates can involve multiple variables, e.g Q(x,y) is "x is greater than y." \bigbreak
 
 The two main quantifiers are represented with $\forall$ and $\exists$ \\
@@ -889,24 +889,57 @@ The two main quantifiers are represented with $\forall$ and $\exists$ \\
 	\end{itemize}
 \end{itemize}
 \intextnote[\textnormal{When $\forall x P(x)$ or $\exists x P(x)$ is used, the domain must be specified.}]
+\bigbreak
 
 \subsubsection*{Truth Values of Predicates}
-\begin{tabular}{|p{1in} | p{2in} | p{2in} | p{1.5in} |}
+\smallbreak
+\fontsize{9}{10}\selectfont
+\begin{tabular}{|p{0.6in} | p{1.3in} | p{1.3in} | p{2.1in} |}
 	\hline
 	\rowcolor{lightgray} Predicate & True When... & False When... & Examples \\
 	\hline \\
-	$\forall x P(x)$ & If P(x) is true for \textbf{every} x in the domain & If there is \textbf{any} x in the domain such that P(x) is false &  AGH
+	$\forall x P(x)$ & If P(x) is true for \textbf{every} x in the domain & If there is \textbf{any} x in the domain such that P(x) is false & \Longunderstack[l]{$P(x)$ is $x+1>x$, $\forall P(x)$ is true \\ for the domain consisting of all \\ real numbers. \\ ----------------------------------------------- \\ $Q(x)$ is $x <2$. $\forall x Q(x)$ is false \\ for the domain consisting of all real \\ numbers because $Q(3)$ is false. \\ $x=3$ is a counterexample of $\forall x Q(x)$} \\ \\
+	\hline \\
+	$\exists x P(x)$ & There's is an x \textbf{anywhere} such that P(x) is true. & P(x) is false for \textbf{every} x & \Longunderstack[l]{$P(x)$ is $x > 3$. $\exists x P(x)$ is true \\ for the domain consisting of all real \\ numbers. Because when x=4, P(4) \\ is true.  \\ ----------------------------------------------- \\ $Q(x)$ is $X=x+1$. $exists x Q(x)$ is \\ false for the domain consisting of \\ all real numbers. Because $Q(x)$ is \\ false for every real number x} \\ \\
+	\hline
 	
 \end{tabular}
 
+\normalsize
+\bigbreak
 
+The quantifiers $\forall$ and $\exists$ have higher precedence than all logical connectives from propositional logic.
 
-\todo[inline]{TODO: make this table not look terrible (I hate \LaTeX)}
+For Example: \\
+\hspace*{1cm} $\forall x  P(x) \land Q(x)$ means $(\forall x  P(x)) \land Q(x)$ rather than $\forall x  (P(x) \land Q(x))$
 
+\pagebreak
 
+\subsubsection*{Negating Quantified Expressions}
+\bigbreak
+\bigbreak
+\Large $\neg \forall x P(x) \equiv \exists x \neg P(x)$ 
+\normalsize
+\begin{itemize}[leftmargin=*, label={}]
+	\item Example:
+	\begin{itemize}
+		\item Every CS Student Must take CSCI385.
+		\item Negation: There is a CS student who doesn't have to take CSCI358
+	\end{itemize}
+\end{itemize}
 
-% once we sub in the vars, it becomes a prop, P(x) is a Pred, P(5) is a (false) proposition.
-% for the truth values with quantsm right the false as "if theres ANY x in the domain (at least one) that makes p(x) false" (first 1)
+\bigbreak
+\bigbreak
+
+\Large $\neg \exists x P(x) \equiv \forall x \neg P(x)$
+\normalsize
+\begin{itemize}[leftmargin=*, label={}]
+	\item Example:
+	\begin{itemize}
+		\item There is s student in this class who has taken CSCI 262.
+		\item Negation: Every student in this class has \textbf{not} taken CS262
+	\end{itemize}
+\end{itemize}
 
 \end{document}
 
