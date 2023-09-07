@@ -829,11 +829,9 @@ Deduction: $\neg (A \land \neg B) \land (B \implies C) \land A \implies C$ \\
 
 
 \define[A \textbf{predicate} represents the properties of/relations among objects. \\
-Examples:
-\begin{itemize}
-	\item n \emph{is a perfect square}
-	\item x \emph{is greater than} y
-\end{itemize} \indent]
+Examples: \\
+\hspace*{0.5cm}n \emph{is a perfect square} \\
+\hspace*{0.5cm}x \emph{is greater than} y]
 
 \subsubsection*{Often propositional logic is not enough!} 
 There are several cases where propositional logic won't help us reach needed conclusions or information; \\
@@ -940,6 +938,150 @@ For Example: \\
 		\item Negation: Every student in this class has \textbf{not} taken CS262
 	\end{itemize}
 \end{itemize}
+
+
+% 6:45 of the original video for the explination of why the implcation-based expression is wrong.
+% for the russian examples bold the Every/ There is keywords because those denote whuch quanitifer u shuould use!
+
+% loves everybody expression can be reiunterpreted as;
+% there exists a person (x) for any person (y) where x loves y
+
+\pagebreak
+
+\subsubsection{Translating to Logical Expressions}
+\subsubsection*{\small \emph{Converting statements to expressions}}
+
+\bigbreak
+\bigbreak
+
+{ \center \subsubsection*{English to Logical Expressions}}
+\bigbreak
+
+\exheader[1] Every parrot is beautiful
+\begin{itemize}[leftmargin=*, label={}]
+	\item Translation:
+	\begin{itemize}
+		\item Assume that the domain consists of all parrots.
+		\begin{itemize}
+			\item Let $B(x)$ denote "x is beautiful"
+			\item Then $\forall x \ B(x)$
+		\end{itemize}
+		\item Assume that the domain consists of all animals.
+		\begin{itemize}
+			\item Let $P(x)$ denote "x is a parrot".
+			\item Let $B(x)$ denote "x is beautiful"
+			\item \sidenote[{\\ \fontsize{5}{12} \selectfont $\forall x (P(x) \land B(x))$ would be incorrect}]Then $\forall x \ (P(x) \implies B(x))$
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] There exists a beautiful parrot
+\begin{itemize}[leftmargin=*, label={}]
+	\item Translation:
+	\begin{itemize}
+		\item Assume that the domain consists of all parrots.
+		\begin{itemize}
+			\item Let $B(x)$ denote "x is beautiful
+			\item Then $\exists x \ B(x)$
+		\end{itemize}
+		\item Assume that the domain consists of all animals.
+		\begin{itemize}
+			\item Let $P(x)$ denote "x is a parrot"
+			\item Let $B(x)$ denote "x is beautiful"
+			\item Then $\exists x \ (P(x) \land B(x))$
+		\end{itemize}
+	\end{itemize}
+\end{itemize}\intextnote[$\exists x \ (P(x) \implies B(x))$ is an incorrect solution. If x is not a parrot then P(x) is false, since P(x) is attached to the start of the implication it would make the entire expression true (when it should be false)]
+
+\pagebreak
+
+\exheader[3] Let $P(x)$ denote "x speaks Russian" \\
+\exheader[\indent] and let $Q(x)$ denote "x knows the computer language C++" \\
+\exheader[\indent] Let the domain consist of all students at Mines. \\
+\exheader[\indent] Translate the following into logical expressions;
+\begin{itemize}[leftmargin=*, label={}]
+	\item There is a student at Mines who speaks Russian and knows C++
+	\begin{itemize}
+		\item $\exists x \ (P(x) \land Q(x))$
+	\end{itemize}
+	\item There is a student at Mines who speaks Russian but doesn't know C++
+	\begin{itemize}
+		\item $\exists \ (P(x) \land \neg Q(x))$
+	\end{itemize}
+	\item Every student at Mines either speaks Russian or knows C++
+	\begin{itemize}
+		\item $\forall x \ (P(x) \lor Q(x))$
+	\end{itemize}
+	\item No student as Mines speaks Russian or knows C++
+	\begin{itemize}
+		\item $\forall x \ (\neg P(x) \land \neg Q(x))$
+		\item or $\neg \exists x \ (P(x) \lor Q(x))$
+	\end{itemize}
+\end{itemize}
+
+% todo add lions excercise if u need it!
+\bigbreak
+\subsubsection*{Nested quantifiers}
+\emph{More than one quantifier may be needed to represent the meaning of a statemente in predicate logic.}
+
+\exheader[1] Every real number has its corresponding negative
+\begin{itemize}[leftmargin=0.5cm, label={}]
+	\item Assume that the domain consists of all real numbers
+	\item Let $P(x,y)$ denote "$x + y = 0$"
+	\item Then we can write $\forall x \ \exists y \ P(x,y)$
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] There is a person who loves everybody.
+\begin{itemize}[leftmargin=0.5cm, label={}]
+	\item Assume that the domain consists of all people
+	\item Let $L(x,y)$ denote "$x$ loves $y$".
+	\item Then we can write $\exists x \ \forall y \ L(x,y)$
+\end{itemize}
+
+\pagebreak
+
+
+\subsubsection*{Order of quantifiers}
+\bigbreak
+When quantifiers are of the \textbf{same} type, the order \cul{doesn't} matter. \smallbreak
+Example:
+\begin{itemize}[leftmargin=0.8cm, label={>}]
+	\item Assume that the domain consists of all real numbers.
+	\item Let $P(x,y)$ denote "$x+y=y+x"$
+	\item $\forall x \ \forall y \ P(x,y)$  represents “For every real number x, for every real number y, x + y = y + x.”
+	\item $\forall y \ \forall x \ P(x,y)$  represents “For every real number y, for every real number x, x + y = y + x.”
+	\item $\forall x \ \forall y \ P(x,y)$ and $\forall y \ \forall x \ P(x,y)$ have the same meaning!
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+When quantifiers are of \textbf{different} types, the order \cul{does} matter! \smallbreak
+Example:
+\begin{itemize}[leftmargin=0.8cm, label={>}]
+	\item Assume that the domain consists of all real numbers.
+	\item Let $Q(x,y)$ denote "$x + y = 0$"
+	\item $\forall x \ \exists y \ Q(x,y)$  represents “For every real number x, there is a real number y, such that x + y = 0.”
+	\item $\exists y \ forall x \ Q(x,y)$ represents “There is a real number y, such that for every real number x, x + y = 0.”
+	\item $\forall x \ \exists y \ Q(x,y)$ and $\exists y \ forall x \ Q(x,y)$ have different meanings!
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+Ex: Let $Q(x,y,z)$ be "$x+y=z"$ and assume that the domain consists of all real numbers. \\
+\begin{center}
+	$\forall x \ \forall y \ \exists z \ Q(x,y,z) \not\equiv \exists z \ \forall x \ \forall y \ Q(x,y,z)$
+\end{center}
+
+\pagebreak
+
+
+
 
 \end{document}
 
