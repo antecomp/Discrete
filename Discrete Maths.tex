@@ -115,7 +115,7 @@
 
 
 	% change inner list label
-	\renewcommand{\labelitemii}{$\rightarrow$}
+	\renewcommand{\labelitemii}{\faAngleRight}
 
 
 \title{Discrete Maths Notes}
@@ -751,7 +751,7 @@ Prove $A \land (B \implies C) \land ((A \land B) \implies (D \lor \neg C)) \land
 	\item $(A \land B) \implies (D \lor \neg C)$
 	\item $B$
 	\item $A \land B$ \hspace*{2.2cm} (1,4)
-	\item $D \lor \land C$ \hspace*{1.9cm} (3,5)
+	\item $D \lor \neg C$ \hspace*{1.9cm} (3,5)
 	\item $C \implies D$ \hspace*{1.5cm} (6, Commutative, Implication) - {\tiny Communicative used to swap C, D}
 	\item $C$ \hspace*{3cm} (2,4)
 	\item $D$ \hspace*{3cm} (7,8)
@@ -1049,7 +1049,7 @@ For Example: \\
 \bigbreak
 When quantifiers are of the \textbf{same} type, the order \cul{doesn't} matter. \smallbreak
 Example:
-\begin{itemize}[leftmargin=0.8cm, label={>}]
+\begin{itemize}[leftmargin=0.8cm, label={\faAngleRight}]
 	\item Assume that the domain consists of all real numbers.
 	\item Let $P(x,y)$ denote "$x+y=y+x"$
 	\item $\forall x \ \forall y \ P(x,y)$  represents “For every real number x, for every real number y, x + y = y + x.”
@@ -1062,7 +1062,7 @@ Example:
 
 When quantifiers are of \textbf{different} types, the order \cul{does} matter! \smallbreak
 Example:
-\begin{itemize}[leftmargin=0.8cm, label={>}]
+\begin{itemize}[leftmargin=0.8cm, label={\faAngleRight}]
 	\item Assume that the domain consists of all real numbers.
 	\item Let $Q(x,y)$ denote "$x + y = 0$"
 	\item $\forall x \ \exists y \ Q(x,y)$  represents “For every real number x, there is a real number y, such that x + y = 0.”
@@ -1080,7 +1080,44 @@ Ex: Let $Q(x,y,z)$ be "$x+y=z"$ and assume that the domain consists of all real 
 
 \pagebreak
 
+\subsubsection{Inference Rules for Predicate Logic}
+\bigbreak
+\bigbreak
+\subsubsection*{Arguments In Predicate Logic}
+\bigbreak
+\textbf{Basic examples}: Assume the domain is all Mines CS students.
+\begin{enumerate}
+	\item All the CS students must take CSCI 358. Thus some CS students must take CSCI 358.
+	\begin{itemize}[label={\faAngleRight}]
+		\item $\forall x \ P(x) \implies \exists x \ P(x)$ \textcolor{green}{\checkmark}
+		\item If every element has property P, then some element has property P
+	\end{itemize}
+	\item All the CS students must take CSCI 358. Thus Alice must take CSCI 358, where Alice is a CS student
+	\begin{itemize}[label={\faAngleRight}]
+		\item $\forall x \ P(x) \implies P(a)$, where $a$ is a constant \textcolor{green}{\checkmark}
+		\item If every element has property P, then a particular element has property P.
+	\end{itemize}
+	\item All the CS students must take CSCI 261 and CSCI 358. Thus all the CS students must take CSCI 261 and all the CS students must take CSCI 358.
+	\begin{itemize}[label={\faAngleRight}]
+		\item $\forall x \ (P(x) \land Q(x)) \implies \forall x \ P(x) \land \forall x \ Q(x)$ \textcolor{green}{\checkmark}
+		\item If both P and Q are true for all the elements, then P is true for all elements and Q is true for all elements (duh)
+	\end{itemize}
+	\item \sidenote[This one also just doesn't make intuitive sense. Try rewriting arguments like this into English and see if they make sense!]Some CS students graduate with honors. Thus all the CS students graduate with honors.
+	\begin{itemize}[label={\faAngleRight}]
+		\item $\exists x \ P(x) \implies \forall x \ P(x)$ \textcolor{red}{\faClose}
+		\item If some element has property P, then all the elements have property P.
+	\end{itemize}
+\end{enumerate}
 
+
+\pagebreak
+All the equivalence laws and inference rules still hold! \\
+
+\includegraphics[width=\textwidth]{images/compiled rules.png}
+
+However, these rules are not enough, predicates will utilize four new rules;
+
+% rewatch the video for the EI - he explains the right and wrong way to do it - make sure to put down both to better understand the restrictions of this method.
 
 
 \end{document}
