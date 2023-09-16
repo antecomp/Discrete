@@ -1080,6 +1080,55 @@ Ex: Let $Q(x,y,z)$ be "$x+y=z"$ and assume that the domain consists of all real 
 
 \pagebreak
 
+\subsubsection*{English to Logical Expression Examples}
+\bigbreak
+
+\exheader[1] Given the two unique statements;
+\begin{enumerate}
+	\item John loves only Mary (If John loves any person, then that person is Mary.)
+	\item Only John loves Mary (If any person loves Mary, then that person is John.)
+\end{enumerate}
+Let $J(x)$ be "x is John". let M(x) be "x is Mary". Let L(x,y) be "x loves y". The domain consists of all people.
+\begin{enumerate}
+	\item John loves only Mary.
+	\begin{itemize}[leftmargin=0.3cm, label={\faAngleRight}]
+		\item For any person x, if x is John, then if it loves any person y, then y is Mary.
+		\item $\forall x \ (J(x) \implies \forall y (L(x,y) \implies M(y)))$ \\ Or $\forall x \ \forall y \ (J(x) \land L(x,y) \implies M(y))$
+	\end{itemize}
+	\item Only John loves Mary.
+	\begin{itemize}[leftmargin=0.3cm, label={\faAngleRight}]
+		\item For any person x, if x is Mary, then if any person y loves x, then y is John.
+		\item $\forall x \ (M(x) \implies \forall (L(y,x) \implies J(y)))$ \\ Or $\forall x \ \forall y \ (M(x) \land L(y,x) \implies J(y))$
+	\end{itemize}
+\end{enumerate}
+\bigbreak
+\exheader[2] Given that; D(x) is "x is a dog". R(x) is "x is a rabbit". C(x,y) is "x chases y". The domain consists of all animals. \\ Translate the following;
+\begin{enumerate}
+	\item All dogs chase rabbits.
+	\begin{itemize}[leftmargin=0.3cm, label={\faAngleRight}]
+		\item For any animal, if it is a dog, then for any other animal, if that animal is a rabbit, then the dog chases it.
+		\item $\forall x \ (D(x) \implies \forall y (R(y) \implies C(x,y)))$
+	\end{itemize}
+	\item Some dogs chase all rabbits.
+	\begin{itemize}[leftmargin=0.3cm, label={\faAngleRight}]
+		\item There is some animal that is a dog and, for any other thing, if that animal is a rabbit, then the dog chases it.
+		\item $\exists x \ \forall y (D(x) \land (R(y) \implies C(x,y)))$
+	\end{itemize}
+	\item Only dogs chase rabbits.
+	\begin{itemize}[leftmargin=0.3cm, label={\faAngleRight}]
+		\item For any animals, if it is a rabbit then, if any animal chases it, that animal is a dog.
+		\item $\forall y \ (R(y) \implies \forall x (C(x,y) \implies D(x)))$
+		\item or: For any two animals, if one is a rabbit and the other chases it, then the other is a dog.
+		\item $\forall y \ \forall x \ (R(y) \land C(x,y) \implies D(x))$
+	\end{itemize}
+\end{enumerate}
+\pagebreak
+
+
+
+
+\pagebreak
+
 \subsubsection{Inference Rules for Predicate Logic}
 \bigbreak
 \bigbreak
