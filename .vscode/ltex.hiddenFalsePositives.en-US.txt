@@ -1,1 +1,2 @@
 {"rule":"SOME_OF_THE","sentence":"^\\QSome of the new CS students graduate with honor.\\E$"}
+{"rule":"MASS_AGREEMENT","sentence":"^\\QExample Prove the following argument is valid: \"All CS students must take CSCI358.\\E$"}

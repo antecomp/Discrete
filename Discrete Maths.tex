@@ -1223,8 +1223,83 @@ All the equivalence laws and inference rules still hold! \\
 \includegraphics[width=\textwidth]{images/compiled rules.png}
 
 However, these rules are not enough, predicates will utilize four new rules;
+{\large
+\begin{itemize}[label={}, leftmargin=0.3cm]
+	\item \textcolor{blue}{\cul{Universal Instantiation}} \\ $\forall x \ P(x)$ can imply $P(c)$, where $c$ is a particular element or any arbitrary element in the domain.
+	\item \textcolor{blue}{\cul{Existential Instantiation}} \\ $\exists x \ P(x)$ can imply $P(a)$, where $a$ is a particular element \textcolor{red}{not previously used in a proof sequence}
+	\item \textcolor{blue}{\cul{Universal Generalization}} \\ $P(c)$ can imply $\forall x \ P(x)$, where $c$ is an arbitrary element in the domain.
+	\item \textcolor{blue}{\cul{Existential Generalization}} \\ $P(a)$ can imply $\exists x \ P(x)$, where $a$ is a particular element.
+\end{itemize}
+}
 
+% lol - epic formatting!
+\bigbreak
+\bigbreak
+\bigbreak \bigbreak \bigbreak \bigbreak
+
+\textbf{Let's look at all of these in more depth...}
+\pagebreak
+\subsubsection*{Universal Instantiation (UI)}
+$\forall x \ P(x)$ can imply $P(c)$, where $c$ is a particular element or any arbitrary element in the domain. \\
+\begin{itemize}[label={}, leftmargin=0.3cm]
+	\item \textcolor{blue}{Restrictions:} If $c$ is a variable, it cannot be already in $P(x)$
+	\item An \textcolor{red}{\textbf{incorrect}} use of UI would be saying \textcolor{red}{$\forall x \ \exists y \ P(x,y)$ implies $\exists y \ P(y,y)$}
+	\begin{itemize}[label={}]
+		\item For example, in the integer domain, if $P(x,y)$ means "$ y > x $" then $\forall x \ \exists y \ P(x,y)$ is true, but $\exists y \ P(y,y)$ is false.
+	\end{itemize}
+	\item \cul{Example}
+	\begin{itemize}[label={}]
+		\item Prove the following argument is valid: "All CS students must take CSCI358. Alice is a CS student. Therefore Alice must take CSCI 358." The domain consists of all Mines students.
+		\item Let $C(x)$ be "$x$ is a CS student." $s$ is a constant symbol. $D(x)$ is "$x$ has to take CSCI358"
+		\item The argument would be: $\forall x (C(x) \implies D(x)) \land C(s) \implies D(s)$
+		{\small \begin{enumerate}
+			\item $\forall x \ (C(x) \implies D(x))$
+			\item $C(s)$
+			\item $C(s) \implies D(s)$ (1,UI)
+			\item $D(s)$ \hspace*{1.75cm} (2,3)
+		\end{enumerate}
+		}
+	\end{itemize}
+\end{itemize}
+
+\pagebreak
+
+\subsubsection*{Existential Instantiation (EI)}
+$\exists x \ P(x)$ can imply $P(a)$, where $a$ is a particular element \textcolor{red}{not previously used in a proof sequence}
+\begin{itemize}[label={}, leftmargin=0.3cm]
+	\item In English: If P is true for some element of the domain, we can give that element a specific notation.
+	\item \textcolor{blue}{Restrictions:} $a$ must not be used before!
+	\item Incorrect Uses of EI:
+	\begin{itemize}
+		\item \textcolor{red}{$\exists \ P(x,a)$ CANNOT imply $P(a,a)$} \\ For example: in the integer domain, let P$(x,y)$ denote $x > y$ and $a = 1$
+		\item \textcolor{red}{$\forall x  \ \exists y \ Q(x,y)$ CANNOT imply $\forall x Q(x,a)$} \\ For example: in the integer domain, let $Q(x,y)$ denote that $x > y.$
+	\end{itemize}
+	\item \cul{Example}: $\forall x \ (P(x) \implies Q(x)) \land \exists y \ P(y) \implies Q(a)$
+	\begin{center}
+		\begin{tabular}{l l l}
+			1. & $\forall x \ (P(x) \implies Q(x))$ & \\
+			2. & $\exists y \ P(y)$ & \\
+			3. & $P(a)$ & (2,EI) \\
+			4. & $P(a) \implies Q(a)$ & (1,UI) \\
+			5  & $Q(a)$ & (3,4)  
+		\end{tabular}
+	\end{center}
+\end{itemize}
+\todo[inline]{\tiny TODO: Update these incorrect use examples, what do these mean?}
 % rewatch the video for the EI - he explains the right and wrong way to do it - make sure to put down both to better understand the restrictions of this method.
+
+
+\pagebreak
+
+
+\subsubsection*{Universal Generalization}
+$P(c)$ can imply $\forall x \ P(x)$, where $c$ is an arbitrary element in the domain.
+
+\subsubsection*{Existential Generalization}
+$P(a)$ can imply $\exists x \ P(x)$, where $a$ is a particular element.
+
+
+
 
 
 \end{document}
