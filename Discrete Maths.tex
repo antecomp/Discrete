@@ -671,24 +671,25 @@ We can't use a truth table to validate an argument since it only shows the truth
 \end{center}
 
 \intextnote[Each line of these rules are basically "if this prop is true and if that prop is true then the last prop is true"]
+\todo[inline]{TODO: rewrite this note, its not exactly correct...}
 
 \pagebreak
 
 \subsubsection*{Examples (finding conclusions)} 
-\begin{itemize}
+\begin{enumerate}
 	\item If the car was involved in the hit-and-run, then the paint would be chipped. But the paint is not chipped.
-		\begin{itemize}
+		\begin{itemize}[label={\faAngleRight}]
 			\item "Car was involved in a hit-and-run" $\rightarrow P$
 			\item "Paint would be chipped" $\rightarrow Q$
 			\item "The paint is not chipped" $\rightarrow \neg Q$
 			\item Conclusion: The car was not involved in a hit-and-run. From the second rule!
 		\end{itemize}
 	\item If the bill was sent today, then you will be paid tomorrow. You will be paid tomorrow.
-		\begin{itemize}
+		\begin{itemize}[label={\faAngleRight}]
 			\item Nothing can be concluded from this. \smiley
 		\end{itemize}
 	\item If the program is efficient$_P$, it executes quickly$_Q$. Either the program is efficient$_P$, or it has a bug$_R$. However, the program does not execute quickly$_{\neg Q}$.
-		\begin{itemize}
+		\begin{itemize}[label={\faAngleRight}]
 			\item "If the program is efficient" $\rightarrow P$
 			\item "it executes quickly" $\rightarrow Q$
 			\item "it has a bug" $\rightarrow R$
@@ -698,7 +699,7 @@ We can't use a truth table to validate an argument since it only shows the truth
 			\item We need to transform $P \lor R$ to use it: $P \lor R \equiv \neg (\neg P) \lor R \equiv \neg P \implies R$
 			\item $\neg P \implies R$ and $\neg P$ (the first implication we isolated) now implies $R$ by the first inference rule.
 		\end{itemize}
-\end{itemize}
+\end{enumerate}
 
 \pagebreak
 
@@ -835,7 +836,7 @@ Examples: \\
 
 \subsubsection*{Often propositional logic is not enough!} 
 There are several cases where propositional logic won't help us reach needed conclusions or information; \\
-\begin{itemize}
+\begin{itemize}[label={}, leftmargin=*]
 	\item Suppose we know that "All CS students must take CSCI 358". We cannot conclude that "Alice must take CSCI 358 where Alice is a CS student" using our current propositional logic knowledge.
 	\item Statements that hold many objects must be enumerated;
 	\begin{itemize}
@@ -954,7 +955,7 @@ For Example: \\
 \bigbreak
 \bigbreak
 
-{ \center \subsubsection*{English to Logical Expressions}}
+\subsubsection*{English to Logical Expressions}
 \bigbreak
 
 \exheader[1] Every parrot is beautiful
@@ -1023,6 +1024,7 @@ For Example: \\
 
 % todo add lions excercise if u need it!
 \bigbreak
+\horizline
 \subsubsection*{Nested quantifiers}
 \emph{More than one quantifier may be needed to represent the meaning of a statemente in predicate logic.}
 
@@ -1080,6 +1082,7 @@ Ex: Let $Q(x,y,z)$ be "$x+y=z"$ and assume that the domain consists of all real 
 
 \pagebreak
 
+\vspace*{-2cm} \subsubsection{Translation Examples}
 \subsubsection*{English to Logical Expression Examples}
 \bigbreak
 
@@ -1123,9 +1126,64 @@ Let $J(x)$ be "x is John". let M(x) be "x is Mary". Let L(x,y) be "x loves y". T
 	\end{itemize}
 \end{enumerate}
 \pagebreak
+\subsubsection*{Mathematical Statements to Logical Expression Examples}
+\bigbreak
 
+\exheader[1] Translate "The sum of two positive integers is always positive." 
+\begin{itemize}[leftmargin=*, label={}]
+	\item Assume that the domain consists of all integers.
+	\begin{itemize}
+		\item For every two integers, if they are both positive, then the sum of them is positive.
+		\item $\forall x \ \forall y \ (x > 0 \land y > 0 \implies (x + y > 0))$
+	\end{itemize}
+	\item Assume that the domain consists of all positive integers.
+	\begin{itemize}
+		\item For every two positive integers, the sum of them is positive.
+		\item $\forall x \ \forall y \ (x+y>0)$
+	\end{itemize}
+\end{itemize}
 
+\exheader[2] Translate "The difference of two positive integers is not necessarily positive."
+\begin{itemize}[leftmargin=*, label={}]
+	\item Assume that the domain consists of all integers.
+	\begin{itemize}
+		\item It is not the case that, for every two integers, if they are both positive, then the difference of them is positive.
+		\item $\neg \forall x \ \forall y \ (x > 0 \land y > 0 \implies (x - y > 0))$ \\ Or: $\exists x \ \exists y ((x > 0 \land y > 0) \land (x-y \le 0))$
+	\end{itemize}
+\end{itemize}
 
+\bigbreak
+\horizline
+
+\subsubsection*{Logical Expressions to English Examples}
+\bigbreak
+\exheader[1] Translate: $\forall x (C(x) \lor \exists y (C(y) \land F(x,y)))$, where $C(x)$ denotes "x has a computer," $F(x,y)$ denotes "x and y are friends," and the domain consists of all Mines students.
+\begin{itemize}[leftmargin=0.3cm, label={}]
+	\item For every student x at Mines, x has a computer or there is a student y such that y has a computer and x and y are friends.
+	\item Simplifies to: Every student at Mines has a computer or a friend that has a computer.
+\end{itemize}
+
+\exheader[2] Translate: $\exists x \ \forall y \ \forall z ((F(x,y) \land F(x,z) \land (y \ne z)) \implies \neg F(y,z))$, where $F(x,y)$ denotes "x and y are friends," and the domain consists of all students at Mines.
+\begin{itemize}[leftmargin=0.3cm, label={}]
+	\item $\exists x \ \forall y \ \forall z ((F(x,y) \land F(x,z) \land (y \ne z)) \implies \neg F(y,z))$ means that if students x and y are friends, and students x and z are friends, and y and z are not the same student, then y and z are not friends.
+	\item There is a student x such that for every student y and every student z other than y, if x and y are friends, x and z are friends, then y and z are not friends.
+	\item There is a Mines student none of whose friends are friends.
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Negating Nested Quantifiers}
+\bigbreak
+\textbf{General Principle}: Moving a $\neg$ across a quantifier changes the kind of quantifier.
+\bigbreak
+What is the negation of $\forall x \ \exists y (xy = 1)?$
+\begin{itemize}[label={}]
+	\item Let $P(x)$ denote $\exists y (xy = 1)$
+	\item Then we know how to negate $\forall x \ P(x)$
+	\item $\neg \forall x \ P(x) \equiv \exists x \ \neg P(x)$
+	\item In addition, $\neg P(x) \equiv \neg \exists y \ (xy = 1) \equiv \forall y \ (xy \ne 1)$
+	\item Therefore, the negation of $\forall x \ \exists y \ (xy =1)$ is $\exists x \ \forall y (xy \ne 1)$
+\end{itemize}
 
 \pagebreak
 
