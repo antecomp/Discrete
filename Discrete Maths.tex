@@ -372,7 +372,7 @@ Out of all these outputs, the most unintuitive is the 3rd implication output ($F
 \end{table}
 \intextnote[Remember, columns like $A \implies B$ are optional in-between steps to help solve each problem.]
 \bigbreak
-\subsubsection{Exercise: Finding Tautologies, Satisfiable \& Contradicting Props'}
+\subsubsection[Taut/Sati/Contra Excersises]{Exercise: Finding Tautologies, Satisfiable \& Contradicting Props'}
 
 Indicate whether each of the following is a tautology, satisfiable but not a tautology or a contradiction;
 \begin{enumerate}[leftmargin=*, label={}]
@@ -1187,12 +1187,12 @@ What is the negation of $\forall x \ \exists y (xy = 1)?$
 
 \pagebreak
 
-\subsubsection{Inference Rules for Predicate Logic}
+
+\subsubsection{Arguments In Predicate Logic}
+Just like propositional logic, we need to utilize inference rules to prove these arguments.
+
 \bigbreak
-\bigbreak
-\subsubsection*{Arguments In Predicate Logic}
-\bigbreak
-\textbf{Basic examples}: Assume the domain is all Mines CS students.
+\textbf{Basic examples}: (Assume the domain is all Mines CS students.)
 \begin{enumerate}
 	\item All the CS students must take CSCI 358. Thus some CS students must take CSCI 358.
 	\begin{itemize}[label={\faAngleRight}]
@@ -1201,7 +1201,7 @@ What is the negation of $\forall x \ \exists y (xy = 1)?$
 	\end{itemize}
 	\item All the CS students must take CSCI 358. Thus Alice must take CSCI 358, where Alice is a CS student
 	\begin{itemize}[label={\faAngleRight}]
-		\item $\forall x \ P(x) \implies P(a)$, where $a$ is a constant \textcolor{green}{\checkmark}
+		\item \sidenote[The $P(a)$ here represents a "constant" Alice whom is a particular element within the domain] $\forall x \ P(x) \implies P(a)$, where $a$ is a constant \textcolor{green}{\checkmark}
 		\item If every element has property P, then a particular element has property P.
 	\end{itemize}
 	\item All the CS students must take CSCI 261 and CSCI 358. Thus all the CS students must take CSCI 261 and all the CS students must take CSCI 358.
@@ -1218,34 +1218,46 @@ What is the negation of $\forall x \ \exists y (xy = 1)?$
 
 
 \pagebreak
-All the equivalence laws and inference rules still hold! \\
+\vspace*{-1.5cm}
+\textbf{All the equivalence laws and inference rules still hold!} \\
 
 \includegraphics[width=\textwidth]{images/compiled rules.png}
 
-However, these rules are not enough, predicates will utilize four new rules;
+However, these rules are not enough, predicates will utilize \cul{four new inference rules};
 {\large
 \begin{itemize}[label={}, leftmargin=0.3cm]
 	\item \textcolor{blue}{\cul{Universal Instantiation}} \\ $\forall x \ P(x)$ can imply $P(c)$, where $c$ is a particular element or any arbitrary element in the domain.
+	\begin{itemize}
+		\item {\small If for any $x$ in which $P(x)$ is true, then $P(c)$ must also be true. More intuitively thought as the fact that if all elements in the domain have property "P", then any element (particular or arbitrary within the domain) must also have this property.}
+	\end{itemize}
 	\item \textcolor{blue}{\cul{Existential Instantiation}} \\ $\exists x \ P(x)$ can imply $P(a)$, where $a$ is a particular element \textcolor{red}{not previously used in a proof sequence}
+	\begin{itemize}
+		\item {\small $\exists x P(x)$ means there must be some element in the domain that has property "P". Even though we don't know \emph{exactly} what that element is, we can use the letter "$a$" to represent this particular element. }
+	\end{itemize}
 	\item \textcolor{blue}{\cul{Universal Generalization}} \\ $P(c)$ can imply $\forall x \ P(x)$, where $c$ is an arbitrary element in the domain.
+	\begin{itemize}
+		\item {\small If any/every arbitrary element in the domain has property P ($P(c)$ always true), we can obviously say $\forall x P(x)$}
+	\end{itemize}
 	\item \textcolor{blue}{\cul{Existential Generalization}} \\ $P(a)$ can imply $\exists x \ P(x)$, where $a$ is a particular element.
+	\begin{itemize}
+		\item {\small If a particular element in the domain has property "P", we can obviously say $\exists x \  P(x)$ }
+	\end{itemize}
 \end{itemize}
 }
-
-% lol - epic formatting!
 \bigbreak
+\faInfoCircle \ \emph{The first two rules can be used to remove the quantifiers in front of the predicates. \\ The last two rules can be used to add quantifiers to the front of predicates}
 \bigbreak
-\bigbreak \bigbreak \bigbreak \bigbreak
-
 \textbf{Let's look at all of these in more depth...}
+
+
 \pagebreak
 \subsubsection*{Universal Instantiation (UI)}
-$\forall x \ P(x)$ can imply $P(c)$, where $c$ is a particular element or any arbitrary element in the domain. \\
+$\forall x \ P(x)$ can imply $P(c)$, where $c$ is a particular element or any arbitrary element in the domain. 
 \begin{itemize}[label={}, leftmargin=0.3cm]
 	\item \textcolor{blue}{Restrictions:} If $c$ is a variable, it cannot be already in $P(x)$
 	\item An \textcolor{red}{\textbf{incorrect}} use of UI would be saying \textcolor{red}{$\forall x \ \exists y \ P(x,y)$ implies $\exists y \ P(y,y)$}
 	\begin{itemize}[label={}]
-		\item For example, in the integer domain, if $P(x,y)$ means "$ y > x $" then $\forall x \ \exists y \ P(x,y)$ is true, but $\exists y \ P(y,y)$ is false.
+		\item For example, in the integer domain, if $P(x,y)$ means "$ y > x $" then $\forall x \ \exists y \ P(x,y)$ is true, but $\exists y \ P(y,y)$ is false (y can't be greater than y \faSmileO).
 	\end{itemize}
 	\item \cul{Example}
 	\begin{itemize}[label={}]
@@ -1292,14 +1304,55 @@ $\exists x \ P(x)$ can imply $P(a)$, where $a$ is a particular element \textcolo
 \pagebreak
 
 
-\subsubsection*{Universal Generalization}
+\subsubsection*{Universal Generalization (UG)}
 $P(c)$ can imply $\forall x \ P(x)$, where $c$ is an arbitrary element in the domain.
+\begin{itemize}[label={}, leftmargin=0.3cm]
+	\item In English: If $P(c)$ is true and c is arbitrary, then we can conclude $\forall x \ P(x)$
+	\item No weird restrictions or common misuses.
+	\item \cul{Example}: $\forall x \ (P(x) \implies Q(x)) \land \forall x \ P(x) \implies \forall x \ Q(x)$
+	\begin{center}
+		\begin{tabular}{l l l}
+			1. & $\forall x \ (P(x) \implies Q(x))$ & \\
+			2. & $\forall x \ P(x)$ & \\
+			3. & $P(c) \implies Q(c)$ & (1,UI) \\
+			4. & $P(c)$ & (2,UI) \\
+			5. & $Q(c)$ & (3,4) \\
+			6. & $\forall x \ Q(x)$ & (5,UG)
+		\end{tabular}
+	\end{center}
+\end{itemize}
 
-\subsubsection*{Existential Generalization}
+\pagebreak
+
+\subsubsection*{Existential Generalization (EG)}
 $P(a)$ can imply $\exists x \ P(x)$, where $a$ is a particular element.
+\begin{itemize}[label={}, leftmargin=0.3cm]
+	\item In English: Something has been named as having property P, so we can say that there exists something that has property P.
+	\item \textcolor{blue}{Restrictions:} x must not appear in $P(a)$
+	\item Incorrect Uses of EG:
+	\begin{itemize}
+		\item \textcolor{red}{$P(z,y)$ CANNOT imply $\exists y P(y,y)$} \\ For example: In the positive integer domain, let $P(x,y)$ mean that $y > x$, and $a$ stands for 0, then $y>0$ does not mean $y>y$
+	\end{itemize}
+	\item Example: $\forall x \ P(x) \implies \exists x \ P(x)$
+	\begin{center}
+		\begin{tabular}{l l l}
+			1. & $\forall x \ P(x)$ & \\
+			2. & $P(a)$  & (1,UI) \\
+			3. $\exists x \ P(x)$ & (2,EG)
+		\end{tabular}
+	\end{center}
+\end{itemize}
 
+\pagebreak
 
-
+\subsubsection*{Proving a Valid Predicate Logic Argument (examples)}
+\bigbreak
+\cul{General Steps:}
+\begin{enumerate}[leftmargin=*]
+	\item Strip off the quantifiers.
+	\item Work with the separate statements.
+	\item Insert quantifiers, as necessary.
+\end{enumerate}
 
 
 \end{document}
