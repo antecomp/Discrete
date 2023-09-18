@@ -1248,6 +1248,7 @@ However, these rules are not enough, predicates will utilize \cul{four new infer
 \faInfoCircle \ \emph{The first two rules can be used to remove the quantifiers in front of the predicates. \\ The last two rules can be used to add quantifiers to the front of predicates}
 \bigbreak
 \textbf{Let's look at all of these in more depth...}
+\todo[inline]{\small TODO: Add info on how these work in the actual proofs as a direct use, for example look at how EI is used in step 3 in the last example}
 
 
 \pagebreak
@@ -1346,13 +1347,51 @@ $P(a)$ can imply $\exists x \ P(x)$, where $a$ is a particular element.
 \pagebreak
 
 \subsubsection*{Proving a Valid Predicate Logic Argument (examples)}
-\bigbreak
+\horizline
 \cul{General Steps:}
 \begin{enumerate}[leftmargin=*]
 	\item Strip off the quantifiers.
 	\item Work with the separate statements.
 	\item Insert quantifiers, as necessary.
 \end{enumerate}
+\horizline
+
+\exheader[1] $\forall x \ (P(x) \land Q(x)) \implies \forall x \ P(x) \land \forall x \ Q(x)$ \\
+\begin{tabular}{c l l}
+	1. & $\forall x \ (P(x) \land Q(x))$ & \\
+	2. & $P(c) \land Q(c)$ & (1,UI) \ \ {\tiny \faInfoCircle \ You can use the same arbitrary element c for both P and Q} \\
+	3. & $P(c)$ & (2) \\
+	4. & $Q(c)$ & (2) \\
+	5. & $\forall x \ P(x) $ & (3,UG) \\
+	6. & $\forall x \ Q(x) $ & (4,UG) \\
+	7. & $\forall x \ P(x) \land \forall x \ Q(x)$ & (5,6)
+\end{tabular}
+
+\bigbreak \bigbreak
+
+\exheader[2] {\small Prove the following argument is valid: “A student in this class has not attended any in-person classes. Everyone in this class passed the first exam. Therefore someone who passed the first exam has not attended any in-person classes.”
+\\ Let C(x) be “x is in this class,” B(x) be “x has attended in-person classes,” and P(x) be “x passed the first exam.” Let the domain consist of all Mines students.}
+\\ \sidenote[Its easier to figure this one out in reverse, follow the proof from the bottom up as a process of what we need preceeded by what we use to get it!] $\exists x \ (C(x) \land \neg B(x)) \land \forall x \ (C(x) \implies P(x)) \implies \exists x \ (P(x) \land \neg B(x))$ \\ \\
+\begin{tabular}{c l l}
+	1. & $\exists x \ (C(x) \land \neg B(x))$ & \\
+	2. & $\forall x \ (C(x) \implies P(x))$ & \\
+	3. & $C(a) \land \neg B(a)$ & (1,EI) \\
+	4. & $C(a)$ & (3)\\
+	5. & $C(a) \implies P(a)$ & (2, UI) \\
+	6. & $P(a)$ & (4,5) \\
+	7. & $\neg B(a)$ & (3) \\
+	8. & $P(a) \land \neg B(a)$ & (6,7) \\
+	9. & $\exists x (P(x) \land \neg B(x))$ & (8,EG)
+\end{tabular}
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
