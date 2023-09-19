@@ -1387,14 +1387,99 @@ $P(a)$ can imply $\exists x \ P(x)$, where $a$ is a particular element.
 
 
 
+\pagebreak
+
+\section{Proofs}
+\bigbreak
+\bigbreak
+\subsection{Proof Basics}
+\bigbreak
+\textbf{Some New Terminology}
+\begin{itemize}[leftmargin=0.5cm, label={\faAngleRight}]
+	\item A \textbf{theorem} is a proposition that can be shown to be true.
+	\item A \textbf{lemma} is a preliminary proposition useful for proving later propositions.
+	\item A \textbf{corollary} is a proposition that can be established directly from a theorem.
+	\item A \textbf{conjecture} is a proposition that is being proposed to be a true statement.
+	\item Propositions that are simply accepted as true are called \textbf{axioms.}
+	\begin{itemize}[label={\tiny ex:}]
+		\item For all real numbers x and y, x + y = y + x 
+		\item There is a straight-line segment between every pair of points.
+	\end{itemize}
+	\item A \textbf{proof} is a valid argument that establishes the truth of a statement.
+	\begin{itemize}[leftmargin=*, label={}]
+		\item \vspace*{-0.5cm} {\tiny Can use axioms, premises (if any) and previously proved theorems.}
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Common Theorem Forms}
+\begin{itemize}[leftmargin=*, label={}]
+	\item T
+	\begin{itemize}[label={\tiny ex:}, leftmargin=1.25cm]
+		\item "$\sqrt{2}$ is not a rational number."
+	\end{itemize}
+	\item \textbf{$\exists x T(x)$}
+	\begin{itemize}[label={\tiny ex:},  leftmargin=1.25cm]
+		\item "There exists one integer $n$ such that $n^2 + n + 41$ is composite"
+		\begin{itemize}
+			\item {\small You would have to find an element $a$ in the domain such that $T(a)$ is true and then apply Existential Generalization}
+			\item {\small To disprove, prove that T(x) is false for all elements in the domain}
+		\end{itemize}
+	\end{itemize}
+	\item $\forall x \ (P(x) \implies Q(x))$
+	\begin{itemize}[label={\tiny ex:}, leftmargin=1.25cm]
+		\item "For every integer n, if $3n+2$ is odd, then $n$ is odd."
+		\begin{itemize}
+			\item {\small You would have to show that $P(c) \implies Q(c)$, where $c$ is an arbitrary element of the domain, and then apply Universal Generalization}
+			\item {\small Show that Q is true if P is true.}
+			\item {\small To disprove, find a element $e$ such that $P(e)$ is true, but $Q(e)$ is false.}
+		\end{itemize}
+	\end{itemize}
+	\item $\forall x \ (P \iff Q)$
+	\begin{itemize}[label={\small \faInfoCircle}, leftmargin=1.25cm]
+		\item Proving $(P \iff Q)$ is equivalent to proving $(P \implies Q) \land (Q \implies P)$
+	\end{itemize}
+\end{itemize}
+\pagebreak
+
+\subsection{Proof Methods}
+There are four main proof methods; \\
+{\small
+\begin{tabular}{c c c c}
+	Direct Proof & Proof by Contraposition & Proof by Contradiction & Proof by Cases
+\end{tabular}
+}	 
+
+\horizline
+
+\subsubsection{Direct Proof}
+Directly show that if P is true, then Q must be true, using
+axioms, definitions, and previously proven theorems, together
+with inference rules. 
+\bigbreak
+\textbf{Examples} \\
+\exheader[1] Prove that "If $n$ is odd, then $n^2$ is odd." \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Assume that $n$ is odd, then $n = 2k +1$, where k is some integer.
+	\item \sidenote[n is odd when $n = 2(...) + 1$. We have to figure out how to transform $n^2$ into this form.] We have $n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) +1$.
+	\item Therefore, $n^2$ is an odd integer.
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] Prove that "If $m$ and $n$ are both perfect squares, then $mn$ is also a perfect square.” \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[label={}, leftmargin=*]
+	\item Assume that $m$ and $n$ are both perfect squares, then $m = s^2$ and $n = t^2$, where $s$ and $t$ are some integers.
+	\item We have $mn = s^2 t^2 = (st)^2 $
+	\item Therefore, $mn$ is a perfect square.
+\end{itemize}
 
 
 
 
 
-
-
-\end{document}
+\end{document} 
 
 
 
