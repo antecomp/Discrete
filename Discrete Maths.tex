@@ -121,7 +121,7 @@
 \title{Discrete Maths Notes}
 \begin{document}
 \maketitle
-\tableofcontents
+{\small \tableofcontents}
 \pagebreak
 
 
@@ -1475,7 +1475,191 @@ with inference rules.
 	\item Therefore, $mn$ is a perfect square.
 \end{itemize}
 
+\pagebreak
 
+\subsubsection{Proof by Contraposition}
+Instead of proving $P \implies Q$, prove $\neg Q \implies \neg P$. \\
+We do this because we can then utilize the implication law: 
+\begin{center}
+	$P \implies Q \equiv \neg Q \implies \neg Q$
+\end{center}
+\bigbreak
+\textbf{Examples} \\
+\exheader[1] Prove that "For any integer $n$, if $n^2$ is even, then $n$ is even." \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Contraposition: "If $n$ is odd, then $n^2$ is odd."
+	\item (Reference example 1 of the direct proof)
+	\item We have now proven this theorem.
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] Prove that "If $3n + 2$ is odd for an integer n, then n is odd." \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Contraposition: "If n is even, then 3n + 2 is even"
+	\item Assume that n is even, then $n = 2k$, where k is some integer.
+	\item We have $3n + 2 = 6k + 2 = 2(3k+1)$
+	\item Therefore $3n + 2$ is even.
+	\item We have proved the theorem "If $3n + 2$ is odd then $n$ is odd."
+\end{itemize}
+
+\bigbreak
+
+\exheader[3] Prove that "If $r$ is irrational, then $\sqrt{r}$ is also irrational" \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Contraposition: "if $\sqrt{r}$ is rational, then r is rational."
+	\item Assume that $\sqrt{r}$ is rational.
+	\item There exists integers $p$ and $q$ (no common factors), such that $\sqrt{r} = \frac{p}{q}$
+	\item Squaring both sides gives $r = \frac{p^2}{q^2}$
+	\item Since $p^2$ and $q^2$ are integers, $r$ is also rational.
+	\item This proves the theorem.
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Proof by Contradiction}
+Assume we want to prove $S$ is true. \\ Now, suppose we can find a contradiction $C$ such that $\neg S \implies C$ is true. \\ Since $C$ is false, but $\neg S \implies C$ is true, then S must be true.
+\bigbreak
+\textbf{Examples} \\
+\exheader[1] Prove that '$\sqrt{2}$ is not a rational number." \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Assume that $\sqrt{2}$ is a rational number.
+	\item Then $\sqrt{2} = \frac{p}{q}$ where $p$ and $q$ have no common factors and $2 = \frac{p^2}{q^2}$ or $2q^2 = p^2$
+	\item Since $p^2$ is even, $p$ is even (See example 1 of Proof by Contraposition). This means that 2 is a factor of p: hence 4 is a factor of $p^2$, and the equation $2q^2 = p^2$ can be written as $2q^2 = 4x$ for some integer $x$.
+	\item We have $q^2$ is even and thus $q$ is even (Same Proof by Contraposition Example)
+	\item Now 2 is a factor of $q$ and a factor of $p$, which contradicts that statement that $p$ and $q$ have no common factors.
+	\item Hence, $\sqrt{2}$ is not rational.
+\end{itemize}
+
+\pagebreak
+
+\subsubsection*{Proof by Contradiction (cont.)}
+For prepositions of the implication form ($P \implies Q$)... \\ We instead prove $\neg(P \implies Q) \implies \textnormal{T}$ or $(P \land \neg Q) \implies \textnormal{F}$ \\
+So, how do you find a contradiction? \\
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=0.55cm, label={\faAngleRight}]
+	\item Imply $Q$. Then assert $Q \land \neg Q$ as a contradiction.
+	\item Imply $\neg P$. Then assert $P \land \neg P$ as a contradiction.
+	\item Imply $R \land \neg R$ during the proof for some proposition R.
+\end{itemize}
+\bigbreak
+\textbf{Examples} \\
+\exheader[1] Prove that "If $3n + 2$ is odd for an integer $n$, then $n$ is odd." \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Assume to the contrary that $3n + 2$ is odd, and $n$ is even.
+	\item Since $n$ is even, $n = 2k$, where $k$ is some integer.
+	\item We now have $3n +2 = 6k + 2 = 2(3k + 1)$
+	\item Thus $3n + 2$ is even, which contradicts the assumption $3n + 2$ is odd.
+	\item Therefore, we have proved the theorem "If $3n + 2$ is odd, then $n$ is odd.
+\end{itemize}
+\bigbreak
+
+\exheader[2] Prove that "If a number added to itself gives itself, then the number is 0" \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Assume to the contrary that $x + x = x$ and $ x \not = 0$
+	\item Then $2x = x$ and $x \not = 0$
+	\item Because $x \not = 0$, we can divide both sides of the equation by x and arrive at $2 = 1$, which is a contradiction.
+	\item Hence, $x + x = x \implies x = 0$
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Proof By Cases}
+Assume that $P \equiv P_1 \lor P_2 \lor ... \lor P_n$. \\
+Instead of proving $P \implies Q$, prove $(P_1 \implies Q) \land (P_2 \implies Q) \land ... \land (P_n \implies Q)$
+We can do this because\dots \smallbreak {\small 
+\begin{tabular}{r l l l}
+	\eqtbitem[$P_1 \lor P_2 \lor ... \lor P_n \implies Q$]{$\neg(P_1 \lor P_2 \lor ... \lor P_n) \lor Q$}{} \\
+	\eqtbitem[]{$(\neg P_1 \land \neg P_2 \land ... \land \neg P_n) \lor Q$}{} \\
+	\eqtbitem[]{$(\neg P_1 \lor Q) \land (\neg P_2 \lor Q) \land ... \land (\neg P_n \lor Q)$}{} \\
+	\eqtbitem[]{$(P_1 \implies Q) \land (P_2 \implies Q) \land ... \land (P_n \implies Q)$}{}
+\end{tabular}
+}
+
+\bigbreak
+
+\textbf{Examples} \\
+\exheader[1] Prove that "If $n$ is an even integer, $4 \le n \le 12$ then $n$ is the sum of two prime numbers." \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item We prove this for each value of $n$ within the domain:
+	\begin{itemize}
+		\item $n = 4 = 2 + 2$
+		\item $n = 6 = 3 + 3$
+		\item $n = 8 = 3 + 5$
+		\item $n = 10 = 5 + 5$
+		\item $n = 12 = 5 + 7$
+	\end{itemize}
+	\item This completes the proof
+\end{itemize}
+\bigbreak
+\exheader[2] Prove that "For any two numbers $x$ and $y$, $\|x||y| = |xy|$." \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item There are 4 cases:
+	\begin{enumerate}
+		\item $ x \ge 0, \ y \ge 0$
+		\begin{itemize}
+			\item $xy \ge 0$ and $|xy| = xy = |x||y|$
+		\end{itemize}
+		\item $ x \ge 0, \ y < 0$
+		\begin{itemize}
+			\item $xy \le 0$ and $|xy| = -xy = x(-y) = |x||y|$
+		\end{itemize}
+		\item $ x < 0, \ y \ge 0$
+		\begin{itemize}
+			\item $xy \le 0$ and $|xy| = -xy = (-x)y = |x||y|$
+		\end{itemize}
+		\item $ x < 0, \ y < 0$
+		\begin{itemize}
+			\item $xy > 0$ and $|xy| = (-x)(-y) = |x||y|$
+		\end{itemize}
+	\end{enumerate}
+	\item Therefore, $|x||y| = |xy|$
+\end{itemize}
+
+\pagebreak
+
+\subsection{Disproving a Statement \& Proof Strategies}
+\bigbreak
+\subsubsection*{Disproving a Statement}
+Find a counterexample of the statement!
+For example, "Every positive integer is the sum of the squares of two positive integers" \\ Proof:
+\vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item 3 cannot be written as the sum of squares of two integers.
+	\item To show this, note that the only possible integers are 0 and 1. And it is not possible to write 3 by summing the squares of 0 and 1 (or just 1 twice).
+\end{itemize}
+\bigbreak
+\subsubsection*{What Makes a Good Proof?}
+\begin{itemize}
+	\item State your game plan.
+	\item Keep a linear flow.*
+	\item A proof is an essay, not a calculation!
+	\item Avoid excessive symbolism.
+	\item Revise and simplify.
+	\item Introduce notation thoughtfully.
+	\item Structure long proofs.
+	\item \sidenote[One of the examples was showing 2k was even!] Be wary of the "obvious"
+\end{itemize}
+
+\bigbreak
+
+\subsubsection*{Proof Strategies}
+\begin{itemize}
+	\item Understand the definitions
+	\item Analyze the meaning of the hypothesis and the conclusion
+	\item Prove the statement using one of the proof methods.
+	\item Use forward and backward reasoning.
+\end{itemize}
+
+\todo[inline]{TODO: "Whats wrong with the proof" examples!}
 
 
 
