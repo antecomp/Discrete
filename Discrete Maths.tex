@@ -1659,7 +1659,97 @@ For example, "Every positive integer is the sum of the squares of two positive i
 	\item Use forward and backward reasoning.
 \end{itemize}
 
-\todo[inline]{TODO: "Whats wrong with the proof" examples!}
+\pagebreak
+
+\subsubsection*{Example: Incorrect Proofs}
+The examples below contain proofs with some sort of highlighted issue related to the strategies and pitfalls mentioned above.
+\bigbreak
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{images/wrongproof-1.png} \\
+	\includegraphics[width=0.7\textwidth]{images/wrongproof-2.png} \\
+	\includegraphics[width=0.7\textwidth]{images/wrongproof-3.png} \\
+\end{center}
+
+\pagebreak
+
+\subsection{Proof by Induction}
+If you can prove that you can get to $P(n+1)$ from $P(n)$ and also prove that just $P(1)$ is true you can prove $\forall n \ P(n)$ since you're starting at 1 being true and saying anything following it will also be true.
+\intextnote[if $P(1)$ is true and $\forall k \ (P(k) \implies P(k+1))$ is true. Then we just follow $P(1) \implies P(2)$, $P(2) \implies P(3)$ and so on...]
+\smallbreak \cul{More specifically};
+\begin{itemize}[label={}, leftmargin=0.3cm]
+	\item Let P be a predicate on positive integers. If\dots
+	\begin{enumerate}
+		\item \cul{Basis Step:} $P(1)$ is true.
+		\item \cul{Inductive Step:} $\forall k \ (P(k) \implies P(k+1))$ is true.
+		\begin{itemize}
+			\item {\small You prove this by assuming P(k) is true for an arbitrary positive integer k and show that P(k+1) is true.}
+		\end{itemize}
+	\end{enumerate}
+	\item P(n) is true for all positive integers.
+\end{itemize}
+
+\bigbreak
+
+\subsubsection*{General Steps / Template}
+\begin{enumerate}
+	\item Translate into the form “For all $n \ge b, P(n)$” for a fixed integer $b$.
+	\item Write out the words “Basis step.” Then show that $P(b)$ is true.
+	\begin{itemize}
+		\item {\small This is often just a basic sub-in and proving equality.}
+	\end{itemize}
+	\item Write out the words “Inductive step.”
+	\begin{enumerate}
+		\item State and clearly identify the inductive hypothesis, in the form “Assume that $P(k)$ is true for an arbitrary (fixed) integer $k \ge b.$”
+		\item State what needs to be proved under the assumption that the inductive hypothesis is true, i.e., write out what $P(k + 1)$ says.
+		\item Prove $P(k + 1)$ to be true using the assumption P(k) is true.
+	\end{enumerate}
+	\item Finally, state the conclusion.
+\end{enumerate}
+
+
+\pagebreak
+
+\subsubsection{Examples}
+
+\exheader[1] Prove: $1 + 2 + 3 + ... + n = \frac{n(n+1)}{2}$ for any positive integer n.
+\begin{itemize}[label={}, leftmargin=0.8cm]
+	\item Let $f(n)$ denote $"1+2+3+...+n $
+	\item Basis Step $(n=1)$: $ 1 = 1(1+1)/2$ \textcolor{green}{\checkmark}
+	\item Inductive Step:
+	\begin{itemize}
+		\item Assume that for any arbitrary positive integer $k$, $f(k) = \frac{k(k+1)}{2}$
+		\item We need to show $f(k+1) = \frac{(k+1)(k+2)}{2}$ {\tiny $\leftarrow$ here we're plugging in $k+1$ in for $k$}
+		\item $f(k+1) = 1 + 2 + 3 + ... + k + (k+1) = f(k) + k(k+1) = \frac{k(k+1)}{2} + (k+1) = \frac{(k+1)(k+2)}{2}$
+		\item Thus, the statement is true for $k+1$ as well.
+	\end{itemize}
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] Prove $n^2 > 3n$ for $n \ge 4$ for any positive integer n.
+\begin{itemize}
+	\item Basis step $(n=4)$: we have $4^2 > 3*4$ \textcolor{green}{\checkmark}
+	\item Inductive Step:
+	\begin{itemize}
+		\item Assume that for any arbitrary positive integer $k \ge 4 \ , \ k^2 > 3k$
+		\item We need to show that $(k+1)^2 > 3(k+1)$
+		\item $(k+1)^2 = k^2 + 2k + 1$ \\
+		\begin{tabular}{l l}
+			$> 3k + 2k + 1$ & (by the inductive hypothesis) \\
+			$\ge 3k + 8 + 1$ & ($k \ge 4$) \\
+			$> 3k + 3$ & \\
+			$=3(3+1)$ & {\tiny $\leftarrow$ remember this is what we were trying to reduce the RHS to prove $(k+1)^2 > 3(k+1)$}
+		\end{tabular}
+	\end{itemize}
+	\item this completes the proof
+\end{itemize}
+
+
+
+
+
+
+
 
 
 
@@ -1668,3 +1758,4 @@ For example, "Every positive integer is the sum of the squares of two positive i
 
 
 
+ 
