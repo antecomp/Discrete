@@ -517,7 +517,6 @@ For more complex propositions it is impractical to create a set of massive truth
 	\item DeMorgan's Laws: $\neg (A \land B) \equiv \neg A \lor \neg B $ \hspace*{1.5em} $\neg (A \lor B) \equiv \neg A \land \neg B$
 	\item Implication Laws: $ A \implies B \equiv \neg B \implies \neg A \equiv \neg A \lor B$
 \end{itemize}
-\todo[inline]{TODO: Maybe refomat this as a table so its a bit easier to quickly reference?}
 % in solving these, our goal is to reduce the # of letters in the props. - do the side with more stuff going on :)
 
 \pagebreak
@@ -670,8 +669,7 @@ We can't use a truth table to validate an argument since it only shows the truth
 	\end{tabular}
 \end{center}
 
-\intextnote[Each line of these rules are basically "if this prop is true and if that prop is true then the last prop is true"]
-\todo[inline]{TODO: rewrite this note, its not exactly correct...}
+\intextnote[The items above the line can be combined/transformed into a new proof step defined below the line]
 
 \pagebreak
 
@@ -757,7 +755,6 @@ Prove $A \land (B \implies C) \land ((A \land B) \implies (D \lor \neg C)) \land
 	\item $C$ \hspace*{3cm} (2,4)
 	\item $D$ \hspace*{3cm} (7,8)
 \end{enumerate}
-\todo[inline]{TODO: ADD MORE NOTES TO THIS ONE, I GENIUNELY AM NOT FOLLOWING THE PROCESS HERE}
 
 \bigbreak
 
@@ -1248,7 +1245,6 @@ However, these rules are not enough, predicates will utilize \cul{four new infer
 \faInfoCircle \ \emph{The first two rules can be used to remove the quantifiers in front of the predicates. \\ The last two rules can be used to add quantifiers to the front of predicates}
 \bigbreak
 \textbf{Let's look at all of these in more depth...}
-\todo[inline]{\small TODO: Add info on how these work in the actual proofs as a direct use, for example look at how EI is used in step 3 in the last example}
 
 
 \pagebreak
@@ -1383,6 +1379,203 @@ $P(a)$ can imply $\exists x \ P(x)$, where $a$ is a particular element.
 	8. & $P(a) \land \neg B(a)$ & (6,7) \\
 	9. & $\exists x (P(x) \land \neg B(x))$ & (8,EG)
 \end{tabular}
+\todo[inline]{TODO: Add HW answers as examples later, HW had some weird situations that would be good to note.}
+
+
+\pagebreak
+\subsubsection{Chapter 1 Cheatsheet}
+\smallbreak
+\begin{tabular}{|c|c|c|c|c|l}
+	\hline
+	\rowcolor{lightgray} \multicolumn{5}{|c|}{Connectives} \\
+	\hline
+	\hline
+	$\land$ & $\lor$ & $\implies$ & $\iff$ & $\neg$ \\
+	AND & OR & IMPLIES & BICONDITIONAL & NEGATION \\
+	\hline
+	A and B & A or B & If A then B & A if and only if B & Not A \\
+	\hline
+	Both True & Either's True & $\star$ & A = B & - \\
+	\hline
+\end{tabular} 
+\begin{tabular}{l}
+	\\
+	\\
+	\\
+	\\
+	\\
+	{\tiny $\leftarrow$ true when} \\
+	\\
+\end{tabular}
+\emph{$\star$ - An implication is only false when A is true and B is false. {\tiny ref truth tables (1.2.2)}}
+\bigbreak
+
+\small
+\begin{tabular}{ |p{0.4\textwidth}|p{0.5\textwidth}|}
+	\hline
+	\rowcolor{lightgray} \multicolumn{2}{|c|}{Equivalence Laws} \\
+	\hline
+	\hline
+	Double Negation Laws	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt, parsep=0pt]
+		\item $\neg(\neg A) \equiv A$
+	\end{itemize} \\
+	\hline
+	Identity Laws	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt]
+		\item $A \land T \equiv A$
+		\item $A \lor F \equiv A$
+	\end{itemize} \\
+	\hline
+	Domination Laws	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt]
+		\item $A \lor T \equiv T$
+		\item $A \land F \equiv F$
+	\end{itemize} \\
+	\hline
+	Communicative Laws	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt]
+		\item $A \land B \equiv B \land A$
+		\item $A \lor B \equiv B \lor A$
+	\end{itemize} \\
+	\hline
+	Associative Laws	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt]
+		\item $(A \land B) \land C \equiv A \land (B \land C)$
+		\item $(A \lor B) \lor C \equiv A \lor (B \lor C) $
+	\end{itemize} \\
+	\hline
+	Idempotent Laws	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt]
+		\item $A \land A \equiv A$
+		\item $A \lor A \equiv A$
+	\end{itemize} \\
+	\hline
+	Distributive Laws	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt]
+		\item $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$
+		\item $A \land (B \lor C) \equiv (A \land B) \lor (A \land C)$
+	\end{itemize} \\
+	\hline
+	DeMorgans Laws	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt]
+		\item $\neg (A \land B) \equiv \neg A \lor \neg B$
+		\item $\neg (A \lor B) \equiv \neg A \land \neg B$
+	\end{itemize} \\
+	\hline
+	Implication Laws	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt]
+		\item $A \implies B \equiv \neg B \implies \neg A$
+		\item $A \implies B \equiv \neg A \lor B$
+	\end{itemize} \\
+	\hline
+	Not a law, but helpful biconditional equivalence...	& \begin{itemize}[leftmargin=*, label={}, noitemsep,topsep=0pt]
+		\item $A \iff B \equiv (A \implies B) \land (B \implies A)$
+	\end{itemize} \\
+\hline
+\end{tabular}
+\normalsize
+\pagebreak
+
+\begin{tabular}{|c|c|}
+	\hline
+	\rowcolor{lightgray} \multicolumn{2}{|c|}{Inference Rules} \\
+	\hline
+	\hline
+	$
+			{
+				\begin{array}{l}
+					P \\
+					P \implies Q \\
+					\hline
+					\therefore Q
+				\end{array}
+			}
+	$ & Modus Ponens \\
+	\hline
+	$
+			{
+				\begin{array}{l}
+					P \implies Q \\
+					\neg Q \\
+					\hline
+					\therefore \neg P
+				\end{array}
+			}
+	$ & Modus Tollens \\
+	\hline
+	$
+			{
+				\begin{array}{l}
+					P \implies Q \\
+					Q \implies R \\
+					\hline
+					\therefore P \implies R
+				\end{array}
+			}
+	$ & Hypothetical Syllogism \\
+	\hline
+	$
+			{
+				\begin{array}{l}
+					P \lor Q \\
+					\neg P \\
+					\hline
+					\therefore Q
+				\end{array}
+			}
+	$ & Disjunctive Syllogism \\
+	\hline
+	$
+			{
+				\begin{array}{l}
+					P \\
+					Q \\
+					\hline
+					\therefore P \land Q
+				\end{array}
+			}
+	$ & Conjunction \\
+	\hline
+	$
+			{
+				\begin{array}{l}
+					P \lor Q \\
+					\neg P \lor R \\
+					\hline
+					\therefore Q \lor R
+				\end{array}
+			}
+	$ & Resolution \\
+	\hline
+	$
+			{
+				\begin{array}{l}
+					P \\
+					\hline
+					\therefore P \lor Q
+				\end{array}
+			}
+	$ & Addition \\
+	\hline
+	$
+	{
+		\begin{array}{l}
+			P \land Q \\
+			\hline
+			\therefore P
+		\end{array}
+	}
+$ & Simplification \vspace*{-0.5cm} \\
+&   {\tiny \faInfoCircle you're basically "pulling" p out to its own line} \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|}
+	\hline
+	\rowcolor{lightgray} \multicolumn{2}{|c|}{Quantified Inference Rules} \\
+	\hline
+	\hline
+\end{tabular}
+
+
+
+\smallbreak
+\emph{\faInfoCircle These names don't really matter for this class}
+
+\todo[inline]{TODO: Quantified Statement Inf Rules (ref saved screenshot) + other misc helpful stuff like negations of quantifiers. Just look up and copy-paste important details $\smiley$}
+
 
 
 
