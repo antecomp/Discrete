@@ -1902,7 +1902,8 @@ If you can prove that you can get to $P(n+1)$ from $P(n)$ and also prove that ju
 
 \pagebreak
 
-\subsubsection{Examples}
+\vspace*{-1cm}
+\subsubsection{Examples} \sidenote[Note: there's a ton of additional practice problems on the 9/19 slides if needed.]
 
 \exheader[1] Prove: $1 + 2 + 3 + ... + n = \frac{n(n+1)}{2}$ for any positive integer n.
 \begin{itemize}[label={}, leftmargin=0.8cm]
@@ -1911,7 +1912,7 @@ If you can prove that you can get to $P(n+1)$ from $P(n)$ and also prove that ju
 	\item Inductive Step:
 	\begin{itemize}
 		\item Assume that for any arbitrary positive integer $k$, $f(k) = \frac{k(k+1)}{2}$
-		\item We need to show $f(k+1) = \frac{(k+1)(k+2)}{2}$ {\tiny $\leftarrow$ here we're plugging in $k+1$ in for $k$}
+		\item We need to show $f(k+1) = \frac{(k+1)(k+2)}{2}$ \emph{\tiny $\leftarrow$ here we're plugging in $k+1$ in for $k$}
 		\item $f(k+1) = 1 + 2 + 3 + ... + k + (k+1) = f(k) + k(k+1) = \frac{k(k+1)}{2} + (k+1) = \frac{(k+1)(k+2)}{2}$
 		\item Thus, the statement is true for $k+1$ as well.
 	\end{itemize}
@@ -1920,7 +1921,7 @@ If you can prove that you can get to $P(n+1)$ from $P(n)$ and also prove that ju
 \bigbreak
 
 \exheader[2] Prove $n^2 > 3n$ for $n \ge 4$ for any positive integer n.
-\begin{itemize}
+\begin{itemize}[label={}, leftmargin=0.8cm]
 	\item Basis step $(n=4)$: we have $4^2 > 3*4$ \textcolor{green}{\checkmark}
 	\item Inductive Step:
 	\begin{itemize}
@@ -1936,6 +1937,129 @@ If you can prove that you can get to $P(n+1)$ from $P(n)$ and also prove that ju
 	\end{itemize}
 	\item this completes the proof
 \end{itemize}
+
+\bigbreak
+
+\exheader[3] Prove $7^n - 2^n$ is divisible by 5 for \cul{any positive integer $n$}
+\begin{itemize}[label={}, leftmargin=0.8cm]
+	\item Basis Step: $(n=1)$: we have $7-2=5$, which is divisible by 5.
+	\item We need to show that $7^{k+1} - 2^{k+1}$ is divisible by 5
+	\item Induction Step:
+	\begin{itemize}
+		\item Assume that for any arbitrary positive integer $k$, $7^k - 2^k$ is divisible by 5.
+		\item We need to show that $7^{k+1} - 2^{k+1}$ is divisible by 5. \\
+		\begin{tabular}{rcl}
+			$7^{k+1} - 2^{k+1}$ & = & $7*7^k - 2 * 2^k$ \\
+			& = & $7 * 7^k - 7 * 2^k + 5 * 2^k$ \\
+			& = & $ 7 * (7^k - 2^k) + 5 * 2^k$ \\
+			\multicolumn{3}{l}{By the inductive hypothesis, $7 * (7^k - 2^k)$ is divisible by 5,} \\
+			\multicolumn{3}{l}{thus $7^{k+1} - 2^{k+1}$ is divisible by 5.}
+		\end{tabular}
+	\end{itemize}
+	\item this completes the proof
+\end{itemize} \bigbreak
+
+\pagebreak
+
+\vspace*{-2cm}
+\subsection{Strong Induction}
+% P(1) does not necessarily mean integer 1- its just the starting element of thje set.
+% this method has more assumptions at the start that we can use for the proof as we're assuming a bunch of elements up to P(k) is true.
+\horizline
+Let P be a predicate on positive integers. If...
+\begin{enumerate}
+	\item $P(1)$ is true.
+	\begin{itemize}[label={\small \faInfoCircle}]
+		\item {\small This doesn't necessarily mean integer positive 1. This is wherever the set begins.}
+	\end{itemize}
+	\item $\forall k (P(1) \land P(2) \land P(3) \land ... \land P(k) \implies P(k+1))$
+\end{enumerate}
+Then $P(n)$ is true for all positive integers. \\
+\horizline 
+This method has more assumptions that can be utilized for the proof as it's assuming a bunch of elements \emph{up to} $P(k)$ are true. \smallbreak
+The template is nearly identical to our proof by induction.
+
+\subsubsection*{Induction vs Strong Induction}
+\begin{itemize}
+	\item Induction applies when information about "one position back" is enough for the inductive sterp.
+	\item Strong induction applies when you cannot directly prove that $P(k+1)$ is true \cul{just because you know $P(k)$ is true}.
+\end{itemize}
+\intextnote[Technically, you could use either type for a proof (as their technically equivalent). However, each is significantly easier for different types of proofs.]
+
+\bigbreak
+\subsubsection{Examples} \sidenote[Theres also extra excercises for this on the 9/26 slides.]
+
+\bigbreak
+
+% we're going to utilize proof by cases to split k+1 into our two possible conditions
+\exheader[1] Prove: every integer $ n > 1$ is prime or a product of primes.
+\begin{itemize}[label={}, leftmargin=0.8cm]
+	\item Basis step $(n=2)$: 2 is prime.
+	\item Inductive step.
+	\begin{itemize}
+		\item Assume that for any integer $ k \ge 2$, the statement is true for any integer $r$, where $2 \le r \le k$
+		\item We need to show that $k+1$ is prime or a product of primes. \\ {\tiny \faInfoCircle we can split it into two the separate conditions using proof by cases.}
+		\begin{itemize}
+			\item If $k+1$ is prime, we're done.
+			\item If $k+1$ isn't prime, then $k+1 = ab$, where $1 < a < k+1$ and $1 < b < k+1$, or equivalently $2 \le a \le k$, $2 \le b \le k$. Based on this assumption, $a$ and $b$ are either prime or the product of primes. Thus, $k+1 = ab$ is a product of primes.
+		\end{itemize}
+	\end{itemize}
+	\item This completes the proof
+\end{itemize}
+
+\pagebreak
+
+% method 2 lets us put more stuff in the basis step to avoid so many cases in the inductive step.
+
+\exheader[2] Prove any amount of postage greater than or equal to 8 cents can be built using only 3-cent and 5-cent stamps.
+\begin{itemize}[label={}, leftmargin=0.8cm]
+	\item Basis Step $(n=8)$: $8 = 3 + 5$
+	\item Inductive Step
+	\begin{itemize}
+		\item Assume that given any positive integer $k \ge 8$, the statement is true for any integer $r$, where $8 \le r \le k$.
+		\item Show that $k+1$ can be built using only 3-cent and 5-cent stamps.
+		\begin{itemize}
+			\item Case 1: $(k+1 = 9)$: $9$ 
+			\item Case 2: $(k + 1 = 10)$: $10 = 5 + 5$
+			\item Case 3 $(k+ 1 \ge 11)$: $k + 1 = k -2 + 3$. Since $k -2 \ge 8$, $k-2$ can be written as the sum of 3's and 5's. Thus $k+1$ can be written as a sum of 3's and 5's.
+		\end{itemize}
+	\end{itemize} 
+	\item This completes the proof.
+\end{itemize}
+
+Thats a lot of cases to go through in the induction steps! Let's do this example again but let's add more base cases in the basis step to avoid adding proof by cases within the inductive step.
+
+\exheader[2.1] Prove any amount of postage greater than or equal to 8 cents can be built using only 3-cent and 5-cent stamps.
+\begin{itemize}[label={}, leftmargin=0.8cm]
+	\item Basis Step: $(n=8,9,10)$: $8 = 3+5, 9=3+3+3, 10=5+5$
+	\item Inductive Step:
+	\begin{itemize}
+		\item Assume that given any positive integer $k \ge 10$, the statement is true for any integer $r$, where $8 \le r \le k$
+		\item Show that $k+1$ can be built using only 3-cent and 5-cent stamps.
+		\item \sidenote[this connects our inductive step to our basis step]$k+1 = k-2 + 3$. Since $k -2 \ge 8$, $k-2$ can be written as the sum of 3's and 5's.
+		\item Thus, $k+1$ can be written as the sum of 3's and 5's.
+	\end{itemize}
+	\item This completes the proof.
+\end{itemize}
+
+\todo[inline]{TODO: add the tribonacci sequence exercise (its very different than the other examples covered)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
