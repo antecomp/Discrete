@@ -2045,7 +2045,150 @@ Thats a lot of cases to go through in the induction steps! Let's do this example
 \todo[inline]{TODO: add the tribonacci sequence exercise (its very different than the other examples covered)}
 
 
+\pagebreak
 
+
+\section{Sets}
+\define[A \textcolor{blue}{\cul{set}} is an unordered collection of objects, which are called the members or elements of the set.]
+
+\subsection{Set Basics}
+\begin{itemize}[leftmargin=*, label={}]
+	\item A Set is denoted by a capital letter with it's elements contained within curly brackets (comma seperated).
+	\begin{itemize}
+		\item C = $\{$red, green, blue$\}$
+	\end{itemize}
+	\item $y \in S$ means that $y$ is a member or an element of $S$, \\ $y \not \in S$ means that $y$ is not a member or an element of S.
+	\begin{itemize}
+		\item red $\in$ C = $\{$red, green, blue$\}$, but yellow $\not \in$ C.
+	\end{itemize}
+	\item Sets have no order!
+	\begin{itemize}
+		\item $\{x,y\}$ is the same as $\{y,x\}$
+	\end{itemize}
+	\item Each element only occurs once in a set.
+	\begin{itemize}
+		\item $\{x,x\} \rightarrow {x}$
+	\end{itemize}
+	\item You can have sets of sets... 
+	\begin{itemize}
+		\item  $\{\{a, b\}, \{\{b\}\}, \{\{e\}, f\}\}$
+	\end{itemize}
+\end{itemize} 
+\bigbreak
+
+\textbf{Standard Sets} \smallbreak
+\begin{tabular}{l c l l}
+	$\mathbb{N}$ & = & Set of all nonnegative integers & $\mathbb{N} = \{0,1,2,3,\dots\}$ \\
+	$\mathbb{Z}$ & = & Set of all integers & $\mathbb{Z} =  \{\dots , --3, -2, -1, 0, 1, 2, 3 \dots \}$ \\
+	$\mathbb{Q}$ & = & Set of all rational numbers & $\frac{1}{2}, \frac{-3}{5}, 16 \dots$ \\
+	$\mathbb{R}$ & = & Set of all real numbers & $\pi, e, -9, \sqrt{2} \dots$ \\
+	\vspace*{-0.25cm}$\varnothing$& = & Empty set & A set with no elements. \\
+	\multicolumn{4}{l}{\tiny \faInfoCircle Note that $\varnothing$  is not the same as $\{\varnothing \}$ }
+\end{tabular} \vspace*{-0.5cm} \intextnote[A superscript of "+" restricts a set to its positive elements]
+\bigbreak
+
+\textbf{Describing a Set}
+\begin{itemize}[leftmargin=*, label={}]
+	\item List all the elements.
+	\begin{itemize}
+		\item Set of all positive even integers: S = $\{2, 4, 6, 8, \dots  \}$
+	\end{itemize}
+	\item Characterize the property of the elements - \sidenote[this essentially means all $x$ \underline{such that} $P(x)$ is true]$\{x | P(x) \}$
+	\begin{itemize}
+		\item Set of all positive even integers: \sidenote[you can also use $\land$ instead of "and" here.] S = $\{x | x > 0 \textnormal{ and } x = 2k \textnormal{ for } k \in \mathbb{N} \}$
+	\end{itemize}
+\end{itemize}
+\pagebreak
+
+\subsubsection{Examples}
+\exheader[1] Describe the following sets by listing their elements:
+\begin{enumerate}
+	\item \{ x | x $\in \mathbb{N}$ and 3 $<$ x $\le$ 7 \}
+	\begin{itemize}[label={\faAngleRight}]
+		\item   $\{ 4,5,6,7 \}$
+	\end{itemize}
+	\item \{ x | x  is a month with exactly 30 days \}
+	\begin{itemize}[label={\faAngleRight}]
+		\item   \{ April, June, September, November \}
+	\end{itemize}
+	\item \{ x | x is the capital of the United States \}
+	\begin{itemize}[label={\faAngleRight}]
+		\item \{ Washington DC \}
+	\end{itemize}
+\end{enumerate}
+\bigbreak
+\exheader[2] Describe the following sets by giving a charactering property.
+\begin{enumerate}
+	\item \{ 1, 4, 9, 16 \}
+	\begin{itemize}[label={\faAngleRight}]
+		\item \{ x | 1 $\le$ x $\le$ 16 and x = k$^2$ for k $\in \mathbb{N}$ \}
+	\end{itemize}
+	\item \{ 2, 3, 5, 7, 11, 13, 17, ... \} 
+	\begin{itemize}[label={\faAngleRight}]
+		\item \{ x | x is prime \}
+	\end{itemize}
+\end{enumerate}
+\bigbreak
+\exheader[3] Simplify the descriptions of the following sets:
+\begin{enumerate}
+	\item A = \{ x | $\exists$ y (y $\in$ \{0,1,2\} and x = y$^3$)\}
+	\begin{itemize}
+		\item A = \{0,1,8 \}
+	\end{itemize}
+	\item  B = \{ x | x $\in \mathbb{N}$ and $\exists$ y (y $\in \mathbb{N}$ and x $\le$ y)\}
+	\begin{itemize}
+		\item B = $\mathbb{N}$
+	\end{itemize}
+	\item C = \{  x | x $\in \mathbb{N}$ and $\forall$ y (y $\in \mathbb{N} \implies $x $\le$ y)\}
+	\begin{itemize}
+		\item C = \{ 0 \}
+	\end{itemize}
+\end{enumerate}
+
+\pagebreak
+
+\subsection{Relationships Between Sets}
+There are three main set relationships important to this class;
+\begin{center}
+	\begin{tabular}{c c c}
+		Subset & Equal & Proper Subset
+	\end{tabular}
+\end{center}
+\horizline
+
+
+% making this table gave me cancer
+\begin{tabular}{|p{0.14\textwidth}|p{0.28\textwidth}|p{0.5\textwidth}|}
+	\hline
+	\rowcolor{lightgray} Relationship & Definition & Details \\
+	\hline
+	\hline
+	\rule{0pt}{4ex}\textbf{Subset} & A is a \cul{subset} of B if every element of A is also in element B & \begin{itemize}[leftmargin=*, label={}]
+		\item Denoted by: $A \subseteq B$
+		\item 
+		\item Logical Representation: 
+		\item $\forall x (x \in A \implies x \in B)$
+	\end{itemize} \\ \hline
+	\rule{0pt}{4ex}\textbf{Equal} & Two sets are \cul{equal} if and only if they contain the same elements & \begin{itemize}[leftmargin=*, label={}]
+		\item Denoted by A = B
+		\item 
+		\item Logical Representation: 
+		\item $\forall x \ (x \in A \iff x \in B)$
+		\item {\tiny or $\forall x \ (x \in A \implies x \in B) \land \forall x \ (x \in B \implies x \in A)$}
+		\item 
+		\item A = B if and only if A $\subseteq$ B $\land$ B $\subseteq$ A
+	\end{itemize} \\ \hline
+	\rule{0pt}{4ex}\textbf{Proper Subset} & If A $\subseteq$ B but A $\not =$ B, then A is a \cul{proper subset} of B & \begin{itemize}[leftmargin=*, label={}]
+		\item Denoted By A $\subset$ B
+		\item 
+		\item Logical Representation: 
+		\item {\small $\forall x \ (x \in A \implies x \in B) \land  \exists x \ (x \in B \land x \not \in A)$}
+	\end{itemize} \\ \hline
+\end{tabular}
+
+\todo[inline]{TODO: add examples, proving the relationships}
+
+% {x | P(x)} - all arbitary nums x such that P(x) is true.
 
 
 
