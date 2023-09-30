@@ -2185,12 +2185,83 @@ There are three main set relationships important to this class;
 		\item {\small $\forall x \ (x \in A \implies x \in B) \land  \exists x \ (x \in B \land x \not \in A)$}
 	\end{itemize} \\ \hline
 \end{tabular}
+\bigbreak
+\subsubsection*{Example}\sidenote[Theres additional examples and excercises in the 9/28 slides if needed.]
 
-\todo[inline]{TODO: add examples, proving the relationships}
+\exheader[1] Let A = \{ 1, 7, 9, 15\}, B = \{7, 9\}, C = \{7, 9, 15, 20\} \\ Then the following statements are all true; \\ 
+\begin{tabular}{c  c  c  c  c  c  c}
+	B $\subseteq$ C & \{7,9\} $\subseteq$ B & B  $\subset$ A  & \{7\} $\subset$ A & B $\subseteq$ A & $\varnothing \subseteq$ C & 15 $\in$ C \\
+\end{tabular} \smallbreak
+{\small "$\varnothing \subseteq$ C" is easier to understand if you look at the logical representation: \\ $\forall x (x \in \varnothing \implies x \in C) \ \rightsquigarrow \forall x (\textnormal{F} \implies x \in C)$ \\ Since $\varnothing$ is an empty set, the first part of that implication is false (x cant be in nothing). Meaning the entire statement is true.}
+\pagebreak
 
-% {x | P(x)} - all arbitary nums x such that P(x) is true.
+\subsection{Proving the relationships}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Prove that $a \in$ A = \{x | P(x)\}
+	\begin{itemize}
+		\item Show that P($a$) is true.
+	\end{itemize}
+	\item Prove that A $\subseteq$ B = \{x | P(x)\}
+	\begin{itemize}
+		\item Pick an arbitrary x $\in$ A and show that P(x) holds.
+	\end{itemize}
+	\item Prove that A $\subset$ B  = {x | P(x)}
+	\begin{itemize}
+		\item Prove that A $\subseteq$ B but there exists $a in$ B such that $a \not \in$ A.
+	\end{itemize}
+	\item Prove that A = B
+	\begin{itemize}
+		\item A = B means $\forall x (x \in \textnormal{A} \implies x \in \textnormal{B}) \land \forall x (x \in \textnormal{B} \implies x \in \textnormal{A})$
+		\item Equivalently, A = B if and only if A $\subseteq$ B $\land$ B $\subseteq$ A.
+		\item Prove that A $\subseteq$ B and B $\subseteq$ A.
+	\end{itemize}
+\end{itemize}
+\bigbreak
+\subsubsection{Examples}
+\bigbreak
 
+\exheader[1] \sidenote[bruh]  Let A = \{ x | x is a multiple of 8\}, and B = \{ x | x is a multiple of 4\}. \\ Prove that A $\subseteq$ B. \\
+Proof:
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let x $\in$ be any arbitrary element.
+	\item We need to show that x is a multiple of 4.
+	\item Since x is a multiple of 8, x = 8k for some k $\in \mathbb{Z}$
+	\item x = 8k = 4*2k = 4m, where m = 2k.
+	\item Thus x is a multiple of 4 and x $\in$ B. So A $\subseteq$ B.
+	\item (Some numbers, like 12, are multiples of 4 but not 8. So A $\subset$ B)
+\end{itemize}
+\pagebreak
+\exheader[2] Let A = \{ x  | x $\in \mathbb{R}$ and x$^2$-4x+3 = 0\}, and B = \{ x | x $\in \mathbb{N}$ and 1 $\le$ x $\le$ 4\}. \\ Prove that A $\subset$ B. \\
+Proof:
+\begin{itemize}[leftmargin=*, label={}]
+	\item \sidenote[Since there's only two elements, we can just prove each directly.] A can be written as A = {1, 3} {\tiny (just solving for when x satisfies that eq)}
+	\item Let x $\in$ A. We need to show that x $\in \mathbb{N}$ and 1 $\le$ x $\le$ 4. Thus x $\in$ B.
+	\item If x = 3, then x $\in \mathbb{N}$ and 1 $\le$ x $\le$ 4. Thus x $\in$ B.
+	\begin{itemize}
+		\item Same idea for 1.
+	\end{itemize}
+	\item So A $\subseteq$ B.
+	\item 2 $\in$ B but $\not \in$ A. So A $\subset$ B.
+\end{itemize} 
+\bigbreak
 
+\exheader[3] Let A = \{ x | x $\in \mathbb{N}^+$ and x$^2$ < 15\}, and B = \{ x | x $\in \mathbb{N}^+$ and 2x < 7\}. \\ Prove that A = B. \\
+\sidenote[We're essentially just showing that the items of each of these sets are the same.]Proof:
+\begin{itemize}[leftmargin=*, label={}]
+	\item A  $\subseteq$ B
+	\begin{itemize}
+		\item Let x $\in$ A. Then x can be 1, 2 or 3.
+		\item 2x < 7 for any of these three integers.
+		\item Thus x $\in$ B and A $\subseteq$ B.
+	\end{itemize}
+	\item B $\subseteq$ A  
+	\begin{itemize}
+		\item Let x $\in$ B. Then x can be 1, 2 or 3.
+		\item x$^2$ < 15 for any of these three integers.
+		\item Thus x $\in$ A and B $\subseteq$ A.
+	\end{itemize}
+	\item Therefore, we proved that A = B.
+\end{itemize} 
 
 
 
