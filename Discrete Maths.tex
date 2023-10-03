@@ -2098,6 +2098,46 @@ Thats a lot of cases to go through in the induction steps! Let's do this example
 		\item Set of all positive even integers: \sidenote[you can also use $\land$ instead of "and" here.] S = $\{x | x > 0 \textnormal{ and } x = 2k \textnormal{ for } k \in \mathbb{N} \}$
 	\end{itemize}
 \end{itemize}
+
+\pagebreak
+
+\textbf{Size of a Set} \\
+The \cul{size} or \cul{cardinality} of set S is the number of elements in S denoted by |S|.
+\begin{itemize}[leftmargin=*, label={\faAngleRight}]
+	\item A is the set of odd positive integers less than 10. |A| = 5.
+	\item S is the set of letters in the English alphabet. |S|=26
+	\item |$\varnothing$| = 0
+	\item |$\mathbb{N}$| = infinity.
+\end{itemize}
+\bigbreak
+
+\textbf{Power Set} \\
+For a set S, the set consisting of \textbf{all} the subsets of S is called the \cul{power set} of S, denoted by $2^{\textnormal{S}}$.
+$2^{\textnormal{S}}$ = \{x | x $\subseteq$ S\} \\ The size of $2^{\textnormal{S}}$ is $|2^{\textnormal{S}}| =  2^{|\textnormal{S}|}$
+\smallbreak
+\cul{Examples} \\
+\exheader[1] What is the power set of $\varnothing$?
+\begin{itemize}[leftmargin=*, label={}]
+	\item $2^\varnothing = \{ \varnothing \}$
+	\item $|2^\varnothing| = 2^0 = 1$
+\end{itemize}
+\exheader[2] Let S = \{a, b, c\}. What is $2^{\textnormal{S}}$?
+\begin{itemize}[leftmargin=*, label={}]
+	\item The subsets of S:
+	\begin{itemize}[leftmargin=*, label={}]
+		\item $\varnothing$
+		\item \{a\}, \{b\}, \{c\} 
+		\item \{a,b\}, \{a,c\}, \{b,c\}
+		\item \{a,b,c\}
+	\end{itemize}
+	\item $2^{\textnormal{S}}$ = \{$\varnothing$, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
+\end{itemize}
+
+
+
+
+
+
 \pagebreak
 
 \subsubsection{Examples}
@@ -2263,11 +2303,61 @@ Proof:
 	\item Therefore, we proved that A = B.
 \end{itemize} 
 
+\pagebreak
+
+\subsection{Cartesian Product}
+The \cul{Cartesian product} of A and B, denoted by A $\times$ B, is defined as A $\times$ B  = \{(x,y) | x $\in$ A $\land$ y $\in$ B \}. \\
+{\small \emph{This essentially means all the possible ordered pairs you can make with the items in A and B}}.
+\begin{itemize}[leftmargin=*, label={}]
+	\item A $\times \varnothing = \varnothing$, $\varnothing \times$ A $= \varnothing$
+	\item A $\times$ B = B $\times$ A if 
+	\begin{itemize}
+		\item A = B or
+		\item A or B is $\varnothing$ {\tiny as this would satisfy that first bullet point idea.}
+	\end{itemize}
+	\item |A $\times$ B| = |A| $\times$ |B|
+	\item A$^n$ = A $\times$ A $\times$ ... $\times$ A. (n times) 
+	\begin{itemize}
+		\item A$^2$ = A $\times$ A
+		\item A$^3$ = A $\times$ A $times$ A.
+	\end{itemize} {\tiny \vspace*{-0.5cm} Note that these multi-products creates an n-tuple set $(\_,\_,\_,...)$}
+\end{itemize}
+\begin{tabular}{c c c c}
+	In general, & (A $\times$ B) $\times$ C  \ $\not =$ & A $\times$ (B $\times$ C) \ $\not =$ & A $\times$ B $\times$ C. \\
+	& $((\_,\_),\_)$ & $(\_,(\_,\_))$ & $(\_,\_,\_)$
+\end{tabular}
+\\ {\tiny \emph{These would only be equal when A, B, or C = $\varnothing$}}
+\bigbreak
+\textbf{Examples}
+\smallbreak
+\exheader[1] A = \{1,2\}, B = \{2,4\}
+\begin{itemize}[label={}]
+	\item A $\times$ B = \{(1,2), (1,4), (2,2), (2,4)\}
+	\item B $\times$ A = \{(2,1), (4,1), (2,2), (4,2)\}
+\end{itemize}
+\smallbreak
+\exheader[2] A = \{1,2\}
+\begin{itemize}
+	\item A$^2$ = \{(1,1), (1,2), (2,1), (2,2)\} 
+	\item A$^3$ = \{(1,1,1), (1,1,2), (1,2,1), (1,2,2), (2,1,2), (2,2,1) (2,2,2)\}
+\end{itemize}
 
 
 
+\pagebreak
 
+\subsection{Set Operations}
+\begin{center}
+{\small
+\begin{tabular}{c c c c}
+	Union & Intersection & Set Difference & Complement
+\end{tabular}
+}
+\end{center}
+\bigbreak
 
+\subsubsection{Union} 
+The \cul{union} of A and B, denoted by A $\cup$ B is $\{x | x \in $ A $ \lor x \in $ B $\}$
 
 
 
