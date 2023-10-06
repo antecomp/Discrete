@@ -1383,7 +1383,7 @@ $P(a)$ can imply $\exists x \ P(x)$, where $a$ is a particular element.
 
 
 \pagebreak
-\subsubsection{Chapter 1 Cheatsheet}
+\subsection{Chapter 1 Cheatsheet}
 \smallbreak
 \begin{tabular}{|c|c|c|c|c|l}
 	\hline
@@ -2356,14 +2356,130 @@ The \cul{Cartesian product} of A and B, denoted by A $\times$ B, is defined as A
 \end{center}
 \bigbreak
 
-\subsubsection{Union} 
-The \cul{union} of A and B, denoted by A $\cup$ B is $\{x | x \in $ A $ \lor x \in $ B $\}$
+Before each of these operations is introduced, let's look at the \cul{Venn Diagram} as it is an important tool to demonstrate what these operations are "pulling" from the sets. \\
+A set S is called the \cul{universal set} if it contains all objects \sidenote[If we're considering all real numbers then S = $\mathbb{R}$. If we're considering students at Mines, then the set is all students at Mines.]under consideration \smallbreak
+A Venn diagram is used to visualize all possible relations of sets. All within this universal set S (depicted as a box around the Venn Diagram). Reference the image next to every set operations description for a quick visualization of the set relation.
+\intextnote[Note that while Venn diagrams are helpful for illustrating an operation, \\ \cul{they should not be used for a proof}]
+
+\bigbreak
+\horizline
+
+\subsubsection*{Union} 
+
+\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.25\textwidth]{images/venn/AuB.png}
+\end{wrapfigure}
+
+{\small The union of A and B, denoted by A $\cup$ B is $\{x | x \in $ A $ \lor \ x \in $ B $\}$} \vspace*{-0.25cm} \\ {\tiny All the elements in A combined with all the elements in B} \vspace*{-0.25cm} \smallbreak
+\cul{Example}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\}
+	\item Then A $\cup$ B = \{1, 3, 5, 6, 7, 9, 10, 11\}
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\subsubsection*{Intersection}
+
+\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.25\textwidth]{images/venn/AnB.png}
+\end{wrapfigure}
+
+{\small The intersection of A and B, denoted by A $\cap$ B is $\{x | x \in $ A $ \land \ x \in $ B $\}$} \vspace*{-0.25cm} \\ {\tiny The elements that are in both A and B} \vspace*{-0.25cm} \smallbreak
+\cul{Example}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\}.
+	\item Then A $\cap$ B = \{3,5\}
+\end{itemize}
+
+\pagebreak
+
+
+\subsubsection*{Set Difference}
+
+\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.25\textwidth]{images/venn/A-B.png}
+\end{wrapfigure}
+
+{\small The set difference of A and B, denoted by A - B, is $\{x|x \in $ A $ \land \ x \not \in $ B $ \}$} \vspace*{-0.25cm} \\ {\tiny The elements that are in A but not in B} \vspace*{-0.05cm} \\
+{\small Note: A - B = A - (A $\cap$ B)}
+\smallbreak
+
+\cul{Example}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\} 
+	\item Then A - B = \{1, 7, 9\}
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\subsubsection*{Complement}
+\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.25\textwidth]{images/venn/Ap.png}
+\end{wrapfigure}
+
+{\small Let A $\subseteq$ S. The complement of A, denoted by A$'$, is $\{x|x \in $ S $ \land \ x \not \in $ A $\}$} \vspace*{-0.25cm} \\ {\tiny The set of everything \cul{not} in A} \vspace*{-0.25cm} \smallbreak
+
+\cul{Example}
+\begin{itemize}[leftmargin=*, label={}]
+	\item S = $\mathbb{N}$
+	\item A = $\{x | x \in \mathbb{N} \land x = 2k $ for $ k \in \mathbb{N}\}$
+	\item A$'$ = $\{x | x \in \mathbb{N} \land x = 2k + 1$ for $ k \in \mathbb{N}\}$
+\end{itemize}
 
 
 
+\bigbreak
+\bigbreak
 
+\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.25\textwidth]{images/venn/A-B B-A.png}
+\end{wrapfigure}
+\subsubsection*{Set Difference and Intersection}
 
+Two sets A and B are \cul{disjoint} if A $\cap$ B = $\varnothing$. \vspace*{-0.25cm} \\ {\tiny Meaning they have no elements in common} \vspace*{-0.25cm} \smallbreak
+If A and B are disjoint, then A - B = A and B - A = B \smallbreak
+For any A $\subseteq$ S, B $\subseteq$ S, A - B and B - A are disjoint.
 
+\bigbreak
+\bigbreak
+
+\subsubsection*{Set Difference and Complement}
+
+{\small The set difference can be rewritten as $\{x | x \in $ A $ \land \ x \in $ B$'\}$. Therefore, A - B = A $\cap$ B$'$}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.60\textwidth]{images/venn/diffandcomp.png}	
+\end{figure} \vspace*{-0.25cm} \\
+{\tiny \emph{The darkest shaded part is what is actually included by the operation A $\cap$ B$'$, the other shades are the "layers" of each operation}}
+
+\pagebreak
+
+\subsubsection{Proving Relations Involving Set Operations} 
+\vspace*{-0.3cm}
+{\small (Examples)} \\
+In general, its good to start by looking at the Venn Diagram for visually understanding why a statement is true, and deriving the formal proof from there.
+
+\bigbreak
+
+\exheader[1] Prove that A $\cup$ B $\subseteq$ A \\
+{\small \emph{We need to show that for some arbitrary element in A, that element is also in B. \\ $\rightsquigarrow \ x \in A \implies x \in B$ }}
+\\ Proof:
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let x be an arbitrary member of A $\cap$ B. \\
+	\begin{tabular}{l l l}
+		$x \in A \cap B$ & $\implies$ &  $x \in A \land x \in B$ {\tiny \emph{using the definition of intersection here}} \\
+		& $\implies$ & $x \in A$ {\tiny \emph{Treat $x \in A \land x \in B$ as $P \land Q$ and use Simplification Inf' Law}}
+	\end{tabular}
+	\item Therefore, A $\cap$ B $\subseteq$ A. {\tiny \emph{By the definition of subset relation \\ Or intuitively we've shown that any x in A $\cap$ B is also in just A}}
+\end{itemize}
 
 
 
