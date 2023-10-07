@@ -85,6 +85,8 @@
 	\usepackage[colorlinks=true, urlcolor=blue, linkcolor=violet]{hyperref}
 
 
+
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -2367,93 +2369,97 @@ A Venn diagram is used to visualize all possible relations of sets. All within t
 \bigbreak
 \horizline
 
-\subsubsection*{Union} 
-\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
-    \centering
-    \includegraphics[width=0.25\textwidth]{images/venn/AuB.png}
-\end{wrapfigure}
 
+% THIS IS THE OLD BROKEN WAY OF DOING IT THAT BREAKS INDENTATIOIN - KEEPING FOR REF.
+%\begin{wrapfigure}{R}{0.25\textwidth} %this figure will be at the right
+%    \includegraphics[width=0.25\textwidth]{images/venn/AuB.png}
+%\end{wrapfigure}
+%
+%{\small The union of A and B, denoted by A $\cup$ B is $\{x | x \in $ A $ \lor \ x \in $ B $\}$} \vspace*{-0.25cm} \\ {\tiny All the elements in A combined with all the elements in B} \vspace*{-0.25cm} \smallbreak
+%\cul{Example}
+%\begin{itemize}[label={}]
+%	\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\}
+%	\item Then A $\cup$ B = \{1, 3, 5, 6, 7, 9, 10, 11\}
+%\end{itemize}
+
+
+\subsubsection*{Union} 
 {\small The union of A and B, denoted by A $\cup$ B is $\{x | x \in $ A $ \lor \ x \in $ B $\}$} \vspace*{-0.25cm} \\ {\tiny All the elements in A combined with all the elements in B} \vspace*{-0.25cm} \smallbreak
+\begin{minipage}[t]{0.7\linewidth}
 \cul{Example}
-\begin{itemize}[label={}]
+\begin{itemize}[leftmargin=*, label={}]
 	\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\}
 	\item Then A $\cup$ B = \{1, 3, 5, 6, 7, 9, 10, 11\}
 \end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.25\linewidth}
+    \centering
+    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/venn/AuB.png}
+  \end{minipage}
 
-\bigbreak
 \bigbreak
 
 \subsubsection*{Intersection} \label{sec:intersectiondef}
-
-\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
-    \centering
-    \includegraphics[width=0.25\textwidth]{images/venn/AnB.png}
-\end{wrapfigure}
-
 {\small The intersection of A and B, denoted by A $\cap$ B is $\{x | x \in $ A $ \land \ x \in $ B $\}$} \vspace*{-0.25cm} \\ {\tiny The elements that are in both A and B} \vspace*{-0.25cm} \smallbreak
-\cul{Example}
-\begin{itemize}[leftmargin=*, label={}]
-	\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\}.
-	\item Then A $\cap$ B = \{3,5\}
-\end{itemize}
-\bigbreak \bigbreak \bigbreak \bigbreak
-\todo[inline]{TODO: something about these wrapfigures is breaking the list indentation, fix it or find an alt way to have this page that doesnt break.}
+\begin{minipage}[t]{0.7\linewidth}
+	\cul{Example}
+	\begin{itemize}[leftmargin=*, label={}]
+		\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\}.
+		\item Then A $\cap$ B = \{3,5\}
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.25\linewidth}
+	\centering
+    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/venn/AnB.png}
+\end{minipage}
 
 \pagebreak
 
 
 \subsubsection*{Set Difference}
-
-\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
-    \centering
-    \includegraphics[width=0.25\textwidth]{images/venn/A-B.png}
-\end{wrapfigure}
-
 {\small The set difference of A and B, denoted by A - B, is $\{x|x \in $ A $ \land \ x \not \in $ B $ \}$} \vspace*{-0.25cm} \\ {\tiny The elements that are in A but not in B} \vspace*{-0.05cm} \\
-{\small Note: A - B = A - (A $\cap$ B)}
-\smallbreak
+\begin{minipage}[t]{0.7\linewidth}
+	{\small Note: A - B = A - (A $\cap$ B)}
+	\smallbreak
+	\cul{Example}
+	\begin{itemize}[leftmargin=*, label={}]
+		\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\} 
+		\item Then A - B = \{1, 7, 9\}
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.25\linewidth}
+	\centering
+    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/venn/A-B.png}
+\end{minipage}
 
-\cul{Example}
-\begin{itemize}[leftmargin=*, label={}]
-	\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\} 
-	\item Then A - B = \{1, 7, 9\}
-\end{itemize}
-
-\bigbreak
-\bigbreak
 
 \subsubsection*{Complement}
-\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
-    \centering
-    \includegraphics[width=0.25\textwidth]{images/venn/Ap.png}
-\end{wrapfigure}
-
 {\small Let A $\subseteq$ S. The complement of A, denoted by A$'$, is $\{x|x \in $ S $ \land \ x \not \in $ A $\}$} \vspace*{-0.25cm} \\ {\tiny The set of everything \cul{not} in A} \vspace*{-0.25cm} \smallbreak
-
+\begin{minipage}[t]{0.7\linewidth}
 \cul{Example}
-\begin{itemize}[leftmargin=*, label={}]
-	\item S = $\mathbb{N}$
-	\item A = $\{x | x \in \mathbb{N} \land x = 2k $ for $ k \in \mathbb{N}\}$
-	\item A$'$ = $\{x | x \in \mathbb{N} \land x = 2k + 1$ for $ k \in \mathbb{N}\}$
-\end{itemize}
+	\begin{itemize}[leftmargin=*, label={}]
+		\item S = $\mathbb{N}$
+		\item A = $\{x | x \in \mathbb{N} \land x = 2k $ for $ k \in \mathbb{N}\}$
+		\item A$'$ = $\{x | x \in \mathbb{N} \land x = 2k + 1$ for $ k \in \mathbb{N}\}$
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.25\linewidth}
+	\centering
+    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/venn/Ap.png}
+\end{minipage}
 
-
-
-\bigbreak
-\bigbreak
-
-\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
-    \centering
-    \includegraphics[width=0.25\textwidth]{images/venn/A-B B-A.png}
-\end{wrapfigure}
 \subsubsection*{Set Difference and Intersection}
+\begin{minipage}[t]{0.7\linewidth}
+	Two sets A and B are \cul{disjoint} if A $\cap$ B = $\varnothing$. \vspace*{-0.25cm} \\ {\tiny Meaning they have no elements in common} \vspace*{-0.25cm} \smallbreak
+	If A and B are disjoint, then A - B = A and B - A = B \smallbreak
+	For any A $\subseteq$ S, B $\subseteq$ S, A - B and B - A are disjoint.
+\end{minipage}
+\begin{minipage}[t]{0.25\linewidth}
+	\centering
+    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/venn/A-B B-A.png}
+\end{minipage}
 
-Two sets A and B are \cul{disjoint} if A $\cap$ B = $\varnothing$. \vspace*{-0.25cm} \\ {\tiny Meaning they have no elements in common} \vspace*{-0.25cm} \smallbreak
-If A and B are disjoint, then A - B = A and B - A = B \smallbreak
-For any A $\subseteq$ S, B $\subseteq$ S, A - B and B - A are disjoint.
 
-\bigbreak
-\bigbreak
 
 \subsubsection*{Set Difference and Complement}
 
