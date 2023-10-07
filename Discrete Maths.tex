@@ -81,6 +81,9 @@
 	\usepackage{tabularx}
 
 
+	% in-text hyperlinks
+	\usepackage[colorlinks=true, urlcolor=blue, linkcolor=violet]{hyperref}
+
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2187,7 +2190,7 @@ $2^{\textnormal{S}}$ = \{x | x $\subseteq$ S\} \\ The size of $2^{\textnormal{S}
 
 \pagebreak
 
-\subsection{Relationships Between Sets}
+\subsection{Relationships Between Sets} \label{sec:setrelations}
 There are three main set relationships important to this class;
 \begin{center}
 	\begin{tabular}{c c c}
@@ -2337,7 +2340,7 @@ The \cul{Cartesian product} of A and B, denoted by A $\times$ B, is defined as A
 \end{itemize}
 \smallbreak
 \exheader[2] A = \{1,2\}
-\begin{itemize}
+\begin{itemize}[label={}]
 	\item A$^2$ = \{(1,1), (1,2), (2,1), (2,2)\} 
 	\item A$^3$ = \{(1,1,1), (1,1,2), (1,2,1), (1,2,2), (2,1,2), (2,2,1) (2,2,2)\}
 \end{itemize}
@@ -2365,7 +2368,6 @@ A Venn diagram is used to visualize all possible relations of sets. All within t
 \horizline
 
 \subsubsection*{Union} 
-
 \begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
     \centering
     \includegraphics[width=0.25\textwidth]{images/venn/AuB.png}
@@ -2373,7 +2375,7 @@ A Venn diagram is used to visualize all possible relations of sets. All within t
 
 {\small The union of A and B, denoted by A $\cup$ B is $\{x | x \in $ A $ \lor \ x \in $ B $\}$} \vspace*{-0.25cm} \\ {\tiny All the elements in A combined with all the elements in B} \vspace*{-0.25cm} \smallbreak
 \cul{Example}
-\begin{itemize}[leftmargin=*, label={}]
+\begin{itemize}[label={}]
 	\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\}
 	\item Then A $\cup$ B = \{1, 3, 5, 6, 7, 9, 10, 11\}
 \end{itemize}
@@ -2381,7 +2383,7 @@ A Venn diagram is used to visualize all possible relations of sets. All within t
 \bigbreak
 \bigbreak
 
-\subsubsection*{Intersection}
+\subsubsection*{Intersection} \label{sec:intersectiondef}
 
 \begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
     \centering
@@ -2394,6 +2396,8 @@ A Venn diagram is used to visualize all possible relations of sets. All within t
 	\item Let A = \{1, 3, 5, 7, 9\} and B = \{3, 5, 6, 10, 11\}.
 	\item Then A $\cap$ B = \{3,5\}
 \end{itemize}
+\bigbreak \bigbreak \bigbreak \bigbreak
+\todo[inline]{TODO: something about these wrapfigures is breaking the list indentation, fix it or find an alt way to have this page that doesnt break.}
 
 \pagebreak
 
@@ -2481,12 +2485,84 @@ In general, its good to start by looking at the Venn Diagram for visually unders
 	\item Therefore, A $\cap$ B $\subseteq$ A. {\tiny \emph{By the definition of subset relation \\ Or intuitively we've shown that any x in A $\cap$ B is also in just A}}
 \end{itemize}
 
+\bigbreak
 
+\exheader[2] Prove that C $\subseteq$ A and C $\subseteq$ B if and only if C $\subseteq$ A $\cap$ B. \vspace*{-0.2cm}
+\\ {\tiny \emph{Remember we can break $P \iff Q$ into $(P \implies Q) \land (Q \implies P)$ where $P$ is "C $\subseteq$ A and C $\subseteq$ B" and Q is "C $\subseteq$ A $\cap$ B"}} 
+\smallbreak Proof:
+\smallbreak First we need to prove the "only if" {\tiny \emph{($P \implies Q$)}} part:
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let x be an arbitrary member of C. \\
+	\begin{tabular}{l l l}
+		$ x \in C $ & $\implies$ & $x \in A \land x \in B$ {\tiny \emph{Since C $\subseteq$ A and C $\subseteq$ B}} \\
+		& $\implies$ & $x \in A \cap B$ {\tiny \emph{Reference the \hyperref[sec:intersectiondef]{intersection definition}.}}
+	\end{tabular}
+\end{itemize} \smallbreak
+Now we prove the "If" {\tiny \emph{$Q \implies P$}} part:
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let x be an arbitrary member of C. \\
+	\begin{tabular}{l l l}
+		$ x \in C$ & $\implies$ & $x \in A \cap B$ {\tiny \emph{From hypothesis "C $\subseteq$ A $\cap$ B"}} \\
+		& $\implies$ & $x \in A \land x \in B$ {\tiny \emph{From the \hyperref[sec:intersectiondef]{intersection definition} again.}}
+	\end{tabular}
+	\item Therefore, $C \subseteq A \land C \subseteq B$ {\tiny \emph{Reference the logical rep' of a subset \hyperref[sec:setrelations]{(from the table)}}}
+\end{itemize}
 
+\pagebreak
 
+\exheader[3] Prove that $2^A \cap 2^B = 2^{A \cap B}$
+\\ {\small \emph{You can prove two sets to be equal by proving Left $\subseteq$ Right and Right $\subseteq$ Left \\ $\rightsquigarrow$ \ Prove $2^A \cap 2^B \subseteq 2^{A \cap B}$ and \ $2^{A \cap B} \subseteq 2^A \cap 2^B$}}
+\\ Proof:
+\smallbreak $2^A \cap 2^B \subseteq 2^{A \cap B}$ \vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let x be an arbitrary member of $2^A \cap 2^B$. \\
+	\begin{tabular}{l l l}
+		$x \in 2^A \cap 2^B$ & $\implies$ & $x \in 2^A \land x \in 2^B$ \\
+		& $\implies$ & $x \subseteq A \land x \subseteq B$ {\tiny \emph{Ref Power Set Definition, If x is a member of a power set, its also a member of the main set}} \\
+		& $ \implies $ & $x \subseteq A \cap B$ {\tiny \emph{Intersection Def-kinda ref examples above}} \\
+		& $ \implies $ & $x \in 2^{A \cap B}$ {\tiny\emph{Reverse use of the same Power Set Def, if x is a member of this set, its also a member of the power set}}
+	\end{tabular}
+	\item Therefore $2^A \cap 2^B \subseteq 2^{A \cap B}$
+\end{itemize} \smallbreak
 
+$2^{A \cap B} \subseteq 2^A \cap 2^B$ \vspace*{-0.25cm}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let x be an arbitrary member of $2^{A \cap B}$ \\
+	\begin{tabular}{l l l}
+		$ x \in 2^{A \cap B}$ & $\implies$& $x \subseteq A \cap B$ \\
+		& $\implies$ & $x \subseteq A \land x \subseteq B$ \\
+		& $\implies$ & $x \in 2^A \land x \in 2^B$
+	\end{tabular}
+	\item Therefore, $2^{A \cap B} \subseteq 2^A \cap 2^B$.
+\end{itemize}
 
+\bigbreak
+% hard to show set empty - direct proof bad option
+% contraposition - would make A is empty, same issue
+% proof by contradiction best option
+\exheader[4] Prove that if $A \not = \varnothing$ and $A \cap B = A - B$, then $B = \varnothing$
+\\ {\small \emph{Both a direct proof and proof by contraposition lead to you trying to prove a set is empty, which is very difficult. So the best option is proof by contradiction}}
+\smallbreak Proof: 
+\\ Assume to the contrary that {\small $A \not = \varnothing$, $A \cap B = A - B$ and $B \not =\varnothing$}
 
+	\cul{Case 1: $A \cap B = \varnothing$ ($A \cap B$ is empty)}
+	\begin{itemize}[label={}]
+		\item $A \cap B = A - B$ (from second assumption)
+		\item $A - B = A$ (ref "set difference and intersection" notes.)
+		\item All combining to $ A \cap B = \varnothing = A - B = A \not = \varnothing$ 
+		\item "$\varnothing \not = \varnothing$", We have a contradiction.
+	\end{itemize}
+	\cul{Case 2: $A \cap B \not = \varnothing$}
+	\begin{itemize}[label={}]
+		\item Let x be any element in A $\cap$ B. \\
+		\begin{tabular}{l l l}
+			$x \in A \cap B$ & $\implies$ & $x \in A - B$ {\tiny \emph{(from $A \cap B = A - B$)}} \\
+			& $\implies $ & $x \not \in B$ {\tiny \emph{(defn of a set difference)}}
+		\end{tabular}
+		\item This is a contradiction, since $x \in A \cap B$ implies that $x \in B$
+	\end{itemize}
+
+% and I now realize that LaTeX randomly broke my indentation for itemize elements??????????????????????? Like this is a problem for this entire chapter wtf?
 
 
 
