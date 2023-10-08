@@ -122,6 +122,8 @@
 	% change inner list label
 	\renewcommand{\labelitemii}{\faAngleRight}
 
+	\usepackage{upgreek}  % Required for \upvarepsilon command
+
 
 \title{Discrete Maths Notes}
 \begin{document}
@@ -2660,6 +2662,116 @@ Prove that (A $\cup$ B) $\cap$ (A $\cup$ C) $\subseteq$ A $\cup$ (B $\cap$ C)
 
 
 \todo[inline]{TODO: Add exercises if needed}
+
+
+\pagebreak
+
+\section{Recursion}
+\define[A \cul{recursive definition}  is a definition in which the object being defined appears as part of the definition]
+
+There are two parts of a recursive definition:
+\begin{itemize}[leftmargin=*, label={}]
+	\item Basis Step: some simple cases of the object being defined are explicitly given (end of the recursion).
+	\item Recursive step: New cases of the object being defined are given in terms of "previous" or "simpler" cases.
+\end{itemize}
+The relation in the recursive step is called the \cul{recurrance relation}.
+\smallbreak
+\textbf{Examples}
+\begin{enumerate}
+	\item Give a recursive definition for the ancestors of James. \\ Recursive Definition:
+	\begin{itemize}
+		\item Basis Step: James' parentsd are ancestors of James.
+		\item Recursive Step: The parents of James' ancestors are ancestors of James.
+	\end{itemize}
+	\item Give a recursive defintion of the exponentiation operation $a^n$ on a nonzero real number $a$, where $n$ is a nonnegative integer. \\ Recursive Definition:
+	\begin{itemize}
+		\item Basis Step: $a^0 = 1$
+		\item Recursive Step: $a^n = (a^n-1)a$ for $n \ge 1$
+	\end{itemize}
+\end{enumerate}
+
+\pagebreak
+
+\subsection{Sequences}
+A \cul{sequence} is an ordered list of elements, denoted by, \begin{center}$S_1, S_2, S_3, ...$\end{center}
+Where $S_k$ denotes the $k$th element in the sequence. \\ Examples:
+\begin{itemize}[leftmargin=*, label={}]
+	\item 1,2,3,5,8 is a sequence of 5 elements.
+	\item 1,3,9,27,81,...,3$^n$,... is an infinite sequence. 
+\end{itemize}
+
+\subsubsection*{Summations}
+Given the sequence $a_1,a_2,a_3,...a_n$ we use the notation 
+{\Large
+\begin{center}
+	$\sum_{i=m}^{n} a_i$
+\end{center}
+}
+{\small to denote the sum of the terms $a_m, a_{m+1}, ..., a_n$. Read as "the sum from $i = m$ to $i = n$ of a$_i$"} \\ Examples: 
+\begin{itemize}[leftmargin=*, label={}]
+	\item $1+2+...+n = \sum_{i=1}^{n}i$
+	\item $\sum_{j=1}^{5}=1^2+2^2+3^2+4^2+5^2$
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\subsubsection*{Recursively Defined Sequences}
+A sequence might be defined recursively by explicitly naming the first value (or the first few values) and then defining later values n terms of previous values. \smallbreak
+\textbf{Examples} \\
+\exheader[1] Sequence $F_n$
+\begin{itemize}[leftmargin=*, label={}]
+	\item Basis Step: $F_1 = 1, F_2 = 1$ 
+	\item Recursive step: $F_n = F_{n-1} + F_{n-2}$ for $n > 2$
+\end{itemize}
+The sequence is 1,1,2,3,5,8,13,21,... Otherwise known as the Fibonacci sequence.
+
+\bigbreak
+
+\exheader[2] Give a recursive definition of the sequence $a_1, a_2, a_3, ...,$ where $a_n=4n-2$ for $n \ge 1$
+\begin{itemize}[leftmargin=*, label={}]
+	\item Basis Step: $a_1 = 2$
+	\item Recursive step: $a_n = a_{n-1}+4$ for $n \ge 2$
+\end{itemize}
+
+\todo[inline]{TODO (if needed): Add Fibbonacci Proof.}
+
+\pagebreak
+
+\subsubsection*{Recursively Defined Sets}
+A set might be defined recursively by explicitly describing one or more \cul{simple elements} and then defining other elements \cul{in terms of existing simpler elements} in the set. \bigbreak
+
+\exheader[1] The set of positive integers, denoted by $\mathbb{N}^+$ has the recursive definition:
+\begin{itemize}[leftmargin=*, label={}]
+	\item 1 is $\mathbb{N}^+$
+	\item If n is in $\mathbb{N}^+$, then n+1 is in $\mathbb{N}^+$
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] Give a recursive definition of the set S of positive integers that are multiples of 5.
+\begin{itemize}[leftmargin=*, label={}]
+	\item Basis Step: $5 \in S$
+	\item Recursive step: If $x \in S$, then $x+5 \in S$ (or $x \in S \implies x + 5 \in S$)
+\end{itemize}
+
+\bigbreak
+
+\exheader[3] Give a recursive definition of the set of strings, that, is $\sum^* = ${"", "a", "amigien", "words", "school", "ziemg"...} \\ 
+Notations: 
+\begin{itemize}[leftmargin=*, label={}]
+	\item $\lambda$ is the empty string "".
+	\item $\Sigma$ is the set of all letters {a,b,c...}
+	\item Let $x \in \Sigma^*$ and $y \in \Sigma^*$. xy is the concatenation of x and y.
+\end{itemize}
+Recursive Definition:
+\begin{itemize}[leftmargin=*, label={}]
+	\item Basis step: $\lambda \in \Sigma^*, x \in \Sigma^*$ where $x \in \Sigma$
+	\item Recursive step: $x \in \Sigma^* \land y \in \Sigma^* \implies xy \in \Sigma^*$
+\end{itemize}
+\bigbreak
+\todo[inline]{There's a ton of exercises and further descriptions of the examples in the videos and slides, add those if needed!}
+
 
 
 \end{document} 
