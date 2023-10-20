@@ -2674,7 +2674,7 @@ There are two parts of a recursive definition:
 	\item Basis Step: some simple cases of the object being defined are explicitly given (end of the recursion).
 	\item Recursive step: New cases of the object being defined are given in terms of "previous" or "simpler" cases.
 \end{itemize}
-The relation in the recursive step is called the \cul{recurrance relation}.
+The relation in the recursive step is called the \cul{recurrence relation}.
 \smallbreak
 \textbf{Examples}
 \begin{enumerate}
@@ -2771,6 +2771,110 @@ Recursive Definition:
 \end{itemize}
 \bigbreak
 \todo[inline]{There's a ton of exercises and further descriptions of the examples in the videos and slides, add those if needed!}
+
+\pagebreak
+
+\subsubsection*{Recursively Defined Sequence}
+
+\subsection{Closed Form Solution}
+
+
+\textbf{Intro/Motivation} \smallbreak
+Consider the following recursively defined sequence;
+\begin{itemize}[leftmargin=*, label={}]
+	\item Basis step: $S_1 = 2$
+	\item Recursive Step: $S_n = 2S_{n-1}$ for $n \ge 2$
+	\item $S$ would be the sequence 2,4,8,16,32 {\tiny \emph{notice a pattern here?}}
+\end{itemize}
+If you were to represent this sequence in code you'd get something like one of these;
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{verbatim}
+int S_prev = 2;
+for(int i = 2; i <= n; ++i)
+{
+    S = 2*S_prev;
+    S_prev = S;
+}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\begin{verbatim}
+	int CompSn(int n)
+{
+    if(n == 1)
+        return 2;
+    return 2*CompSn(n-1);
+}
+\end{verbatim}
+\end{minipage}
+
+Note that both of these would be O(n), quite a gross time complexity for something with a clear trend. \\
+Looking back at our sequence $S_n$ is just $2^n$! In other words, our two sets of code could be replaced with an \sidenote[This time complexity comes from the implementation of pow] O($\log n$) \verb|int Sn = pow(2,n)|. 
+\bigbreak
+\bigbreak
+
+\pagebreak
+
+
+\subsubsection*{Definitions}
+
+What we did above is an example of finding/solving the \textbf{closed-form solution}. \\ An equation, where we can substitute values and get the output value back directly, is called a closed-form solution. \\
+Another example would be $x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$ as the closed-form solution to $ax^2 + bx + c = 0$. \\ Note that an algorithm is \cul{not} a closed-form solution because you cannot get an output value directly.
+\\ Not all kinds of recurrence relations can be solved.
+
+\bigbreak
+
+\begin{itemize}[leftmargin=*, label={}]
+	\item A recurrence relation for a sequence $S_1, S_2, S_3, ...$ is a \cul{linear recurrence relation} if $S_n$ is a linear function of the previous elements.
+	\begin{itemize}
+		\item The \cul{general linear recurrence relation} has the form: \\ $S_n = f_1(n) S_{n_1} + f_2 S_{n-2} + ... f_k S_{n-k} + g(n)$ \\ where $1 \le k \le n-1$, the $f_i$'s and g \cul{can} be expressions involving n.
+		\item The recurrence relation has \cul{constant coefficients} if the $f_i$'s are all constants.
+	\end{itemize}
+	\item
+	\item A recurrence relation is \cul{first-order} if the $n$th element depends only on the $(n-1)$th element. \\ {\tiny \cul{examples:}}
+	\small
+	\begin{tabular}{l l}
+		$S_n$ = $2S_{n-1}$ & Linear, first-order. \\
+		$F_n = F+{n-1} + F_{n-2}$ & Linear but not first order. \\
+		$S_n = S_{n-1} S_{n-2}$ & Not Linear.
+	\end{tabular} 
+	\begin{itemize}
+		\item The general form solution with a constant coefficient {\large $S_n = cS_{n-1} + g(n)$} for $n \ge 2$ can be expanded k times to look like; \\ $c^k S_{n-k} + c^{k-1}g(n-(k-1)) + ... + cg(n-1) + g(n)$ \\
+		This series of expansions will stop when $n-k =1$ So we can say that $k = n-1$. Giving us a better solution of $c^{n-1} S_1 + c^{n-2} g(2) + ... + cg(n-1) + c^0 g(n)$. Finally we can simplify this further by using summation notation; \\
+		{\large $S_n = c^{n-1} S_1 + \sum_{i=2}^{n} c^{n-i} g(i)$} \\ 
+		So to solve for linear first-order, constant coeff recurrence relations you must identify $c$ and $g(n)$ and plug into the form above. You can identify $c$ and $g(n)$ by arranging the recurrence relation into the $S_n = cS_{n-1} + g(n)$ form.
+	\end{itemize}
+\end{itemize}
+
+\normalsize
+
+\pagebreak
+
+\subsubsection*{Examples}
+
+\exheader[1] Solve $S_n = 2S_{n-1} + 3$ for $n \ge 2$  with $S_1 = 4$
+\begin{itemize}[leftmargin=*, label={}]
+	\item Match and identify c and g(n) \\ $c=2$ \quad $g(n) = 3$
+	\item Substitute in $S_n = c^{n-1} S_1 + \sum_{i=2}^{n} c^{n-i} g(i)$ \\
+	\begin{tabular}{l l l}
+		$S_n$ & $=$ & $2^{n-1} * 4 + \sum_{i=2}^{n} 2^{n-1} * 3$ \\
+		& $=$ & $2^n+1 + 3(2^{n-1} -1)$ {\tiny We're Simplifying the summation here by using the identity: $1+2+2^2+...+2^m = 2^{m+1} -1$ where $m = n-2$}
+	\end{tabular}
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] Solve $T_n = T_n-1 + (n+1)$ for $n \ge 2$ with $T_1 = 2$
+\begin{itemize}[leftmargin=*, label={}]
+	\item Match and identify c and g(n) \\ $c=1$ \quad $g(n) = n+1$
+	\item Substitute \\
+	\begin{tabular}{l l l}
+		$T_n$ & $=$ & $1^{n-1} * 2 + \sum_{i=2}^{n} 1^{n-i} (i +1)$ \\
+		& $=$ & $2 + (3+4+...+(n+1))$ \\
+		& $=$ & $\frac{(n+1)(n+2)}{2} -1$ {\tiny We're simplifying using the identity: $1+2+3+...+m = \frac{m(m+1)}{2}$}
+	\end{tabular}
+\end{itemize}
 
 
 
