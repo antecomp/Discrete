@@ -75,7 +75,7 @@
 
 	% math symbols
 	\usepackage{amssymb}
-
+	\usepackage{mathtools}
 
 	% ???
 	\usepackage{tabularx}
@@ -95,6 +95,7 @@
 	\newcommand{\exheader}[1][ex]{{\tiny{#1}\normalsize}}
 
 	\newcommand{\sidenote}[1][INSERT TEXT HERE]{{\todo[size=tiny, color=lightgray, nolist]{\faInfoCircle\space {#1}}}}
+	\newcommand{\sidenotenl}[1][INSERT TEXT HERE]{{\todo[size=tiny, color=lightgray, nolist, noline]{\faInfoCircle\space {#1}}}}
 
 	\newcommand{\intextnote}[1][Also Note Lorem Ipsum]{{
 				\emph{
@@ -2703,9 +2704,9 @@ Where $S_k$ denotes the $k$th element in the sequence. \\ Examples:
 \subsubsection*{Summations}
 Given the sequence $a_1,a_2,a_3,...a_n$ we use the notation 
 {\Large
-\begin{center}
-	$\sum_{i=m}^{n} a_i$
-\end{center}
+\[
+	\sum_{i=m}^{n} a_i
+\]
 }
 {\small to denote the sum of the terms $a_m, a_{m+1}, ..., a_n$. Read as "the sum from $i = m$ to $i = n$ of a$_i$"} \\ Examples: 
 \begin{itemize}[leftmargin=*, label={}]
@@ -2877,6 +2878,105 @@ Another example would be $x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$ as the closed-f
 \end{itemize}
 
 
+\pagebreak
+
+\section{Counting}
+
+\subsection{Basics}
+\define[\cul{Counting} is the process of determining the number of a set of objects with certain properties. \\ \cul{For example}; \begin{itemize}
+	\item The number of students in a classroom
+	\item Number of phone numbers in the US  
+	\item Least number of students out of 15 born on the same day of the week. \vspace*{-0.5cm}
+\end{itemize}\quad]
+
+Counting problems can be very difficult and now obvious to solve. The general technique and solution to counting problems is to \cul{divide and conquer}, simplifying the problem by decomposing it. \\
+More specifically, we'll be working with four counting principles;
+\begin{center}
+	{\small 
+\begin{tabular}{c c}
+	Multiplication Principle & Addition Principle \\
+	Principle of inclusion and exclusion & Pigeonhole principle
+\end{tabular}
+}
+\end{center}
+
+\pagebreak
+
+\subsubsection{Multiplication Principle} 
+Suppose that a task can be broken down into a sequence of two
+independent steps. If there are $n_1$ ways to do the first step and for
+each of ways of doing the first step, there are $n_2$ ways to do the
+second step, then there are $n_1n_2$ ways to complete the task. \smallbreak
+\cul{Set Representation:} Let $A$ and $B$ denote the set of ways to do the first and second step, respectively. Then $|A \times B| = |A| \cdot |B|$
+\smallbreak
+\cul{Generalization:} If a task can be broken into a sequence of $m$ \textcolor{red}{independent} steps, where step $i$ can be done in $n_i$ ways, $i = 1,2,...,m$, then the number of ways to complete the task is;  \sidenotenl[Note that $\prod$ is the product of everything in the sequence.]
+	\[ \prod_{i=i}^{\mathclap{m}} n_i = n_1 \cdot n_2 \cdot n_3 \cdot ... \cdot n_m \]
+\bigbreak
+
+\subsubsection*{Examples}
+
+\exheader[1] The chairs of an auditorium are to be labeled with an uppercase English letter followed by a positive integer not exceeding 100. What is the largest number of chairs that can be labeled differently?
+\begin{itemize}[leftmargin=*, label={}]
+	\item Label a chair by a sequence of 2 steps: \\
+	\begin{tabular}{l l l}
+		Step 1: & Choose an uppercase English letter & 26 ways \{A,B,C,...,Z\} \\
+		Step 2: & Choose a positive integer $\le$ 100 & 100 ways \{1,2,...,100\}
+	\end{tabular}
+	\item Therefore, there are $26 \times 100 = 2600$ different labels.
+\end{itemize}
+\bigbreak
+\exheader[2] The last part of your telephone number consists of four digits. How many such four-digit numbers are there?
+\begin{itemize}[leftmargin=*, label={}]
+	\item Construct a four-digit number by a sequence of 4 steps: \\
+	\begin{tabular}{l l l}
+		Step 1: & Choose the 1st digit & 10 ways \{0,1,2,...,9\} \\
+		Step 2: & Choose the 2nd digit & 10 ways \{0,1,2,...,9\} \\
+		Step 3: & Choose the 3rd digit & 10 ways \{0,1,2,...,9\} \\
+		Step 4: & Choose the 4th digit & 10 ways \{0,1,2,...,9\} \\
+	\end{tabular}
+	\item Therefore, there are $10^4$ different numbers.
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Addition Principle}
+If a task can be done either in one of $n_1$ ways or in one of $n_2$ ways, where these two sets have no common ways, then there are $n_1+n_2$ ways to do the task.
+\smallbreak \cul{Set representation:} Let $A$ and $B$ denote two disjoint sets of ways, then {\small $| A \cup B| = |A| + |B|$ } \\ \vspace*{-0.5cm}
+\smallbreak \cul{Generalization:} If a task can be done either in one of $n_1$ ways, in one of $n_2$ ways,... or in one of $n_m$ ways, \textcolor{red}{where no two sets share common ways}, then the number of ways to complete a task is:
+\[
+\sum_{i=1}^{m} n_i = n_1 + n_2 + n_3 + ... + n_m	
+\]
+\bigbreak
+\subsubsection*{Example}
+One restaurant has 2 types of salad and 3 types of soup. Choose one item as appetizer. How many options are there?
+\begin{itemize}[leftmargin=*, label={}]
+	\item A = \{salad1, salad2 \} 
+	\item B = \{soup1 soup2, soup3\}
+	\item The total number of options are 2 + 3 = 5
+\end{itemize}
+
+
+\subsubsection*{Example - Combining Multiplication and Addition}
+How many binary strings of length 6 end with 00 or 01? 
+\begin{itemize}[leftmargin=*, label={}]
+	\item $C_1$: Strings ending with 00 \\
+	\begin{tabular}{l l l}
+		Step 1: & Select the 1st digit & 2 ways \{0,1\} \\  
+		Step 2: & Select the 2nd digit & 2 ways \{0,1\} \\
+		Step 3: & Select the 3rd digit & 2 ways \{0,1\} \\
+		Step 4: & Select the 4th digit & 2 ways \{0,1\} \\
+		Step 5: & Select the 5th digit & 1 way \{0\} \\
+		Step 6: & Select the 6th digit & 1 way \{0\} \\
+		\multicolumn{3}{l}{By the multiplication principle, there are $2^4$ strings}
+	\end{tabular}
+	\item $C_2$ Strings ending with 01 \\ 
+	\begin{tabular}{l l l}
+		\multicolumn{3}{l}{By the multiplication principle, there are $2^4$ strings}
+	\end{tabular}
+	\item By addition principle there are $2^4 + 2^4$ = 32 strings.
+\end{itemize}
+
+\todo[inline]{Todo: Vids 2,3}
 
 \end{document} 
 
