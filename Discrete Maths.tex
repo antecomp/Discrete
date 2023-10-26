@@ -2976,7 +2976,143 @@ How many binary strings of length 6 end with 00 or 01?
 	\item By addition principle there are $2^4 + 2^4$ = 32 strings.
 \end{itemize}
 
-\todo[inline]{Todo: Vids 2,3}
+\pagebreak
+
+These two methods together are not enough, and can actually lead to us getting incorrect answers! \\ 
+For example;
+\begin{itemize}[leftmargin=*, label={}]
+	\item How many binary strings of length 8 either start with 1 or end with 00?
+	\begin{itemize}
+		\item Strings starting with 1: $2^7$
+		\item Strings ending with 00: $2^6$
+		\item Thus the answer would be $2^7 + 2^6$
+	\end{itemize}
+	Except this answer is \textbf{wrong!} \\ Strings starting with 1 and ending with 00 are counted twice! \\
+	We're overcounting $2^5$ strings, we need to substract this double-counted amount to have the right answer. The correct answer is actually $2^7 + 2^6 - 2^5 = 160$
+\end{itemize}
+
+This fix leads us into our next principle... 
+
+\subsubsection{Principle of Inclusion and Exclusion (2-way)}
+If a task can be done either in one of $n_1$ ways \textbf{or} in one of $n_2$ ways, then the number of ways to do the task is $n_1 + n_2$ minus the number of \emph{common} ways in these sets. \smallbreak
+\cul{Set Representation:} $|A \cup B | = |A| + |B| - |A \cap B|$
+\bigbreak
+\begin{minipage}[t]{0.7\linewidth}
+It's easier to understand this set representation of the size given a Venn diagram (pictured rightside). \smallbreak
+However, from this diagram it's important to also notice that the red area,  \underline{\textcolor{red}{$|A - B| = |A| - |A \cap B|$}} (similar for $|B - A|$). \\ This equation ends up being extremely valuable for many counting problems, so keep it in mind.\end{minipage}
+\begin{minipage}[t]{0.25\linewidth}
+    \centering
+    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/PrincExInVenn.png}
+\end{minipage}
+
+\pagebreak
+
+\subsubsection*{Examples}
+A computer company receives 350 applications for a job. Suppose that 220 of these applicants majored in computer science, 147 majored in business, and 51 majored in both computer science and business.
+
+\exheader[1] How many of these applicants majored in neither computer science nor business?
+\begin{itemize}[leftmargin=*, label={}]
+	\item S: set of all applicants $|S| = 350$
+	\item C: set of all applicants that majored in CS, $|C| = 220$
+	\item B: set of applicants majored in business, $|B| = 147$
+	\item Meaning $|C \cap B| = 51$
+\end{itemize}
+What is $|C' \cap B'|$?
+\begin{itemize}[leftmargin=*, label={}]
+	\item \sidenote[Its important to remember that all this $|...|$ junk means "size of..."] By DeMorgans law, we know that $|C' \cap B'| = |(C \cup B)'|$
+	\item = $|S - (C \cup B)|$ {\tiny by complement definition}
+	\item = $|S| - |C \cup B|$ {\tiny from the venn diagram observation}
+	\begin{itemize}
+		\item Now we just need  $|C \cup B|$, this is where we apply princ of inc/exclusion
+	\end{itemize} 
+	\item = $|S| - (|C| + |B| - |C \cap B|)$
+	\begin{itemize}
+		\item Now its just simple substitution
+	\end{itemize} 
+	\item = 350 - (220 + 147 - 51) = 34.
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] How many of these applicants majored in CS but not in business?
+\begin{itemize}[leftmargin=*, label={}]
+	\item $|C| = 220$ \quad $|B| = 147$ \quad $|C \cap B| = 51$
+	\item $|C - B| = |C| - |C \cap B|$ {\tiny from venn diagram}
+	\item = 220 - 51 = 169
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Principle of Inclusion and Exclusion (n-way)}
+
+Before looking at the generalized solution, let's look at 3 sets with a venn diagram.
+\begin{center}
+	\strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/PrinceExInVenn3Way.png}
+\end{center}
+Notice the pattern? We're first adding the sets then subtracting the intersections every set. Then we add back the intersection of all the sets because just subtracting them would lead to an undercounting issue (we're missing out on the middle piece of the venn diagram).
+
+This pattern can be compiled into our \cul{generalization:} \smallbreak
+\begin{tabular}{l l}
+	$|A_1 \cup A_2 \cup ... \cup A_n|$ = & $\sum_{1 \le i \le n} |A_i|$ \\
+	& $- \sum_{1 \le i < j  \le n} |A_i \cap A_j|$ \\
+	& $+ \sum_{1 \le i < j < k \le n} |A_i \cap A_j \cap A_k|$ \\
+	& $- \ ...$ \\
+	& ... \\
+	& $ + (-1)^{n+1} |A_1 \cap A_2 \cap ... \cap A_n|$
+\end{tabular} \smallbreak
+For example, when $n=3$: \smallbreak
+\begin{tabular}{l l}
+	$|A_1 \cup A_2 \cup A_3|$ = & $|A_1| + |A_2| + |A_3|$ \\
+	& $- |A_1 \cap A_2| - |A_2 \cap A_3| - |A_1 \cap A_3|$ \\
+	& $+ |A_1 \cap A_2 \cap A_3|$
+\end{tabular}
+
+\pagebreak
+
+\subsubsection*{Examples}
+In a class, 19 students are math majors, 23 are CS majors, and 10
+are physics majors. In addition, 9 students are math and CS
+majors, 2 students are physics and CS majors, 4 students are math
+and physics majors. There is 1 student majoring all three majors.
+
+\exheader[1] How many students are there?
+\begin{itemize}[leftmargin=*, label={}]
+	\item $M$: set of students majoring in math, |M| = 19
+	\item $C$: set of students majoring in CS, |C| = 23
+	\item $P$: set of students majoring in physics, |P| = 10
+	\item $|M \cap C| = 9$, $|P \cap C| =2$, $|M \cap P| = 4$, and $|M \cap C \cap P| = 1$
+	\item Answer: $|M| + |C| + |P| - |M \cap C| - |P \cap C| - |M \cap P| + |M \cap C \cap P|$
+	\item \quad \quad \quad = 19 + 23 + 10 - 9 - 2 - 4 + 1 = 38.
+\end{itemize}
+\bigbreak
+\exheader[2] How many students major in math only?
+\begin{itemize}[leftmargin=*, label={}]
+	\item $|M| = 19$, $|C| = 23$, $|P| = 10$
+	\item $|M \cap C| = 9$, $|P \cap C| =2$, $|M \cap P| = 4$, and $|M \cap C \cap P| = 1$
+	\item Need $|M - (C \cup P)|$ \\
+	\begin{tabular}{l l}
+		$ = |M| - |M \cap (C \cup P)|$ & (Venn: $|A - B| = |A| - |A \cap B|$) \\
+		$ = |M| - |(M \cap C) \cup (M \cap P)|$ & (Distributive Law) \\
+		$ = |M| - (|M \cap C| + |M \cap P| - |M \cap C \cap P|)$ & (Principle of I\&E). \\
+		$ = 19 - (9 + 4 - 1) = 7$
+	\end{tabular}
+\end{itemize}
+\bigbreak
+\exheader[3] How many students major in math or CS but not physics?
+\begin{itemize}[leftmargin=*, label={}]
+	\item $|M| = 19$, $|C| = 23$, $|P| = 10$
+	\item $|M \cap C| = 9$, $|P \cap C| =2$, $|M \cap P| = 4$, and $|M \cap C \cap P| = 1$
+	\item Need $|M \cup C - P|$ \\
+	\begin{tabular}{l l}
+		$ = |M \cup C| - |(M \cup C) \cap P|$ & (Venn: $|A - B| = |A| - |A \cap B|$) \\
+		$ = |M \cup C| - |(M \cap P) \cup (C \cap P)|$ &  (Distributive) \\
+		$ = |M| + |C| - |M \cap C| - (|M \cap P| + |C \cap P| - |M \cap C \cap P|)$ &  \\
+		$ = 19 + 23 - 9 - (4 + 2 - 1) = 28$
+	\end{tabular}
+\end{itemize}
+
+\todo[inline]{Last video (Pigeonhole)}
+
 
 \end{document} 
 
