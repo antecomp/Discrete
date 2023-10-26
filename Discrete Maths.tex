@@ -3113,6 +3113,45 @@ and physics majors. There is 1 student majoring all three majors.
 
 \todo[inline]{Last video (Pigeonhole)}
 
+\pagebreak
+
+
+\subsubsection{Pigeonhole Principle}
+\define[If more than k pigeons are placed into k pigeonholes, then at least one hole contains more than one pigeon. This principle is used to answer questions of the form "at least how many objects satisfy a certain property"]
+
+
+To use the pigeonhole principle, we need to;
+\begin{itemize}[label={\faAngleRight}]
+	\item Identify "pigeons"
+	\item Identify "pigeonholes"
+	\item Associate between pigeons and pigeonholes.
+\end{itemize}
+
+
+
+\subsubsection*{Examples}
+
+\begin{minipage}[t]{0.75\linewidth}
+\exheader[1] Seven points lie inside a hexagon of side length 1. \\ Show that there must exist at least two points whose distance apart is at most 1.
+	\begin{itemize}[leftmargin=*, label={}]
+		\item Pigeons: points.
+		\item Pigeonholes: Triangles
+		\begin{itemize}
+			\item We can set up our pigeonhole by dividing our hexagon into 6 triangles. The lengths of these triangle sides are at most one, so the distance between any two points contained in the triangle can be at most one.
+		\end{itemize} 
+		\item At least two points are inside one of these triangles by pigeonhole principle, so at least one set of points satisfies the "distance of at most one" setup from the triangle info above.
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.15\linewidth}
+    \centering
+    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/pigeon/hex.png}
+	\strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/pigeon/hex2.png}
+\end{minipage}
+
+\bigbreak
+
+\exheader[2] There are some people in a room. Some are acquaintances; some are not. Assume that if a is acquainted to b, then b is acquainted to a. Also, no one is acquainted to him- or herself.  Show that at least two people have the same number of acquaintances.
+
 
 \end{document} 
 
