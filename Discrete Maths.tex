@@ -3213,23 +3213,13 @@ However, this time we don't know the number of students.
 
 \subsection{Permutation and Combination}
 \begin{minipage}[t]{0.9\linewidth}
-	Many counting problems can be solved by finding the number of ways to select a specified number of objects out of a set. \smallbreak
+	Many counting problems can be solved by finding the number of ways to select \\ a specified number of objects out of a set. \smallbreak
 	When order matters: Permutations. \\
 	When order doesn't matter: Combinations. \smallbreak
-	For example: 
-	\begin{itemize}[leftmargin=*, label={}]
-		\item In how many ways  can we select three students from a group of students to stand in line for a picture?
-		\begin{itemize}
-			\item Order matters here, so permutation
-		\end{itemize}
-		\item How many different committees of three students can be formed from a group of five students?
-		\begin{itemize}
-			\item Order doesn't matter here, so combinations
-		\end{itemize}
-	\end{itemize}
 \end{minipage}
 \fbox{\tiny
 	\begin{minipage}[t]{0.22\textwidth}
+		\quad \\
 		Recall: 
 		\begin{itemize}[leftmargin=*, label={}]
 			\item Multiplication Principle
@@ -3247,8 +3237,133 @@ However, this time we don't know the number of students.
 				\item $| A \cup B | = |A| + |B| - |A \cap B|$
 			\end{itemize}
 		\end{itemize}
+		\smallbreak
 	\end{minipage}
 }
+
+For example: 
+\begin{itemize}[leftmargin=*, label={}]
+	\item In how many ways  can we select three students from a group of students to stand in line for a picture?
+	\begin{itemize}
+		\item Order matters here, so permutation
+	\end{itemize}
+	\item How many different committees of three students can be formed from a group of five students?
+	\begin{itemize}
+		\item Order doesn't matter here, so combinations
+	\end{itemize}
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Permutation}
+A permutation of a set of elemts is an \cul{ordered} arrangement of these elements. \\
+For Example;
+\begin{itemize}[leftmargin=*, label={}]
+	\item S = $\{a,b,c\}$
+	\item Permutations of S: abc, acb, bac, bca, cab, cba.
+\end{itemize}
+
+\bigbreak
+
+The number of permutations of S = $P(n,n) = n!$ 
+\begin{itemize}[leftmargin=*, label={}]
+	\item Since we have a sequence of n selection steps; \\
+	\begin{tabular}{l l l}
+		Step 1: & select the 1st element & n ways \\ 
+		Step 2: & select the 2nd element & n - 1 ways \\ 
+		Step 3: & select the 3rd element & n -2 ways \\
+		... & & \\
+		Step n: & select the nth element & 1 way. 
+	\end{tabular}
+	\item by the multiplication principle we get our $\underbrace{P(n,n)}_{\makebox[0pt]{\footnotesize n elements in the set, selecting a range of n elements}} = n \times (n-1) \times (n-2) \times ... \times 1 = n!$.
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+An \textbf{r-permutation} is an \cul{ordered} arrangement of $r$ elements of a set. $r$ now being a smaller range of the set than all $n$ items.
+\smallbreak
+The number of r-permutations $P(n,r) = \frac{n!}{(n-r)!}$ 
+\begin{itemize}[leftmargin=*, label={}]
+	\item Since we have a sequence of r selection steps; \\
+	\begin{tabular}{l l l}
+		Step 1& select the 1st element & $n$ ways \\
+		Step 2& select the 2nd element & $n-1$ ways \\
+		Step 3& select the 3rd element & $n-2$ ways \\
+		...& & \\
+		Step r & select the $r$th element & $(n-r +1)$ ways \\
+	\end{tabular}
+	\item By the multiplication principle $\underbrace{P(n,r)}_{\makebox[0pt]{\footnotesize n elements in the set, selecting a range of r elements}} = n \times (n-1) \times (n -2) \times ... \times (n-r+1)$
+\end{itemize}
+
+\pagebreak
+
+\subsubsection*{Examples}
+
+\exheader[1] How many 2-permutations of set \{a, b, c\} are there?
+\begin{itemize}[leftmargin=*, label={}]
+	\item $P(3,2) = 3 \times 2 = 6$
+	\item ab,ac,ba,bc,ca,cb
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] Suppose that there are eight runners in a race. How many ways are there to award the gold, silver, and bronze medals?
+\begin{itemize}[leftmargin=*, label={}]
+	\item $P(8,3) = 8 \times 7 \times 6 = 336$
+\end{itemize}
+
+\bigbreak
+
+\exheader[3] How many strings consisting of the letters A, B, C, D, E, F, G, H contain the string ABC?
+\begin{itemize}[leftmargin=*, label={}]
+	\item \cul{Idea}: consider ABC as one element and D E F G H as other 5 elements for a total of 6 elements.
+	\item It is equivalent to counting the number of permutations of these 6 elements: $P(6,6) = 6! = 720$
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Combinations} 
+An r-combination of a set of elements is an \cul{unordered} selection of $r$ elements from a set. \\ 
+For example;
+\begin{itemize}[leftmargin=*, label={}]
+	\item S = $\{a,b,c\}$
+	\item 2-combinations of S: $\{a,b\}, \{a,c\}, \{b,c\}$ \intextnote[Since order doesn't matter, these are all the same as $\{b,a\}, \{c,a\},$ $\{c,b\}$ so we dont include those as seperate elements.]
+\end{itemize}
+
+\bigbreak
+
+Using just $P(n,r)$ would be overcounting by $r!$ since it counts different orderings of the same elements. So we need a different equation for combinations; \smallbreak
+The number of r-combinations of a set with $n$ elements is; 
+\[
+	\underbrace{C(n,r)}_{\makebox[0pt]{\footnotesize set of size n, selecting r elements}} = \frac{P(n,r)}{r!} = \frac{n!}{r!(n-r)!}
+	\]
+
+Where we are selecting $r$ elements ($C(n,r)$) and arranging them ($P(r,r) = r!$).
+
+\bigbreak
+
+\subsubsection*{Examples}
+
+\exheader[1] How many ways can we select a committee of 4 out of a group of 8 people?
+\[
+	C(8,4) = \frac{8!}{4!(8-4)!} = 70
+\]
+
+\bigbreak
+
+\exheader[2] Prove $C(n,r) = C(n, n-r)$ \smallbreak
+\begin{tabular}{r l}
+	$C(n,r) = $ & $\frac{n!}{r!(n-r)!}$ \\
+	= & $\frac{n!}{(n-(n-r))!(n-r)!}$ \\
+	= & $C(n,n-r)$
+\end{tabular}
+
+\todo[inline]{TODO: add card game example if needed}
+
+
+
+
 
 
 \end{document} 
