@@ -126,6 +126,10 @@
 	\usepackage{upgreek}  % Required for \upvarepsilon command
 
 
+	% shorthand for the cieling brackets
+	\newcommand{\ceil}[1]{\lceil {#1} \rceil}
+
+
 \title{Discrete Maths Notes}
 \begin{document}
 \maketitle
@@ -3111,23 +3115,30 @@ and physics majors. There is 1 student majoring all three majors.
 	\end{tabular}
 \end{itemize}
 
-\todo[inline]{Last video (Pigeonhole)}
-
 \pagebreak
 
 
 \subsubsection{Pigeonhole Principle}
 \define[If more than k pigeons are placed into k pigeonholes, then at least one hole contains more than one pigeon. This principle is used to answer questions of the form "at least how many objects satisfy a certain property"]
-
-
-To use the pigeonhole principle, we need to;
+\vspace*{-0.3cm} \\ To use the pigeonhole principle, we need to;
 \begin{itemize}[label={\faAngleRight}]
-	\item Identify "pigeons"
-	\item Identify "pigeonholes"
+	\item Identify "pigeons" and identify "pigeonholes"
 	\item Associate between pigeons and pigeonholes.
 \end{itemize}
 
+\bigbreak
 
+\cul{Generalization:} If n objects are placed into k boxes, then there is at least one box containing at least \sidenote[The "ceiling" operation rounds up to the nearest whole integer. ex; $\ceil{2.2} = 3$] $\underbrace{\ceil{n/k}}_\textrm{"ceiling" of}$ objects.
+\smallbreak This can be proven by contradiction;
+\begin{itemize}[label={\faAngleRight}]
+	\item Assume to the contrary that none of the boxes contain more than $\ceil{n/k} - 1$ objects.
+	\item Then the total number of objects is at most; $k(\ceil{n/k} -1 ) < k((n/k + 1) - 1) =n$
+	\item This is a contradiction because there are a total of $n$ objects.
+\end{itemize}
+
+
+
+\bigbreak
 
 \subsubsection*{Examples}
 
@@ -3143,14 +3154,60 @@ To use the pigeonhole principle, we need to;
 	\end{itemize}
 \end{minipage}
 \begin{minipage}[t]{0.15\linewidth}
-    \centering
-    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/pigeon/hex.png}
-	\strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{images/pigeon/hex2.png}
+    \begin{center}
+		\strut\vspace*{-\baselineskip}\newline\hspace*{0.5cm}\includegraphics[width=\linewidth]{images/pigeon/hex.png}
+		\strut\vspace*{-\baselineskip}\newline\hspace*{0.5cm}\includegraphics[width=\linewidth]{images/pigeon/hex2.png}	
+	\end{center}
+    
 \end{minipage}
+
+\pagebreak
+
+\exheader[2] There are some people in a room. Some are acquaintances; some are not. Assume that if a is acquainted to b, then b is acquainted to a. Also, no one is acquainted to him- or herself.  Show that at least two people have the same number of acquaintances.
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let n be the number of people in the room.
+	\item Pigeons: People in the room.
+	\item Pigeonholes: Number of acquaintances.
+	\begin{itemize}
+		\item Possible acquaintances: $0,1,2 ... , n-1$
+	\end{itemize}
+\end{itemize}
+Two Possible Cases:
+\begin{enumerate}
+	\item Someone has 0 acquaintances
+	\begin{itemize}[label={\faAngleRight}]
+		\item {\small This implies that no one has $n-1$ acquaintances.}
+		\item {\small Pigeonholes = $\{0,1,2,...,n-2\}, n-1$ pigeonholes. $n$ pigeons.}
+	\end{itemize}
+	\item No one has 0 acquaintances
+	\begin{itemize}[label={\faAngleRight}]
+		\item {\small Pigeonholes = $\{1,2,...,n-1\}, n-1$ pigeonholes. $n$ pigeons.}
+	\end{itemize}
+\end{enumerate}
+By pigeonhole principle, there must be 2 people that have the same number of acquaintances. 
 
 \bigbreak
 
-\exheader[2] There are some people in a room. Some are acquaintances; some are not. Assume that if a is acquainted to b, then b is acquainted to a. Also, no one is acquainted to him- or herself.  Show that at least two people have the same number of acquaintances.
+\exheader[3] Among 15 students, at least how many were born on the same day of the week?
+\begin{itemize}[leftmargin=*, label={}]
+	\item Objects: students 
+	\item Boxes: days of the week 
+	\item There are at least $\ceil{15/7} = 3$ students born on the same day of the week.
+\end{itemize}
+
+\bigbreak
+
+\exheader[4] How many students, each of whom comes from one of the 50 states, must be enrolled in a university to guaranteed that there are at least 100 who come from the same state?
+\begin{itemize}[leftmargin=*, label={}]
+	\item Objects: students.
+	\item Boxes: 50 states.
+\end{itemize}
+However, this time we don't know the number of students.
+\begin{itemize}[label={\faAngleRight}]
+	\item We want to find the minimum n so that $\ceil{n/50} = 100$
+	\item This happens when the quotient is 99 and the remainder is 1.
+	\item Thus, $ n = 50 * 99 + 1 = 4951$
+\end{itemize}
 
 
 \end{document} 
