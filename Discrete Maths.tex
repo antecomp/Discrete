@@ -3361,8 +3361,384 @@ Where we are selecting $r$ elements ($C(n,r)$) and arranging them ($P(r,r) = r!$
 
 \todo[inline]{TODO: add card game example if needed}
 
+\pagebreak
+
+\subsection{More Counting}
+\bigbreak
+\subsubsection{Selecting Different Types Of Identical Objects}
+
+\horizline \vspace*{-0.5cm} \\
+\textbf{Theorem/General Equation:} The number of $r$-combinations of a set of $n$ types of identical objects is... \[  C(n+r - 1, r) \]
+\vspace*{-0.5cm} \horizline \vspace*{-0.05cm}
+
+\textbf{Motivating Example}
+How many ways are there to select four pieces of fruit from a bowl containing apples, oranges, and pears?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item There are at least four pieces of each type of fruit.
+	\item Only the type of fruit matters, but not the individual piece.
+\end{itemize}
+
+We can begin counting by finding every possible group... 
+{\tiny 
+\begin{itemize}[leftmargin=*,  label={}]
+	\item 3 sets of all the same fruit - 4 apples, 4 oranges, 4 pears. 
+	\item 6 sets of 3 of one fruit and one of the other;
+	\begin{itemize}
+		\item 3 apples and 1 pear or 1 orange \quad \quad 3 oranges and 1 apple or 1 pear \quad \quad 3 pears and 1 apple or 1 one other.
+	\end{itemize}
+	\item 3 sets where there's 2 pieces of the same type, 2 pieces of a different type
+	\begin{itemize}
+		\item 2 apple, 2 orange. \quad \quad  2 apple, 2 pear. \quad \quad  2 orange, 2 pear.  
+	\end{itemize}
+	\item 3 sets where two items are of the same type, but the other two are all different. 
+	\begin{itemize}
+		\item 2 apples, 1 orange, 1 pear \quad \quad    2 oranges, 1 pear, 1 apple  \quad \quad 2 pears, 1 orange, 1 apple
+	\end{itemize}
+\end{itemize}
+}
+All this adds up to 15 combinations/ways we can select 4 pieces from this bowl. \\ 
+This solution is the number of 4-combinations with identical objects from a three-object set, (being apple orange and pear). \\ 
+Since this set is small, it's easy to visualize and see all the possible combinations - however we need a general solution for a set and selection of any size! Leading to our formula above.
+
+\todo[inline]{TODO: im not a huge fan of the cash box example, only add later if you need it.} 
 
 
+\subsubsection*{Example}
+
+\exheader[1] Suppose that a cookie shop has four kinds of cookies. How many ways can six cookies be chosen? Assume that only the type of cookie, and not the individual cookies or the order in which they are chosen, matters. \\ 
+\hspace*{0.25cm} $n = 4, r=6  \rightarrowtail C(9,6)$ ways
+
+\pagebreak
+
+\subsubsection{Arranging Different Types of Identical Objects}
+We cannot just use factorial because that would lead to overcounting since factorial would treat every element is independent instead of ignoring identical elements. 4 apples is 4 apples, no matter the order they are in!
+
+\horizline
+\textbf{Theorem/General Equation:} The number of different permutations of $n$ objects of $k$ types, where there are $n_i$ identical objects of type $i$, for $1 \le i \le k$ is \[\frac{n!}{n_1!n_2!...n_k!} \]
+\vspace*{-0.5cm} \horizline \vspace*{-0.5cm}
+\bigbreak
+
+\subsubsection*{Examples} 
+\bigbreak
+
+\exheader[1] How many ways can 4 blue balls and 3 red balls be arranged in a row? \\
+\hspace*{0.25cm} Solution: $\frac{(4+3)!}{4!3!} = \frac{7!}{4!3!} = 35$ ways to arrange them 
+
+\bigbreak
+
+\exheader[2] How many strings can be constructed by reordering the letters of “SUCCESS”? \\ 
+\hspace*{0.25cm} 7 letters, $n=7$. 4 unique letters, so $k=4$... \\ 
+\hspace*{0.25cm} Solution: $  \underbrace{\frac{7}{3!1!2!1!}}_{\makebox[0pt]{\footnotesize 3 S's, 1 U, 2 C's, 1 E}} = \frac{7}{3!2!} = 420$ ways to arrange them.
+
+
+\pagebreak
+
+\subsubsection{Arranging Objects in a Circle}
+
+\horizline \vspace*{-0.5cm} \\
+\textbf{Theorem/General Equation:} The number of ways to arrange n objects in a circle is \\ \[(n-1)!\]
+\vspace*{-0.5cm} \horizline \vspace*{-0.05cm}
+
+\textbf{Motivating Example}
+How many ways can 5 people be arranged in a circle? For a circle, only the relative positions matter. \\ 
+It's not just 5! since \\ 
+
+\begin{center}
+	\includegraphics[width=2cm]{images/counting/circle1.png} is not the same as \includegraphics[width=2cm]{images/counting/circle2.png}	
+\end{center}
+
+Only the relative positions (the overall wrapping-round order) matters! \\ 
+The correct answer would be $(5-1)! = 4! = 24$ ways to arrange 5 people in a circle.
+
+\pagebreak
+
+\subsubsection{Arranging Objects with Constraints (examples)}
+
+\exheader[1] How many ways can 6 dogs and 2 cats be arranged in a row such that the 2 cats are together?
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/counting/catsdogs1.png}	
+\end{center}
+\begin{itemize}[leftmargin=*,  label={}]
+	\item We can treat the 2 cats as one "unit", meaning theres 7 units to arrange. $7!$ ways to arrange these units
+	\item The cats then can be arranged themselves in $2!$ ways.
+	\item So the total number of ways to arrange them is $7! * 2 = 10,080$
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\exheader[2] How many ways can 6 dogs and 2 cats be arranged in a row such that the 2 cats are not together?
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/counting/catsdogs2.png}	
+\end{center}
+\begin{itemize}[leftmargin=*,  label={}]
+	\item We can just find all the arrangements and subtract out the ones where the cats are together! (previous example)
+	\item Number of ways: $8! - 10080 = 30,240$
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\exheader[3] How many ways can 6 dogs and 3 cats be arranged in a row, such that the 3 cats are separate from each other?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item Start by arranging our 6 dogs in a row. There are 6! ways. 
+	\item In order to keep the cats separate, they need to be put into slots between each of the dogs. There are $P(6,3) = 7 * 6 * 5$ ways to fit 3 cats into the 7 slots. 
+	\item Meaning there is a total of 6! * 7 * 6 * 5 ways to arrange them.
+\end{itemize}
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/counting/catsanddogs3.png}		
+\end{center}
+
+\pagebreak
+
+\section{Probability}
+
+\subsection{Basics}
+
+Probability is closely related to counting! 
+
+The simplest equation in probability is when the outcomes are equally likely, in that case; \\ \[ \textnormal{Probability} = \frac{\textnormal{Number of target outcomes}}{\textnormal{Number of all outcomes}}  \]
+
+\textbf{Examples} \bigbreak
+
+\exheader[1] Coin Flipping - Assume 2 outcomes (head and tail) are equally likely. The probability of seeing;
+\begin{itemize}[leftmargin=*,  label={}]
+	\item a head is 0.5
+	\item a tail is 0.5
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] Dice Rolling - There are 6 different outcomes, namely, 1, 2, 3, 4, 5, and 6. Each of them is equally likely.
+\begin{itemize}[leftmargin=*,  label={}]
+	\item The probability of seeing each outcome is 1/6 .
+	\item The probability of seeing an odd number is 1/2.
+	\begin{itemize}
+		\item p(odd) $= \frac{|\{1,3,5\}|}{|\{1,2,3,4,5,6\}|} = 1/2$
+	\end{itemize}
+\end{itemize}
+
+\horizline
+
+\subsubsection*{Terminology} 
+\begin{itemize}[leftmargin=*,  label={}]
+	\item \textbf{Experiment} - A procedure that yields one of a given set of possible outcomes.
+	\item The \textbf{Sample Space} of an Experiment - is the set of possible outcomes.
+	\item An \textbf{event} is a subset of the sample space.
+	\item If S is a finite nonempty sample space of equally likely outcomes, and E is an event, then the \textbf{probability} of E is; \[p(E) = \frac{|E|}{|S|}\]
+\end{itemize}
+
+\pagebreak
+
+\subsubsection*{Examples}
+
+\exheader[1] A box has 4 red balls and 6 blue balls. What is the probability that a ball chosen at random from the box is blue?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item Sample space: 10 outcomes 
+	\item Event: 6 blue balls 
+	\item p(ball is blue) = 6/(4+6) = 0.6
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\exheader[2] What is the probability that when two dice are rolled, the sum of the numbers on the two dice is 7?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item Sample space:
+	\begin{itemize}
+		\item By multiplication principle, there are 36 possible outcomes.
+	\end{itemize}
+	\item Event: 
+	\begin{itemize}
+		\item 6 outcomes leading to 7: \{(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)\}
+	\end{itemize}
+	\item p(sum = 7) = 6/36 = 1/6
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\exheader[3] In each Powerball game, players select five numbers from 1-69 for white balls and one number from 1-26 for the red ball. In order to win the jackpot, all 6 balls must match those in the drawing. What is the probability of winning a jackpot?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item Sample Space:
+	\begin{itemize}
+		\item C(69,5) * C(26,1) = 292,201,338 outcomes
+	\end{itemize}
+	\item Event (Winning a jackpot): 1 outcome
+	\item p(jackpot) = 1/292,201,338
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\exheader[4] In each Powerball game, players select five numbers from 1-69 for white balls and one number from 1-26 for the red ball (Powerball). What is the probability of winning the third prize (\$50,000), matching exactly 4 white balls and the powerball?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item Sample space: C(69, 5) × C(26, 1) = 292,201,338 outcomes
+	\item Event (winning the third prize): C(5, 4) × C(69-5, 1) = 320 outcomes
+	\item p(third prize) = 320/292,201,338 $\approx$ 1/913,129.
+\end{itemize}
+
+
+\pagebreak
+
+\subsubsection*{Probability of Complements of Events}
+Let E be an event in a sample space S. The probability of it's complement E' is; 
+\begin{center}
+	p(E') = 1 - p(E)
+\end{center}
+
+\bigbreak
+\bigbreak
+
+\subsubsection*{Examples}
+
+\exheader[1] A sequence of 10 bits is randomly generated. What is the probability that at least one of these bits is 0?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item Event: seeing no-zero string
+	\begin{itemize}
+		\item p(E) = $\frac{1}{2^{10}}$ {\tiny (only 1111111111)}
+	\end{itemize}
+	\item Complement event: seeing at least one  0 in the string.
+	\begin{itemize}
+		\item $p(E') = 1 - p(E) = 1 - \frac{1}{2^{10}}$
+	\end{itemize}
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\exheader[2] How large must a class be to make the probability of finding at least two people with the same birthday at least 50\%? Assume that a year is always 365 days long.
+\begin{itemize}[leftmargin=*,  label={}]
+	\item Let n be the number of students in a class.
+	\item The probability of no two have the same birthday is:
+	\begin{itemize}
+		\item $\frac{P(365,n)}{365^n}$
+	\end{itemize}
+	\item To make $\frac{P(365,n)}{365^n} < 0.5$, n must be at least 23.
+\end{itemize}
+
+\pagebreak
+
+\subsubsection*{Probability of Unions of Events} 
+Let $E_1$ and $E_2$ be two events in the sample space S. Then: \[p(E_1 \cup E_2) = p(E_1) + p(E_2) - p(E_1 \cap E_2)\]
+
+\textbf{Example}
+What is the probability that a randomly selected positive integer
+not exceeding 100 is divisible by either 2 or 5?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item $E_1$ is divisible by 2
+	\item $E_2$ is divisible by 5
+	\item $E _1 \cup E_2$: divisible by either 2 or 5
+	\item $E_1 \cap E_2$: divisible by 2 and 5, or equivalently by 10
+	\item $p(E_1 \cup E_2) = p(E_1) + p(E_2) - p(E_1 \cap E_2)$
+	\item \quad \quad \quad \quad \quad = 0.5 + 0.2 - 0.1
+	\item \quad \quad \quad \quad \quad = 0.6
+\end{itemize}
+
+\pagebreak
+
+\subsubsection*{Three Axioms in Discrete Probability Theory}
+
+So far, all of our probability calculations assume \emph{equal probability}, we need some new rules when this isn't the case!
+
+\smallbreak
+\begin{enumerate}
+	\item The probability of an event E is:
+	\begin{itemize}[label={}]
+		\item $0 \le p(E) \le 1$
+	\end{itemize}
+	\item The sum of probabilities of all outcomes is equal to 1.
+	\item For any two events $E_1$ and $E_2$:
+	\begin{itemize}[label={}]
+		\item $p(E_1 \cup E_2) = p(E_1) + p(E_2) - p(E_1 \cap E_2)$
+	\end{itemize}
+\end{enumerate}
+
+\bigbreak
+\bigbreak
+
+\subsubsection*{Example}
+What are the probabilities of the outcomes when the coin is
+biased so that heads come up twice as often as tails?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item p(H) is the probability of head coming up. 
+	\item p(T) is the probability of tail coming up 
+	\item We have p(H) = 2p(T) and p(H) + p(T) = 1.
+	\item Therefore, p(H) = 2/3, and p(T) = 1/3.
+\end{itemize}
+
+\pagebreak
+
+\subsubsection*{Random Variables}
+A \textbf{random variable} is a function from the sample space of an experiment to the set of real numbers. That is a random variable assigns a real number to each possible outcome.
+
+\bigbreak
+\bigbreak
+
+\subsubsection*{Examples}
+
+\exheader[1] Suppose that a coin is flipped 3 times. Let X(t) denote the number of heads that appear when t is the outcome.
+\begin{itemize}[label={}]
+\item X(HHH) = 3
+\item X(HHT) = X(HTH) = X(THH) = 2
+\item X(TTH) = X(THT) = X(HTT) = 1
+\item X(TTT) = 0
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\exheader[2] Assume a coin is flipped for 5 times. p(H) = 0.6 and p(T) = 0.4. Each coin flip is independent of the previous. \\ Let X be the number of heads in the outcome. 
+\begin{itemize}[label={}]
+	\item p(X = 0) = 0.60 × 0.45
+	\item p(X = 1) = C(5, 1) × 0.6 × 0.44
+	\item p(X = 2) = C(5, 2) × 0.62 × 0.43
+	\item p(X = 3) = C(5, 3) × 0.63 × 0.42
+	\item p(X = 4) = C(5, 4) × 0.64 × 0.4
+	\item p(X = 5) = 0.65 × 0.40
+\end{itemize}
+
+\pagebreak
+
+\subsubsection*{Expected Value}
+The \textbf{expected values} (\textbf{expectation} or \textbf{mean}) of the random variable X on the sample space S is equal to \[E(x) = \sum_{s \in s} p(s)X(s)\]
+
+\bigbreak
+
+\subsubsection*{Examples}
+
+\exheader[1] Roll a dice. Let X denote the number. What is the expected value of X?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item E(X) = 1 × 1/6 + 2 × 1/6 + 3 × 1/6 + 4 × 1/6 + 5 × 1/6 + 6 × 1/6
+	\item E(X) = 7/2
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\exheader[2] Flip a fair coin 3 times. Let X denote the number of heads. What is the expected value of X?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item Possible Outcomes:
+	\item 
+	\begin{tabular}{r c c c c c c c c l}
+		\{ & HHH & HHT & HTH & THH & HTT & THT & TTH & TTT & \} \\
+		& 3 & 2 & 2 & 2 & 1 & 1 & 1 & 0 & \\
+	\end{tabular}
+	\item Expected Value:
+	\begin{itemize}
+		\item E(X) = 1/8 × (3 + 3 × 2 + 3 × 1 + 0) = 3/2
+	\end{itemize}
+\end{itemize}
+
+\bigbreak
+\bigbreak
+
+\exheader[3] You have 100 dollars and can invest into a stock. The returns are You have 100 dollars and can invest into a stock. The returns are \$90 with probability 0.6. Should you invest?
+\begin{itemize}[leftmargin=*,  label={}]
+	\item Let X denote the return.
+	\item E(X) = 0.4 × 120 + 0.6 × 90 = 102.
+	\item Yes! On average you'll make a profit.
+\end{itemize}
 
 
 
@@ -3371,4 +3747,3 @@ Where we are selecting $r$ elements ($C(n,r)$) and arranging them ($P(r,r) = r!$
 
 
 
- 
