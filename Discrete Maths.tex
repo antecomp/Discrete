@@ -2194,6 +2194,7 @@ $2^{\textnormal{S}}$ = \{x | x $\subseteq$ S\} \\ The size of $2^{\textnormal{S}
 	\item C = \{  x | x $\in \mathbb{N}$ and $\forall$ y (y $\in \mathbb{N} \implies $x $\le$ y)\}
 	\begin{itemize}
 		\item C = \{ 0 \}
+		\item (this is basically saying x is an integer that is smaller than every single integer, so our only option is 0.)
 	\end{itemize}
 \end{enumerate}
 
@@ -2220,6 +2221,8 @@ There are three main set relationships important to this class;
 		\item 
 		\item Logical Representation: 
 		\item $\forall x (x \in A \implies x \in B)$
+		\item 
+		\item If $B  = \{x | P(x)\}$ and $A \subseteq B$, every element in A also has property $P(x)$
 	\end{itemize} \\ \hline
 	\rule{0pt}{4ex}\textbf{Equal} & Two sets are \cul{equal} if and only if they contain the same elements & \begin{itemize}[leftmargin=*, label={}]
 		\item Denoted by A = B
@@ -2255,11 +2258,11 @@ There are three main set relationships important to this class;
 	\end{itemize}
 	\item Prove that A $\subseteq$ B = \{x | P(x)\}
 	\begin{itemize}
-		\item Pick an arbitrary x $\in$ A and show that P(x) holds.
+		\item Pick an arbitrary x $\in$ A and show that P(x) holds. \\ {\small  (UG used to get the $\forall$ in the subset def) }
 	\end{itemize}
 	\item Prove that A $\subset$ B  = {x | P(x)}
 	\begin{itemize}
-		\item Prove that A $\subseteq$ B but there exists $a in$ B such that $a \not \in$ A.
+		\item Prove that A $\subseteq$ B but there exists $a \in$ B such that $a \not \in$ A.
 	\end{itemize}
 	\item Prove that A = B
 	\begin{itemize}
