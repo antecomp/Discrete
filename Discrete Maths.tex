@@ -2747,7 +2747,7 @@ The sequence is 1,1,2,3,5,8,13,21,... Otherwise known as the Fibonacci sequence.
 \pagebreak
 
 \subsubsection*{Recursively Defined Sets}
-A set might be defined recursively by explicitly describing one or more \cul{simple elements} and then defining other elements \cul{in terms of existing simpler elements} in the set. \bigbreak
+A set might be defined recursively by explicitly describing one or more \cul{simple elements} and then defining other elements \cul{in terms of existing simpler elements} in the set. This is done by using an implication; $x \in S \implies F(x) \in S$ where $F(x)$ is some operation based on the simpler $x$ known to be in the set to get the next item in the set. \bigbreak 
 
 \exheader[1] The set of positive integers, denoted by $\mathbb{N}^+$ has the recursive definition:
 \begin{itemize}[leftmargin=*, label={}]
@@ -2761,11 +2761,12 @@ A set might be defined recursively by explicitly describing one or more \cul{sim
 \begin{itemize}[leftmargin=*, label={}]
 	\item Basis Step: $5 \in S$
 	\item Recursive step: If $x \in S$, then $x+5 \in S$ (or $x \in S \implies x + 5 \in S$)
+	\item The way this works is by this logic; we know 5 is in S, so that means 10 is in S, since 10 is in S, then 15 is in S and so on...
 \end{itemize}
 
 \bigbreak
 
-\exheader[3] Give a recursive definition of the set of strings, that, is $\sum^* = ${"", "a", "amigien", "words", "school", "ziemg"...} \\ 
+\exheader[3] Give a recursive definition of the set of strings, that, is $\sum^* = ${"", "a", "amigien", "words", "school", "ziemg", "dslfkjfsdkl"...} \\ 
 Notations: 
 \begin{itemize}[leftmargin=*, label={}]
 	\item $\lambda$ is the empty string "".
@@ -2775,7 +2776,11 @@ Notations:
 Recursive Definition:
 \begin{itemize}[leftmargin=*, label={}]
 	\item Basis step: $\lambda \in \Sigma^*, x \in \Sigma^*$ where $x \in \Sigma$
-	\item Recursive step: $x \in \Sigma^* \land y \in \Sigma^* \implies xy \in \Sigma^*$
+	\item Recursive step: $x \in \Sigma^* \implies xy \in \Sigma^*$ where $y \in \Sigma$ {\small (where y is a letter)}
+	\begin{itemize}[label={}]
+		\item basically means you can append any letter to any of the existing strings (including empty string) to generate more strings ad infinitum
+	\end{itemize}
+	\item Alternate Recursive step: $x \in \Sigma^* \land y \in \Sigma^* \implies xy \in \Sigma^*$
 \end{itemize}
 \bigbreak
 \todo[inline]{There's a ton of exercises and further descriptions of the examples in the videos and slides, add those if needed!}
