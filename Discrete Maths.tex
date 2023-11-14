@@ -85,6 +85,16 @@
 	\usepackage[colorlinks=true, urlcolor=blue, linkcolor=violet]{hyperref}
 
 
+	% coin pictures ;)
+	\usepackage{phaistos}
+	\usepackage{tikz}
+	\newcommand*\coin[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt,minimum size=10mm] (char) {#1};}}
+
+	
+	\usepackage{pifont}
+	\DeclareFontFamily{U}{astrosym}{}
+	\DeclareFontShape{U}{astrosym}{m}{n}{<-> astrosym}{}
 
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3749,6 +3759,43 @@ The \textbf{expected values} (\textbf{expectation} or \textbf{mean}) of the rand
 	\item E(X) = 0.4 × 120 + 0.6 × 90 = 102.
 	\item Yes! On average you'll make a profit.
 \end{itemize}
+
+\pagebreak
+
+\subsection{Conditional Probability}
+{\horizline
+\faBook \space Let $E$ and $F$ be two events such that $p(F) > 0$. The \textbf{conditional probability} of E given F is; \[P(E|F) = \frac{P(E\cap F)}{p(F)}\] \\
+\horizline}
+
+\exheader[ex] If we flip a coin three times, what is the probability of seeing at least 2 tails, given that the first one is a tail?
+\begin{itemize}[leftmargin=*, label={}]
+	\item There are only 4 outcomes
+	%\coin{\Pisymbol{astrosym}{0}} \quad \coin{\Pisymbol{astrosym}{10}} 
+	\begin{itemize}[label={}]
+		\item \quad \ \coin{\Pisymbol{astrosym}{0}} \quad \ \coin{\Pisymbol{astrosym}{0}} \quad \ \coin{\Pisymbol{astrosym}{0}}
+		\quad \quad \quad \ \coin{\Pisymbol{astrosym}{0}} \quad \ \coin{\Pisymbol{astrosym}{0}} \quad \ \coin{\Pisymbol{astrosym}{10}}
+		\item \quad \ \coin{\Pisymbol{astrosym}{10}} \quad \ \coin{\Pisymbol{astrosym}{0}} \quad \ \coin{\Pisymbol{astrosym}{10}}
+		\quad \quad \quad \ \coin{\Pisymbol{astrosym}{0}} \quad \ \coin{\Pisymbol{astrosym}{10}} \quad \ \coin{\Pisymbol{astrosym}{10}}
+	\end{itemize} 
+	\item Let E denote the event of seeing 2 pairs 
+	\item Let F denote that the first one is a tail 
+	\item $\frac{|E \cap F|}{|F|} = \frac{p(E \cap F)}{p(F)} = \frac{3}{4}$
+\end{itemize}
+
+\bigbreak
+
+\exheader[ex] What is the conditional probability that a family with two children has two boys, given they have at least one boy? Assume that each of the possibilities BB, BG, GB, and GG is equally likely, where B represents a boy and G represents a girl.
+\begin{itemize}[leftmargin=*, label={}]
+	\item $E$: both children are boys (1 outcome)
+	\item $F$: at least is a boy (3 outcomes)
+	\item \sidenotenl[remember the probability of each of an event happening is the amount of cases of it occurring divided by the set of all possible cases] $P(E|F) = \frac{P(E\cap F)}{p(F)} = \frac{\frac{|E\cap F|}{S}}{\frac{|F|}{S}} = \frac{1/4}{3/4} = \frac{1}{3}$
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Corollary of Conditional Probability}
+We can move around the variables of the conditional probability eq to get \[p(E\cap F) = p(E|F) p(F)\]
+This formula is useful ot use when the conditional probability is easier to estimate.
 
 
 
