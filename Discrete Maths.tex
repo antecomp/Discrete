@@ -3765,6 +3765,7 @@ The \textbf{expected values} (\textbf{expectation} or \textbf{mean}) of the rand
 \subsection{Conditional Probability}
 {\horizline
 \faBook \space Let $E$ and $F$ be two events such that $p(F) > 0$. The \textbf{conditional probability} of E given F is; \[P(E|F) = \frac{P(E\cap F)}{p(F)}\] \\
+In other words, what is the probability of $E$ given that $F$ has already occured. \\
 \horizline}
 
 \exheader[ex] If we flip a coin three times, what is the probability of seeing at least 2 tails, given that the first one is a tail?
@@ -3796,6 +3797,78 @@ The \textbf{expected values} (\textbf{expectation} or \textbf{mean}) of the rand
 \subsubsection{Corollary of Conditional Probability}
 We can move around the variables of the conditional probability eq to get \[p(E\cap F) = p(E|F) p(F)\]
 This formula is useful ot use when the conditional probability is easier to estimate.
+
+\bigbreak
+
+\exheader[ex] The probability of getting a flu is 0.2. The probability of having a fever given the flu is 0.9. What is the probability of getting a flu with a fever?
+\begin{itemize}[leftmargin=*, label={}]
+	\item E: fever
+	\item F: flu, p(F) = 0.2.
+	\item $p(E|F) = 0.9$
+	\item $p(E \cap F) = p(E|F)p(F) = 0.18$
+\end{itemize}
+
+
+\subsubsection{Independence}
+
+Two events $E$ and $F$ are \cul{independent} iff; \[p(E \cap F) = p(E)p(F)\]
+\bigbreak
+
+\textbf{Motivating Example:} Say you flip a coin three times, what is the probability of the third being a head? What is the probability given the first two are heads? \\
+First Part;
+\begin{itemize}[leftmargin=*, label={}]
+	\item E: the third one is a head, $|E| = 4$
+	\item F: the first two are heads
+	\item Total \# of possible flips: $2^3 = 8$
+	\item $p(E) = \frac{4}{8} = \frac{1}{2}$
+\end{itemize}
+Second Part;
+\begin{itemize}[leftmargin=*, label={}]
+	\item $P(E|F) = \frac{P(E\cap F)}{p(F)}$
+	\begin{itemize}
+		\item $|E \cap F| = 1 \rightarrowtail p(E \cap F) = \frac{1}{8}$ - only one case where they're all heads!
+		\item $p(F) = \frac{2}{8}$ based on the fact that we're only relying on the prob from the last coin flip (first two are assumed heads)
+	\end{itemize}
+	\item $P(E|F) = \frac{\frac{1}{8}}{\frac{2}{8}} = \frac{1}{2}$
+\end{itemize}
+Note how these probabilities are the same!
+
+
+\pagebreak
+
+\textbf{Independence Examples}
+\bigbreak
+
+\exheader[1] Let E denote that the family has three children of both sexes and F denote that the family has at most one boy. Are E and F independent? 
+\begin{itemize}[leftmargin=*, label={}]
+	\item Total sample space (S) = 8. 
+	\item Both sexes (E) = \{GGB, GBG, GBB, BGB, BBG, BGG\},$ |E| = 6$
+	\item At most one boy (F) = \{GGG, GGB, GBG, BGG\}, $|F| =4$
+	\item $E \cap F$ = \{GGB, GBG, BGG\}
+	\item $p(E \cap F) = \frac{3}{8}$, and $p(E)p(F) = \frac{3}{8}$
+	\item Therefore, $E$ and $F$ are independent.
+\end{itemize}
+
+\bigbreak
+
+\exheader[2] The probability of getting a flu is 0.2. The probability of having a fever is 0.3. The probability of having a fever given the flu is 0.9. Are flu and fever independent?
+\begin{itemize}[leftmargin=*, label={}]
+	\item E: flu, \quad $p(E) = 0.2$
+	\item F: fever \quad $p(F) = 0.3$
+	\item $p(F|E) = 0.9$
+	\item We need $p(E \cap F)$
+	\begin{itemize}
+		\item By corollary def, $p(E \cap F) = p(E|F)p(F)$
+		\item We need the other way round of the given $p(F|E)$!
+		\begin{itemize}
+			\item Since it's based on intersection, we can just flip every part of the corollary def! \\ $\rightarrowtail$ \quad $p(E\cap F) = p(F \cap E) = p(F|E) p(E)$
+			\item $p(F|E) p(E)$, all known values, $0.9 * 0.2 = 0.18$
+			\item $p(E)p(F) = 0.06$
+		\end{itemize}
+	\item Therefore, these events are \cul{not} independent
+	\end{itemize}
+\end{itemize}
+
 
 
 
