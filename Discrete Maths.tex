@@ -3796,7 +3796,7 @@ In other words, what is the probability of $E$ given that $F$ has already occure
 
 \subsubsection{Corollary of Conditional Probability}
 We can move around the variables of the conditional probability eq to get \[p(E\cap F) = p(E|F) p(F)\]
-This formula is useful ot use when the conditional probability is easier to estimate.
+This formula is useful to use when the conditional probability is easier to estimate.
 
 \bigbreak
 
@@ -3869,6 +3869,62 @@ Note how these probabilities are the same!
 	\end{itemize}
 \end{itemize}
 
+
+\pagebreak
+
+\subsubsection{Bayes Theorem}
+
+Bayes Theorem is another relation/equation we can use to evaluate conditional probability problems. The Theorem is defined by the following eq; \[P(E|F) = \frac{P(F|E)p(E)}{p(F)}\]
+
+\horizline
+
+\textbf{Motivating Example} \\ 
+
+\begin{minipage}[t]{0.8\linewidth}
+	We have two colored boxes, and each contains two types of fruits, apples (shown in \textcolor{green}{green}) and oranges (shown in \textcolor{orange}{orange}). We randomly select a fruit by first randomly choosing a box with probability 0.4 for \textcolor{red}{red} and 0.6 for \textcolor{blue}{blue}, respectively, and then
+	selecting one fruit in the box uniformly at random. \\
+	\end{minipage}
+	\begin{minipage}[t]{0.15\linewidth}
+		\strut\vspace*{-\baselineskip}\newline\hspace*{0.5cm}\includegraphics[width=\linewidth]{fruitboxes.png}
+\end{minipage}
+
+Also note that the probability of chosing an apple is $\frac{11}{20} = 0.55$ {\tiny example excluded from notes, 11/14 vid 2}
+Given that we have chosen an orange, what is the probability that the box we chose was \textcolor{red}{red}?
+\begin{itemize}[leftmargin=*, label={}]
+	\item Using our original conditional eq we would have: $P(B = r | F = o) = \frac{p(B = r \ \cap \ F = o)}{P(F = O)}$
+	\item However, $p(B = r \cap F = o)$ is very hard to determine. So we need a new definition for conditional probability we can work with!
+\end{itemize}
+Using Bayes Theorem...  \[p(B=r | F= o) = \frac{p(F = o \ | \ B = r) \cdot p(B = r)}{p(F=o)}  \] 
+\[ p(B=r | F= o) = \frac{\overbrace{3/4}^{\makebox[0pt]{\tiny 6 oranges of 8 total in red box}} \cdot (0.4)}{p(F=o)} \]
+\[\textnormal{\small \ and note that: \ } p(F = o) = 1 - p(F = a) = 1 - 0.55 = 0.45\]
+\[\frac{(3/4) \cdot 0.4}{0.45} = \frac{2}{3}\]
+
+\pagebreak
+
+Bayes theorem is used to estimate probabilities based on \emph{partial evidence}. Mathematically, we often are unable to determine or know $p(F)$ directly, so this equation can be rewritten to calculate $p(F)$. 
+\[p(E|F) = \frac{p(F|E)p(E)}{p(F)} = \frac{P(F|E)p(E)}{p(F)} = \frac{P(F|E)p(E)}{p(F|E)p(E) + p(F|E')p(E')} \]
+Note that $P(E') = 1 - p(E)$, meaning if we can calculate $p(E)$ we can easily get $p(E')$. So the only information that requires extra work is finding $p(F | E')$
+
+\bigbreak \bigbreak
+
+\textbf{Examples} \bigbreak
+
+\exheader[1] The probability of getting a flu is 0.2. The probability of having a fever is 0.3. The probability of having a fever given the flu is 0.9. What is the probability of getting a flu given the fever?
+\[ p(flu | fever) = \frac{p(fever |flu) \cdot p(flu)}{p(fever)} \]
+All of these values are defined in the problem, just plug in; $\frac{0.9 \cdot 0.2}{0.3} = 0.6$
+
+\bigbreak \bigbreak
+
+\exheader[2] The probability of getting a flu is 0.2. The probability of having a fever given the flu is 0.9. The probability of having a fever given no flu is 0.15. What is the probability of getting a flu given the fever? \\ 
+{\small Notice that we don't know $p(fever)$, we have to use the big version of Bayes theorem}
+\begin{itemize}[leftmargin=*, label={}]
+	\item Want $p(flue | fever)$
+	\item Everything we need in the large Bayes theorem is given except for $p(E')$
+	\begin{itemize}
+		\item[] {\tiny (Note that $p(F | E')$ = 0.15, "The probability of having a fever given no flu is 0.15") }
+	\end{itemize}
+	\item Remember that $p(E') = 1 - p(E) = 1 - 0.2 = 0.8$. Now we have everything and can just plug-in. \[ \frac{0.9 \cdot 0.2}{0.9 \cdot 0.2 + 0.15 \cdot 0.8} = 0.6  \]
+\end{itemize}
 
 
 
