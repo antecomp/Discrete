@@ -4264,8 +4264,196 @@ Let R be a binary relation from S to T, that is x R y where (x,y) $\in S \times 
 	\end{itemize}
 \end{itemize}
 
+\todo[inline]{TODO: extra excersises related to this if needed (23-Relations-Basics end)}
 
+\pagebreak
 
+\subsection{Functions}
+
+\begin{minipage}[t]{0.65\linewidth}
+	A \textbf{function} $f$ from $S$ to $T$, denoted by $f: S \rightarrow T$, is a relation from S to T, where each element of S is related to \textcolor{red}{exactly} one element of T.
+	\begin{itemize}[leftmargin=*, label={}]
+		\item S is the \textbf{domain} and T is the \textbf{codomain} of the function $f$
+		\item If (s,t) belongs to the function $f$, then $f(s) = t$.
+	\end{itemize}
+	\bigbreak
+	\begin{itemize}[leftmargin=*, label={}]
+		\item If $f(s) = t$, then t is the \textbf{image} of s under $f$, s is a \textbf{preimage} of t under $f$, and $f$ is said to \textbf{map} s to t.
+		\item $R = \{f(s) | s \in S\}$ is the \textbf{range} of $f$, denoted by $R = f(S)$
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.35\linewidth}
+	\centering
+    \strut\vspace*{-\baselineskip}\newline\hspace*{0.5cm}\includegraphics[width=1.3\linewidth]{functiondia.png} \bigbreak
+	\strut\vspace*{-\baselineskip}\newline\hspace*{0.5cm}\includegraphics[width=1.3\linewidth]{funcdia2.png}
+\end{minipage}
+
+\subsubsection*{Examples - Which of the following are functions?}
+\exheader[1] $S = T = {1, 2, 3}, f = \{(1, 1), (2, 3), (3, 1), (2, 1)\}$ \\
+Not a function because 2 is relation to more than one element \smallbreak
+
+\exheader[2] $g$ is from $\mathbb{Z}$ to $\mathbb{N}$ where $g(x) = |x|$ \\ Function, Each integer is related to a single element in the set of nonnegative integers.
+\smallbreak
+
+\exheader[3] $h$ is from $\mathbb{N}$ to $\mathbb{N}$, where $h(x) = x - 4$ \\ Not a function because 0 (resulting in -4) is not related to any element in $\mathbb{N}$. (or anything 0-3).
+\smallbreak
+
+\exheader[4]  is from S to T, where S is the set of people in Golden, T is the set of all automobiles, and f maps each person to the automobile that person owns. \\
+Not a function as each person may own more than one automobile or not every person owns an automobile.
+
+\horizline
+
+Two functions are \textbf{equal} \sidenote[This is based on the fact that functions are relations and thus sets.] if they have the same domain, the same codomain, and map each element of their common domain to the same element in their common codomain.
+\bigbreak
+\exheader[ex] Let $S = \{1,2,3\}$ and $T = \{1,4,9\}$. The function $f: S \rightarrow T$ is defined by \\ $f = \{(1, 1), (2, 4), (3, 9)\}$. The function $g: S \rightarrow T$ is defined by;
+\[g(n) = \frac{\sum_{k=1}^{n}(4k-2)}{2}\]
+Proof of equality;
+\begin{itemize}[leftmargin=*, label={}]
+	\item they have the same domain and codomain \textcolor{green}{\checkmark}
+	\item {\small $g(1) = \frac{4-2}{2} = 1 = f(1)$ \quad $g(2) = \frac{(4-2)+(8-2)}{2} = 4 = f(2)$ \quad $g(3) = \frac{(4-2)+(8-2)+(12-2)}{2} = 9 = f(3)$ }
+\end{itemize}
+
+\pagebreak
+
+\subsubsection{Properties of functions}
+\begin{center}
+	\begin{tabular}{c c c}
+		Onto & One-to-one & Bijections \\
+	\end{tabular}
+	\includegraphics[width=\textwidth]{functionprops.png}
+\end{center}
+\horizline
+\smallbreak
+
+A function $f: S \rightarrow T$ is \textbf{onto} iff the range of $f$ equals the domain of $f$, i.e $R = T$.
+\begin{itemize}[leftmargin=*, label={}]
+	\item This means that every element in $T$ has a preimage in $S$
+	\item This can also mean that $\forall t \in T, \exists s \in S (f(s) = t)$
+	\item It is always true that the range $R \subseteq T$ for every function.
+	\item To prove that a function is onto, we need to show that $T \subseteq R$.
+	\begin{itemize}
+		\item {\small Meaning we need to show that every element in T is also an element in R - relating to our preimage proof.}
+	\end{itemize}
+	\item To disprove we can show that one member of T is not the image of any member of S.
+	\begin{itemize}
+		\item {\small meaning that this element does not have any preimage}
+	\end{itemize}
+\end{itemize}
+\bigbreak
+\exheader[ex] Prove that $g: \mathbb{R} \rightarrow \mathbb{R}$ defined by $g(x) = x^3$ is an onto function;
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let $r$ be any arbitrary real number and $x = \sqrt[3]{r}$
+	\item Then $x$ is a real number, so $x$ belongs to the domain of $g$ and $g(x) = \left( \sqrt[3]{r} \right)^3 = r$
+	\item Hence any member of the codomain is the image under $g$ of a member of the domain.
+\end{itemize}
+
+\pagebreak
+
+A function $f: S \rightarrow T$ is \textbf{one-to-one} iff no image of $T$ is the image under $f$ of two distinct elements of $S$.
+\begin{itemize}[leftmargin=*, label={}]
+	\item This means that every element in T has at most one preimage in the domain.
+	\item To prove that a function is one-to-one, assume that there are two elements $s_1$ and $s_2$ of $S$ with $f(s_1) = f(s_2)$ and then show that $s_1 = s_2$
+	\item To disprove, find an element in $T$ with two preimages in $S$.
+\end{itemize}
+\bigbreak
+\exheader[ex1] Prove that $g: \mathbb{R} \rightarrow \mathbb{R}$ defined by $g(x) = x^3$ is one-to-one.
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let x and y be real numbers such that $g(x) = g(y)$ \quad ($x \in \mathbb{R}$ \quad $y \in \mathbb{R}$)
+	\item Then $x^3 = y^3 \rightarrowtail x = y$
+\end{itemize}
+\bigbreak
+\exheader[2] Which of the following functions are one-to-one?
+\begin{itemize}[leftmargin=*, label={}]
+	\item $f: \mathbb{Z} \rightarrow \mathbb{N}$ where $f(x) = x^2$
+	\begin{itemize}
+		\item {\small Not one-to-one; $f(2)$ and $f(-2)$ are mapped to the same image.}
+	\end{itemize}
+	\item $g: \mathbb{Z} \rightarrow \mathbb{N}$ where $g(x) = |x|$
+	\begin{itemize}
+		\item {\small Not one-to-one, $g(1) = g(-1)$ (mapped to same image)}
+	\end{itemize}
+	\item $h: \mathbb{R} \rightarrow \mathbb{R}$ where $h(x) = x - 4$
+	\begin{itemize}
+		\item One-to-one, because if $h(x) = h(y)$, then $x - 4 = y - 4$ and thus $x =y$
+	\end{itemize}
+\end{itemize}
+\smallbreak
+\horizline
+
+A function $f: S \rightarrow T$ is a \textbf{bijection} if it is both onto and one-to-one. \\
+\hspace*{0.5cm}\exheader[ex] The function $g: \mathbb{R} \rightarrow \mathbb{R}$ defined by $g(x) = x^3$ is a bijection.
+
+\pagebreak
+
+\begin{minipage}[position]{0.55\linewidth}
+	Let $f: S \rightarrow T$ and $g: T \rightarrow U$. The \textbf{composition function} $g \circ f$ is a function from $S$ to $U$, defined by $(g \circ f)(s) = g(f(s))$ 
+	{\small \begin{itemize}[leftmargin=*, label={}]
+		\item In order to find the image of s, under the composition we...
+		\begin{itemize}
+			\item Find its image under function $f$. 
+			\item map that image to its image under function $g$.
+		\end{itemize}
+	\end{itemize}
+	}
+\end{minipage}
+\begin{minipage}[t]{0.45\linewidth}
+    \centering
+    \strut\vspace*{-2cm}\newline\includegraphics[width=\linewidth]{gcircf.png} \smallbreak
+\end{minipage} 
+\vspace*{-0.3cm}
+\intextnote[In order to create a composition function the codomain of $f$ does not have to be the same as the domain of $g$. As long as the codomain is a subset of $g$'s domain. Meaning that $f: S \rightarrow T$ and $g: W \rightarrow U$ works if $T \subseteq W$]
+
+\exheader[ex] Let $f: \mathbb{R} \rightarrow \mathbb{R}$ defined by $f(x) = x^2$. Let $g: \mathbb{R} \rightarrow \mathbb{R}$ be defined by \sidenotenl[$\lfloor x \rfloor=$"floor" x] $g(x) = \lfloor x \rfloor$.
+\begin{itemize}[leftmargin=*, label={}]
+	\item What is the value of $(g \circ f)(2.3)$
+	\begin{itemize}
+		\item  $(g \circ f)(2.3) = g(f(2.3)) = g(5.29) = 5$
+	\end{itemize}
+	\item What is the value of $(f \circ g)(2.3)$
+	\begin{itemize}
+		\item $(f \circ g)(2.3) = f(g(2.3)) = f(2) = 4$
+	\end{itemize}
+\end{itemize} \smallbreak
+
+\horizline
+
+\begin{minipage}[position]{0.75\linewidth}
+	Let $f: S \rightarrow T$ be a bijection. Meaning that...
+	\begin{itemize}[leftmargin=*, label={}]
+		\item $f$ is onto $\rightarrowtail$ every $t \in T$ has a preimage in S.
+		\item $f$ is one-to-one $\rightarrowtail$ that preimage is unique.
+	\end{itemize}
+	If there exists a function $g: T \rightarrow S$ such that
+	\begin{itemize}[leftmargin=*, label={}]
+		\item $\forall x \in S, \forall y \in T, (g \circ f)(x) = x$ and $(f \circ g)(y) = y$
+	\end{itemize}
+	then $g$ is the \textbf{inverse function} of $f$ denoted by $f^{-1}$
+	\smallbreak
+	An inverse function allows us to find the pre-image \\ of any given element in the codomain. \\
+	You can find the inverse function $f^{-1}$ by using the image of any preimage under $f$ to represent the preimage
+\end{minipage}
+\begin{minipage}[t]{0.35\linewidth}
+    \centering
+    \strut\vspace*{-4\baselineskip}\newline\hspace*{-4.5cm}\includegraphics[width=\linewidth]{inversefuncs.png} \smallbreak
+\end{minipage}
+\bigbreak
+\exheader[ex] Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be defined by $f(x) = 3x + 4$. What is $f^{-1}$?
+\begin{itemize}[leftmargin=*, label={}]
+	\item Let $y = f(x) = 3x + 4$
+	\item Then $x = (y-4) / 3$
+	\item $f^{-1}(y) = (y-4)/3$
+\end{itemize}
+
+\pagebreak
+
+\subsubsection*{Overarching Example}
+Determine whether each of the following functions are onto, one-to-one or bijections. If bijection, what is its inverse function? \smallbreak
+\begin{tabular}{l l}
+	Let $f: Z \times Z \rightarrow Z$ be $f(m,n) = m + n$ \quad \quad & onto, not one-to-one. \\
+	Let  $f: Z \times Z \rightarrow Z$ be $f(m,n) = |n|$ & not onto, not one-to-one. \\ 
+	Let $f: R \rightarrow R$ be $f(x) = 2x+1$ & bijection, $f^{-1} (y) = (y-1)/2$ \\ 
+	Let $f: R \rightarrow R$ be $f(x) = x^2 +1$ & not onto.
+\end{tabular}
 
 \end{document} 
 

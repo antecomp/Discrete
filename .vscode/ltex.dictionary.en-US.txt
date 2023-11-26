@@ -5,3 +5,4 @@ satisfiability
 Satifiability
 intrmt
 Maths
+codomain
