@@ -4615,9 +4615,152 @@ A node $v_i$ is \textbf{reachable} from $v_j$ if there is as path from $v_j to v
     \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{graphbiex2.png}
 \end{minipage}
 
+\pagebreak
+
+\subsection{Trees}
+\define[A \textbf{tree} is a acyclic connected undirected graph]
+\begin{center}
+	\includegraphics[width=0.55\textwidth]{trees1.png}
+\end{center}
+
+\horizline
+{\small Without being connected, (just acyclic and undirected) the graph is called a \textbf{forest}}
+\begin{center}
+	\includegraphics[width=0.55\textwidth]{forest.png}
+\end{center}
+\horizline
+\begin{minipage}[t]{0.55\linewidth}
+	A \textbf{rooted tree} is a tree in which one node has been designated as the root and every edge is directed away from the root. Unrooted trees mean you can pick any node as a "root" to make a rooted tree. Rooted trees usually display their root on the top and have arrows to indicate direction \emph{relative to the root} - they are not directed trees.	\bigbreak
+	Rooted trees can be represented with a recursive definition;
+	\begin{itemize}[leftmargin=*, label={}]
+		\item Basis Step: A single node is a rooted tree with that node as its root 
+		\item Recursive step: If $T_1, T_2, ..., T_t$ are rooted trees with roots $r_1, r_2,... r_t$, the graph formed by attaching a new node $r$ to each of $r_1, r_2, ... r_t$ with an arc is a rooted tree $T$ with root $r$.
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.45\linewidth}
+    \centering
+    \strut\vspace*{\baselineskip}\newline\includegraphics[width=\linewidth]{rooted trees.png} \vspace*{2cm}
+	\strut\vspace*{-\baselineskip}\newline\includegraphics[width=0.4\linewidth]{rooted2.png}
+\end{minipage}
+
+\pagebreak
+
+\subsubsection{Terminology}
+
+\begin{minipage}[t]{0.65\linewidth}
+	If v is a node in T other than the root, the \textbf{parent} of v is the unique node u such that there is an edge from u to v. v is called a \textbf{child} of u. Nodes with the same parent are called \textbf{siblings} \bigbreak
+	The \textbf{ancestors} of a node other than the root are the nodes in the path from the root to this node, excluding the node itself. The \textbf{descendants} of a node v are those nodes that have v as an ancestor. \bigbreak
+	A node with no children is called a \textbf{leaf} of a tree \\ Nodes with children are \textbf{internal nodes} (non-leaf nodes). \bigbreak
+	If v is a node in a tree, a \textbf{subtree} with v as its root is the subgraph of the tree consisting of v and its descendants and all the edges incident to these descendants. \bigbreak
+	The \textbf{depth/level} of a node in a tree is the length of the path from the root to the node. 
+	The \textbf{height} of a tree is the maximum depth of any node in the tree.
+\end{minipage}
+\begin{minipage}[t]{0.35\linewidth}
+    \centering
+    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{treett1.png} \smallbreak {\tiny \begin{itemize}[leftmargin=1.5cm, label={}]
+		\item b is the parent of c.
+		\item b is a child of a 
+		\item b,f,g are siblings.
+		\item a,g,h are ancestors of k
+		\item Leaves: d,e,f,i,k,l,m
+		\item 
+		\item A subtree rooted at g would include g,h,i,j,k,l,m
+	\end{itemize}}
+	\bigbreak \bigbreak
+	\strut\vspace*{-\baselineskip}\newline\includegraphics[width=0.7\linewidth]{treett2.png} \smallbreak {\tiny \begin{itemize}[leftmargin=1.5cm, label={}]
+		\item depth of a: 1
+		\item depth of e: 2
+		\item depth of f: 3
+		\item this tree has a height of 3.
+	\end{itemize}}
+\end{minipage}
+
+\pagebreak
+
+\subsubsection{M-ary Trees}
+A tree is called an \textbf{m-ary} tree if every node has no more than $m$ children. The tree is called a \textbf{full m-ary} tree if every internal node has exactly $m$ children. \\
+A m-ary tree with $m=2$ is called a \textbf{binary tree}
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{mrry.png} \bigbreak
+	\includegraphics[width=0.8\textwidth]{bnrytree.png}
+\end{center}
+\horizline
+An \textbf{ordered rooted tree} is a rooted tree where the children of each internal node are ordered.
+In an ordered binary tree (usually called just a binary tree), if an internal node has two children, the first child is called the \textbf{left child} and the second child is called the \textbf{right child.} \bigbreak
+A \textbf{complete binary tree} is a binary tree where all the levels except possibly the last are completely filled, and the last level has all its nodes to the left side.
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{bnry2.png} \bigbreak
+\end{center}
+
+\pagebreak
+
+\subsubsection{Tree Traversal Algorithm}
+\horizline  \vspace*{-0.85cm} \\
+\begin{center}
+	\begin{tabular}{c c c}
+		Preorder & Inorder & Postorder
+	\end{tabular}
+\end{center}
+\horizline
+Let T be an ordered rooted tree with root r. If T consists only of r, then r is the \textbf{preorder traversal} of T . \smallbreak
+Otherwise, suppose that $T_1, T_2, . . . , T_n$ are the subtrees at r from left to
+right in T. The \textbf{preorder traversal} begins by visiting r. It continues by
+traversing T1 in preorder, then T2 in preorder, and so on, until Tn is
+traversed in preorder
+\bigbreak
+Let T be an ordered rooted tree with root r. If T consists only of r, then r is the \textbf{inorder traversal} of T . \smallbreak
+Otherwise, suppose that $T_1, T_2, . . . , T_n$ are the subtrees at r from left to
+right in T. The \textbf{inorder traversal} begins by visiting T1 in inorder, then visiting
+r. It continues by traversing T2 in inorder, then T3 in inorder, and finally Tn
+in inorder.
+\bigbreak
+Let T be an ordered rooted tree with root r. If T consists only of r, then r is the postorder traversal of T. \smallbreak
+Otherwise, suppose that $T_1, T_2, . . . , T_n$ are the subtrees at r from left to
+right in T. The postorder traversal begins by traversing T1 in postorder, then
+T2 in postorder, ..., then Tn in postorder, and ends by visiting r.
+
+
+\bigbreak
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{traversal.png} \includegraphics[width=0.4\textwidth]{inorder.png} \bigbreak
+	\includegraphics[width=0.4\textwidth]{postorder.png}
+\end{center}
+\pagebreak
+
+\textbf{Example} \\
+What is the preorder, inorder, and postorder traversal for the following tree?
+\begin{center}
+	\includegraphics[width=0.3\textwidth]{travex.png}
+\end{center}
+The preorder traversal produces: a, b, d, i, e, f, c, g, j, k, h \smallbreak
+The inorder traversal produces: i, d, b, e, f, a, j, g, k, c, h \smallbreak
+The postorder traversal produces: i, d, e, f, b, j, k, g, h, c, a \smallbreak
+\pagebreak
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{the_end.jpg} \\
+	{\LARGE The End.}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document} 
 
 
 
-
+%\begin{minipage}[t]{0.55\linewidth}
+%	
+%\end{minipage}
+%\begin{minipage}[t]{0.45\linewidth}
+%    \centering
+%    \strut\vspace*{-\baselineskip}\newline\includegraphics[width=\linewidth]{}
+%\end{minipage}
