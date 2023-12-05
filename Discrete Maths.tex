@@ -580,8 +580,6 @@ Simplify $ A \land \neg(A \land B) $ \\
 	\eqtbitem[]{$T$}{(Idempotent)}
 \end{tabular}
 
-% Todo: work on excercises and add them! (try them yourself before simply copying down!!)
-
 \pagebreak
 
 \subsection{Arguments}
@@ -616,14 +614,7 @@ An argument can be represented as; \\ $P_1 \land P_2 \land P_3 ... \land P_n \im
 We can't use a truth table to validate an argument since it only shows the truth values for the statement as a whole, instead we need to use new \textbf{Inference Rules}
 \smallbreak
 
-%todo: type these out nicely instead of using images. - try using \atop 
 \subsubsection*{Inference Rules}
-% $\frac{P \atopP \implies Q}{\therefore Q}$
-%\begin{center}
-%	\includegraphics[width=8cm]{if1}
-%	\includegraphics[width=16cm]{if2}
-% \end{center}
-
 
 % I wasted so much time making this lol
 \bigbreak
@@ -843,8 +834,6 @@ Deduction: $\neg (A \land \neg B) \land (B \implies C) \land A \implies C$ \\
 	7. & $C$ & (2,6)
 \end{tabular}
 
-%todo: excersise slide
-
 \pagebreak
 
 \subsection{Predicate Logic}
@@ -1044,7 +1033,6 @@ For Example: \\
 	\end{itemize}
 \end{itemize}
 
-% todo add lions excercise if u need it!
 \bigbreak
 \horizline
 \subsubsection*{Nested quantifiers}
@@ -1305,7 +1293,7 @@ $\exists x \ P(x)$ can imply $P(a)$, where $a$ is a particular element \textcolo
 	\item \textcolor{blue}{Restrictions:} $a$ must not be used before!
 	\item Incorrect Uses of EI:
 	\begin{itemize}
-		\item \textcolor{red}{$\exists \ P(x,a)$ CANNOT imply $P(a,a)$} \\ For example: in the integer domain, let P$(x,y)$ denote $x > y$ and $a = 1$
+		\item \textcolor{red}{$\exists \ P(x,a)$ CANNOT imply $P(a,a)$} {\tiny we don't know if it's the same element!} \\ For example: in the integer domain, let P$(x,y)$ denote $x > y$ and $a = 1$
 		\item \textcolor{red}{$\forall x  \ \exists y \ Q(x,y)$ CANNOT imply $\forall x Q(x,a)$} \\ For example: in the integer domain, let $Q(x,y)$ denote that $x > y.$
 	\end{itemize}
 	\item \cul{Example}: $\forall x \ (P(x) \implies Q(x)) \land \exists y \ P(y) \implies Q(a)$
@@ -1319,8 +1307,6 @@ $\exists x \ P(x)$ can imply $P(a)$, where $a$ is a particular element \textcolo
 		\end{tabular}
 	\end{center}
 \end{itemize}
-\todo[inline]{\tiny TODO: Update these incorrect use examples, what do these mean?}
-% rewatch the video for the EI - he explains the right and wrong way to do it - make sure to put down both to better understand the restrictions of this method.
 
 
 \pagebreak
@@ -2067,8 +2053,6 @@ Thats a lot of cases to go through in the induction steps! Let's do this example
 	\item This completes the proof.
 \end{itemize}
 
-\todo[inline]{TODO: add the tribonacci sequence exercise (its very different than the other examples covered)}
-
 
 \pagebreak
 
@@ -2682,9 +2666,6 @@ Prove that (A $\cup$ B) $\cap$ (A $\cup$ C) $\subseteq$ A $\cup$ (B $\cap$ C)
 \end{itemize}
 
 
-\todo[inline]{TODO: Add exercises if needed}
-
-
 \pagebreak
 
 \section{Recursion}
@@ -2755,8 +2736,6 @@ The sequence is 1,1,2,3,5,8,13,21,... Otherwise known as the Fibonacci sequence.
 	\item Recursive step: $a_n = a_{n-1}+4$ for $n \ge 2$
 \end{itemize}
 
-\todo[inline]{TODO (if needed): Add Fibbonacci Proof.}
-
 \pagebreak
 
 \subsubsection*{Recursively Defined Sets}
@@ -2796,7 +2775,6 @@ Recursive Definition:
 	\item Alternate Recursive step: $x \in \Sigma^* \land y \in \Sigma^* \implies xy \in \Sigma^*$
 \end{itemize}
 \bigbreak
-\todo[inline]{There's a ton of exercises and further descriptions of the examples in the videos and slides, add those if needed!}
 
 \pagebreak
 
@@ -3382,8 +3360,6 @@ Where we are selecting $r$ elements ($C(n,r)$) and arranging them ($P(r,r) = r!$
 	= & $C(n,n-r)$
 \end{tabular}
 
-\todo[inline]{TODO: add card game example if needed}
-
 \pagebreak
 
 \subsection{More Counting}
@@ -3422,8 +3398,6 @@ We can begin counting by finding every possible group...
 All this adds up to 15 combinations/ways we can select 4 pieces from this bowl. \\ 
 This solution is the number of 4-combinations with identical objects from a three-object set, (being apple orange and pear). \\ 
 Since this set is small, it's easy to visualize and see all the possible combinations - however we need a general solution for a set and selection of any size! Leading to our formula above.
-
-\todo[inline]{TODO: im not a huge fan of the cash box example, only add later if you need it.} 
 
 
 \subsubsection*{Example}
