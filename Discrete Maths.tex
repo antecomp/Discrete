@@ -1479,7 +1479,7 @@ $P(a)$ can imply $\exists x \ P(x)$, where $a$ is a particular element.
 \normalsize
 \pagebreak
 
-\begin{tabular}{|c|c|}
+\begin{tabular}{|p{3cm}|p{5.5cm}|}
 	\hline
 	\rowcolor{lightgray} \multicolumn{2}{|c|}{Inference Rules} \\
 	\hline
@@ -1572,20 +1572,57 @@ $ & Simplification \vspace*{-0.5cm} \\
 &   {\tiny \faInfoCircle you're basically "pulling" p out to its own line} \\
 \hline
 \end{tabular}
-
-\begin{tabular}{|c|c|}
+\begin{tabular}{|p{3.75cm}|p{4.35cm}|}
 	\hline
 	\rowcolor{lightgray} \multicolumn{2}{|c|}{Quantified Inference Rules} \\
 	\hline
+	$
+			{
+				\begin{array}{l}
+					\forall x \ P(x) \\
+					\hline
+					\therefore P(c)
+				\end{array}
+			}
+	$ & {\small Universal Instantiation} \\
+	\hline
+	$
+			{
+				\begin{array}{l}
+					P(c) \textnormal{\tiny \ for an arbitrary c} \\
+					\hline
+					\therefore \forall x \ P(x)
+				\end{array}
+			}
+	$ & {\small Universal Generalization} \\
+	\hline
+	$
+			{
+				\begin{array}{l}
+					\exists x \ P(x) \\
+					\hline
+					\therefore P(a) \textnormal{\tiny \ for some element a}
+				\end{array}
+			}
+	$ & {\small Existential Instantiation} \\
+	\hline
+	$
+	{
+		\begin{array}{l}
+			P(a) \textnormal{\tiny \ for some element a} \\
+			\hline
+			\therefore \exists x \ P(x)
+		\end{array}
+	}
+	$ & {\small Existential Generalization} \\
 	\hline
 \end{tabular}
 
 
 
-\smallbreak
-\emph{\faInfoCircle These names don't really matter for this class}
 
-\todo[inline]{TODO: Quantified Statement Inf Rules (ref saved screenshot) + other misc helpful stuff like negations of quantifiers. Just look up and copy-paste important details $\smiley$}
+
+%\todo[inline]{TODO: Quantified Statement Inf Rules (ref saved screenshot) + other misc helpful stuff like negations of quantifiers. Just look up and copy-paste important details $\smiley$}
 
 
 
