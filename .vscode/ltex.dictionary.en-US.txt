@@ -6,3 +6,8 @@ Satifiability
 intrmt
 Maths
 codomain
+DeMorgan
+maths
+nonnegative
+overcounting
+DeMorgans
